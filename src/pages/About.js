@@ -6,6 +6,7 @@ import { SiJavascript, SiTypescript, SiAdobe } from 'react-icons/si'; // FaAdobe
 // -------------------------
 import { pageVariants, pageTransition } from '../animations';
 import './About.css';
+import myProfilePic from '../assets/profile-photo.png'; // Add this line
 
 const About = () => {
   return (
@@ -23,7 +24,7 @@ const About = () => {
           >
             <h2>I build bridges between creative ideas and technical reality.</h2>
             <p>
-              I am a passionate and detail-oriented university student with a deep fascination for the digital world. My journey started with a simple question: "How does this work?". This curiosity has since blossomed into a career path dedicated to not just understanding technology, but shaping it. I thrive on solving complex problems, whether it involves architecting a performant backend or designing a user interface that feels both natural and delightful.
+              I am a passionate and detail oriented university student with a deep fascination for the digital world. My journey started with a simple question: "How does this work?". This curiosity has since blossomed into a career path dedicated to not just understanding technology, but shaping it. I thrive on solving complex problems, whether it involves architecting a performant backend or designing a user interface that feels both natural and delightful.
             </p>
             <p>
               My dual focus on development and design allows me to approach projects holistically, ensuring that the final product is not only technically sound but also aesthetically pleasing and strategically effective.
@@ -31,14 +32,15 @@ const About = () => {
           </motion.div>
           
           <motion.div 
-            className="about-image-placeholder"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7 }}
-          >
-            {/* When you have a photo, you will place it here */}
-          </motion.div>
+  className="about-image-container" // Use a new class for styling
+  initial={{ opacity: 0, scale: 0.8 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.7 }}
+>
+  <img src={myProfilePic} alt="A professional headshot of Shavin Joseph" className="about-image" />
+</motion.div>
+
         </div>
 
         <div className="tech-stack-section">
@@ -50,8 +52,7 @@ const About = () => {
             <motion.div className="tech-card" whileHover={{ y: -5, boxShadow: '0 0 20px rgba(0, 198, 255, 0.2)' }}><SiTypescript /><span>TypeScript</span></motion.div>
             <motion.div className="tech-card" whileHover={{ y: -5, boxShadow: '0 0 20px rgba(0, 198, 255, 0.2)' }}><FaNodeJs /><span>Node.js</span></motion.div>
             <motion.div className="tech-card" whileHover={{ y: -5, boxShadow: '0 0 20px rgba(0, 198, 255, 0.2)' }}><FaFigma /><span>Figma</span></motion.div>
-            {/* --- CORRECTED ICON --- */}
-            <motion.div className="tech-card" whileHover={{ y: -5, boxShadow: '0 0 20px rgba(0, 198, 255, 0.2)' }}><SiAdobe /><span>Adobe Suite</span></motion.div>
+            
           </div>
         </div>
       </div>

@@ -44,3 +44,45 @@
 }
 .tech-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(0, 198, 255, 0.2); }
 .tech-card span { font-size: 1rem; font-weight: 500; }
+
+/* ... keep all your existing About.css styles ... */
+
+@media screen and (max-width: 768px) {
+  .about-container {
+    padding-top: 8rem; /* Adjust for smaller header */
+  }
+  
+  .about-intro {
+    grid-template-columns: 1fr; /* Stack the columns */
+    text-align: center;
+  }
+
+
+.about-image-container {
+  width: 100%;
+  max-width: 300px; /* Control the max size */
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden; /* This is what makes the image circular */
+  border: 3px solid var(--color-accent);
+  margin: 0 auto; /* Center it within the grid column */
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crucial: prevents the image from stretching */
+}
+
+  .about-text {
+    text-align: left; /* Or center, your choice */
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .about-intro h2 {
+    font-size: 1.8rem;
+  }
+}

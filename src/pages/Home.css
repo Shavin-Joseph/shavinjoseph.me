@@ -31,3 +31,19 @@
 .service-card:hover { box-shadow: 0 0 25px rgba(0, 198, 255, 0.2); }
 .service-icon { font-size: 3rem; color: var(--color-accent); margin-bottom: 1rem; }
 .service-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+/* Add these styles to your Home.css file */
+
+.hero-intro-text {
+  display: block;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3rem); /* Slightly smaller than the dynamic text */
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.hero-dynamic-text {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--color-heading), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

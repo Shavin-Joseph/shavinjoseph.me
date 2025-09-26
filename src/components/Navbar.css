@@ -43,3 +43,69 @@
   transition: all 0.3s ease;
 }
 .nav-item-button:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--color-accent); }
+
+/* ... keep all your existing Navbar.css styles ... */
+
+/* Mobile Menu Styles */
+.nav-menu-icon {
+  display: none; /* Hidden on desktop */
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--color-heading);
+}
+
+.nav-menu-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: var(--color-background);
+  position: fixed;
+  top: 0;
+  left: -100%; /* Start off-screen */
+  width: 100%;
+  height: 100vh;
+  transition: left 0.3s ease-in-out;
+  z-index: 101; /* Must be below the navbar's menu icon */
+}
+
+.nav-menu-mobile.active {
+  left: 0; /* Slide in */
+}
+
+.nav-item-mobile {
+  color: var(--color-heading);
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.nav-item-mobile-button {
+  /* Style it like the desktop button but bigger */
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-dark));
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+
+/* Media Query for Responsiveness */
+@media screen and (max-width: 768px) {
+  .nav-menu-desktop {
+    display: none; /* Hide desktop menu on small screens */
+  }
+
+  .nav-menu-icon {
+    display: block; /* Show hamburger icon */
+    position: relative;
+    z-index: 102; /* Make sure it's on top of the overlay */
+  }
+
+  .navbar {
+    /* Adjust padding for mobile if needed */
+    padding: 0.75rem 1.5rem;
+  }
+}
