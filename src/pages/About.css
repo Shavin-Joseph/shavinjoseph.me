@@ -1,0 +1,46 @@
+.about-container { padding-top: 10rem; padding-bottom: 5rem; }
+.page-title { text-align: center; font-size: 3.5rem; margin-bottom: 4rem; }
+.about-intro { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: center; margin-bottom: 6rem; }
+.about-intro h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--color-accent); }
+.about-intro p { margin-bottom: 1rem; }
+.about-image-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-surface);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-accent);
+}
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; }
+.section-subtitle { text-align: center; max-width: 600px; margin: 0 auto 3rem auto; }
+.tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; }
+.tech-card {
+  background-color: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.about-image-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden; /* This makes the image circular */
+  border: 3px solid var(--color-accent);
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Prevents the image from being stretched */
+}
+.tech-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(0, 198, 255, 0.2); }
+.tech-card span { font-size: 1rem; font-weight: 500; }
