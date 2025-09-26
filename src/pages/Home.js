@@ -52,7 +52,7 @@ const Home = () => {
           <motion.div className="service-card" whileHover={{ y: -10, boxShadow: '0 0 25px rgba(0, 198, 255, 0.2)' }} initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} viewport={{once: true, amount: 0.5}} transition={{duration: 0.5, delay: 0.2}}>
             <FaPaintBrush className="service-icon" />
             <h3>UI/UX Design</h3>
-            <p>Designing user-centric interfaces that are not only beautiful but also intuitive and accessible.</p>
+            <p>Designing user centric interfaces that are not only beautiful but also intuitive and accessible.</p>
           </motion.div>
           <motion.div className="service-card" whileHover={{ y: -10, boxShadow: '0 0 25px rgba(0, 198, 255, 0.2)' }} initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} viewport={{once: true, amount: 0.5}} transition={{duration: 0.5, delay: 0.4}}>
             <FaRocket className="service-icon" />

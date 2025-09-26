@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { pageVariants, pageTransition } from '../animations';
-import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaGithub, FaFacebook, FaInstagram } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
@@ -12,10 +12,10 @@ const Contact = () => {
         <p className="page-subtitle">Have a project idea, a job opportunity, or just want to connect? My inbox is always open.</p>
         
         <div className="contact-options">
-          <motion.a href="mailto:youremail@example.com" className="contact-card" whileHover={{ y: -5 }}>
+          <motion.a href="mailto:josephshavin3@gmail.com" className="contact-card" whileHover={{ y: -5 }}>
             <FaEnvelope />
             <h3>Email Me</h3>
-            <p>youremail@example.com</p>
+            <p>josephshavin3@gmail.com</p>
           </motion.a>
           <motion.a href="#" className="contact-card" whileHover={{ y: -5 }}>
             <FaLinkedin />
@@ -27,6 +27,20 @@ const Contact = () => {
             <h3>GitHub</h3>
             <p>See my code</p>
           </motion.a>
+         
+
+          <motion.a href="https://www.facebook.com/share/17NaFhzwu4/" className="contact-card" whileHover={{ y: -5 }}>
+            <FaFacebook />
+            <h3>Facebook</h3>
+            <p>See my Profile</p>
+          </motion.a>
+
+          <motion.a href="https://www.instagram.com/shavinheshan?igsh=MXJlMnU3d2luZXVycg==" className="contact-card" whileHover={{ y: -5 }}>
+            <FaInstagram />
+            <h3>Instagram</h3>
+            <p>See my Profile</p>
+          </motion.a>
+
         </div>
       </div>
     </motion.div>
