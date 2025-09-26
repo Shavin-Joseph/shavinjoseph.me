@@ -9,6 +9,10 @@ import './Home.css';
 const Home = () => {
   return (
     <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
+      <title>Shavin Joseph | Digital Architect & Creative Developer</title>
+      <meta name="description" content="The professional portfolio of Shavin Joseph, a developer and designer specializing in creating intuitive, powerful, and beautiful software." />
+      <link rel="canonical" href="https://shavinjoseph.me" />
+      {/* ------------------------------------ */}
       <AnimatedBackground />
 
       {/* Hero Section */}

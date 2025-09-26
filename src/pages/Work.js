@@ -7,6 +7,10 @@ import './Work.css';
 const Work = () => {
   return (
     <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
+      <title>My Work | Shavin Joseph</title>
+      <meta name="description" content="A curated selection of web development, software, and design projects by Shavin Joseph." />
+      <link rel="canonical" href="https://www.shavinjoseph.me/work" />
+      {/* ------------------------------------ */}
       <div className="container work-container">
         <h1 className="page-title">My Work</h1>
         <p className="page-subtitle">A curated selection of projects that showcase my skills and passion.</p>

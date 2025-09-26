@@ -11,6 +11,10 @@ import myProfilePic from '../assets/profile-photo.png'; // Add this line
 const About = () => {
   return (
     <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
+      <title>About | Shavin Joseph</title>
+      <meta name="description" content="Learn more about Shavin Joseph's mission, process, and the digital toolkit he uses to bring ideas to life." />
+      <link rel="canonical" href="https://www.shavinjoseph.me/about" />
+      {/* ------------------------------------ */}
       <div className="container about-container">
         <h1 className="page-title">About Me</h1>
         
