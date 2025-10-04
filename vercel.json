@@ -1,0 +1,15 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "User-Agent",
+          "value": "(googlebot|bingbot|yahoo|duckduckbot|slurp|twitterbot|facebookexternalhit|linkedinbot|pinterest)"
+        }
+      ],
+      "destination": "https://service.prerender.io/https://shavinjoseph.me/:1"
+    }
+  ]
+}
