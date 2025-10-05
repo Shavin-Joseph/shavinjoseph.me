@@ -15,12 +15,12 @@ export const templates = [
   },
   {
     id: 'template-02',
-    title: 'Nebula - SaaS Landing Page',
-    description: 'A vibrant and modern landing page template for tech startups and software products. Includes sections for features, pricing, and testimonials.',
-    image: 'https://images.unsplash.com/photo-1559028006-44a136b28e44?q=80&w=2070',
-    tags: ['Next.js', 'Tailwind CSS', 'SaaS'],
-    demoLink: '#', // Replace with your actual live demo link
-    gumroadLink: 'https://shavinjoseph.gumroad.com/l/your-product-code-2', // Replace with your Gumroad product link
+    title: 'BizBud - Modern Business & Consulting Website Template',
+    description: 'Built with clean, commented HTML & CSS. No complicated frameworks, no build tools needed. Just open the files and edit.',
+    image: 'https://res.cloudinary.com/dcmxw7t7l/image/upload/v1759676068/Screenshot_2025-10-05_202403_s4ytba.png',
+    tags: ['HTML', 'CSS','JS'],
+    demoLink: 'https://jazzy-daffodil-df6444.netlify.app/', // Replace with your actual live demo link
+    gumroadLink: 'https://proscale.gumroad.com/l/eboqa', // Replace with your Gumroad product link
   },
   // Add more templates here as you create them
 ];
