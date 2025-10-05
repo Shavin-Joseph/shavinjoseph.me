@@ -6,9 +6,9 @@
 export const templates = [
   {
     id: 'template-01',
-    title: ' Arcane',
+    title: 'Arcane',
     description: 'The Modern Creative Portfolio Template',
-    image: 'https://i.postimg.cc/CxW2rQb3/Screenshot-2025-10-05-170816.png',
+    image: 'https://postimg.cc/CRsJzJP7',
     tags: ['HTML', 'CSS','JS'],
     demoLink: 'https://dreamy-malabi-147058.netlify.app/', // Replace with your actual live demo link
     gumroadLink: 'https://proscale.gumroad.com/l/cufnnt', // Replace with your Gumroad product link
