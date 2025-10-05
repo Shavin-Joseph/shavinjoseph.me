@@ -6,12 +6,12 @@
 export const templates = [
   {
     id: 'template-01',
-    title: 'Aura - Minimalist Portfolio',
-    description: 'A clean, typography-focused React template perfect for writers, designers, and developers who want their work to speak for itself.',
+    title: ' Arcane',
+    description: 'The Modern Creative Portfolio Template',
     image: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070',
-    tags: ['React', 'Vite', 'Framer Motion', 'Minimalist'],
-    demoLink: '#', // Replace with your actual live demo link
-    gumroadLink: 'https://shavinjoseph.gumroad.com/l/your-product-code-1', // Replace with your Gumroad product link
+    tags: ['HTML', 'CSS','JS'],
+    demoLink: 'https://dreamy-malabi-147058.netlify.app/', // Replace with your actual live demo link
+    gumroadLink: 'https://proscale.gumroad.com/l/cufnnt', // Replace with your Gumroad product link
   },
   {
     id: 'template-02',

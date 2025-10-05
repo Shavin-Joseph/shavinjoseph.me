@@ -10,7 +10,7 @@ const Templates = () => {
       <div className="container templates-container">
         <h1 className="page-title">Digital Templates</h1>
         <p className="page-subtitle">
-          A collection of professionally designed, developer-ready templates to help you launch your next project faster.
+          A collection of professionally designed, developer ready templates to help you launch your next project faster.
         </p>
         <div className="templates-grid">
           {templates.map((template, index) => (
