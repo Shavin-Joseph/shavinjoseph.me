@@ -20,7 +20,7 @@ function Navbar() {
           <NavLink to="/" className="nav-item" end>Home</NavLink>
           <NavLink to="/about" className="nav-item">About</NavLink>
           <NavLink to="/work" className="nav-item">Work</NavLink>
-          <NavLink to="/templates" className="nav-item">Templates</NavLink>
+          {/*<NavLink to="/templates" className="nav-item">Templates</NavLink>*/}
           <NavLink to="/contact" className="nav-item-button">Let's Talk</NavLink>
         </div>
 
@@ -34,7 +34,7 @@ function Navbar() {
           <NavLink to="/" className="nav-item-mobile" onClick={closeMobileMenu}>Home</NavLink>
           <NavLink to="/about" className="nav-item-mobile" onClick={closeMobileMenu}>About</NavLink>
           <NavLink to="/work" className="nav-item-mobile" onClick={closeMobileMenu}>Work</NavLink>
-          <NavLink to="/templates" className="nav-item-mobile" onClick={closeMobileMenu}>Templates</NavLink>
+          {/*<NavLink to="/templates" className="nav-item-mobile" onClick={closeMobileMenu}>Templates</NavLink>*/}
           <NavLink to="/contact" className="nav-item-mobile-button" onClick={closeMobileMenu}>Let's Talk</NavLink>
         </div>
       </nav>
