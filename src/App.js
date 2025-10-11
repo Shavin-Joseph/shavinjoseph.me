@@ -7,7 +7,6 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Work from './pages/Work';
-//import Templates from './pages/Templates';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 
