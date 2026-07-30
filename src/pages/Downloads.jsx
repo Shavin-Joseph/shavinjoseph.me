@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 import { FiDownload, FiLock, FiUnlock, FiCpu, FiTerminal, FiClock, FiShield } from 'react-icons/fi';
+import { Helmet } from 'react-helmet-async';
 
 // --- SCRAMBLE TEXT UTILITY ---
 const ScrambleText = ({ text }) => {
@@ -117,36 +118,19 @@ const DownloadTierCard = ({ title, type, badgeText, badgeColor, description, fea
 
 // --- MAIN DOWNLOADS COMPONENT ---
 const Downloads = () => {
-
-  // --- SEO & META TAG INJECTION ---
-  useEffect(() => {
-    document.title = "Software Downloads & Releases | Shavin Heshan Joseph";
-
-    const setMetaTag = (name, content, isProperty = false) => {
-      const attr = isProperty ? 'property' : 'name';
-      let meta = document.querySelector(`meta[${attr}="${name}"]`);
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute(attr, name);
-        document.head.appendChild(meta);
-      }
-      meta.content = content;
-    };
-
-    // Standard SEO Tags
-    setMetaTag('description', 'Download KWAS (Key Web App Solutions) software, free community utilities, and commercial-grade enterprise applications engineered by Shavin Heshan Joseph.');
-    setMetaTag('keywords', 'software downloads, kwas software, shavin joseph apps, full stack applications, commercial software, open source tools, react, python, android app download, sri lanka developer');
-    setMetaTag('author', 'Shavin Heshan Joseph');
-    
-    // Open Graph for Google Images & Socials
-    setMetaTag('og:title', 'Software Downloads | KWAS by Shavin Heshan Joseph', true);
-    setMetaTag('og:description', 'Access free community tools and advanced commercial-grade software engineered by Shavin Heshan Joseph.', true);
-    setMetaTag('og:url', window.location.href, true);
-    setMetaTag('og:type', 'website', true);
-  }, []);
-
   return (
-    <motion.main 
+    <>
+      <Helmet>
+        <title>Downloads | Shavin Heshan Joseph</title>
+        <meta name="description" content="Download KWAS (Key Web App Solutions) software, free community utilities, and commercial-grade enterprise applications engineered by Shavin Heshan Joseph." />
+        <meta name="keywords" content="software downloads, kwas software, shavin joseph apps, full stack applications, commercial software, open source tools, react, python, android app download, sri lanka developer" />
+        <link rel="canonical" href="https://shavinjoseph.me/downloads" />
+        <meta property="og:title" content="Downloads | Shavin Heshan Joseph" />
+        <meta property="og:description" content="Access free community tools and advanced commercial-grade software engineered by Shavin Heshan Joseph." />
+        <meta property="og:url" content="https://shavinjoseph.me/downloads" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <motion.main 
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
@@ -225,6 +209,7 @@ const Downloads = () => {
       </motion.div>
 
     </motion.main>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 import { Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
-import { FiHeart, FiEye, FiClock, FiTrendingUp, FiArrowLeft, FiShare2, FiBookOpen } from 'react-icons/fi';
+import { FiHeart, FiEye, FiClock, FiTrendingUp, FiArrowLeft, FiShare2, FiBookOpen, FiSearch, FiFilter, FiZap, FiX, FiTag, FiArrowRight } from 'react-icons/fi';
 import { db } from '../firebase'; // Ensure your firebase config is correct
 import { doc, setDoc, updateDoc, increment, collection, onSnapshot } from 'firebase/firestore';
 import { Helmet } from "react-helmet-async";
@@ -1134,87 +1134,1157 @@ The reliability benefit is significant: if one server in a fleet of twenty fails
 
 ### Choosing a Strategy
 Start by scaling vertically — it buys you time cheaply while your product and traffic patterns are still uncertain, and premature horizontal scaling (and the stateless-architecture discipline it requires) is a common form of over-engineering for a system that doesn't need it yet. Move to horizontal scaling once you've identified a specific, measured bottleneck that a bigger single machine can no longer solve, or once uptime requirements mean you can no longer tolerate a single point of failure. Most mature systems eventually use both together: horizontally scaled, stateless application servers sitting in front of a database that itself has been vertically scaled as far as reasonably possible before sharding becomes necessary.`
-  }
-  
-];
+  },
+  {
+  id: "46",
+  title: "AI Agents Are Changing Software Development: How Autonomous AI Will Transform Programming",
+  category: "Artificial Intelligence",
+  coverImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop",
+  readTime: "8 min read",
+  date: "2026-07-24",
 
-// --- 1. INDIVIDUAL BLOG POST PAGE (With SEO & Firebase Tracking) ---
+  tags: [
+    "AI Agents",
+    "Artificial Intelligence",
+    "Software Development",
+    "Automation",
+    "Future of Programming"
+  ],
+
+  summary:
+    "AI agents are transforming software development by helping developers analyze requirements, generate code, automate testing, and build intelligent applications. Learn how autonomous AI systems are shaping the future of programming.",
+
+  references: [
+    {
+      name: "OpenAI Developer Documentation",
+      url: "https://platform.openai.com/docs"
+    },
+    {
+      name: "Google AI Research",
+      url: "https://ai.google/research/"
+    },
+    {
+      name: "Microsoft AI",
+      url: "https://www.microsoft.com/en-us/ai"
+    }
+  ],
+
+  relatedPosts: [
+    {
+      title: "Why Traditional Full-Stack Development is Dead (And What I'm Building Instead)",
+      url: "/blog/1"
+    },
+    {
+      title: "The Future of Full-Stack Development: From CRUD Apps to Intelligent Platforms",
+      url: "/blog/49"
+    }
+  ],
+
+  content: `
+For decades, software development followed a simple process:
+
+A developer understands a requirement, writes code, tests the application, and deploys the solution.
+
+However, artificial intelligence is changing this workflow.
+
+The next generation of software development is moving towards autonomous AI agents that can understand problems, create solutions, test implementations, and continuously improve software systems.
+
+## From AI Assistants To AI Agents
+
+Traditional AI assistants mainly answer questions or generate small pieces of code.
+
+AI agents are different.
+
+They can:
+
+• Analyze complex requirements.
+• Plan development tasks.
+• Generate and modify code.
+• Execute testing workflows.
+• Identify and fix problems.
+
+This creates a new development model where developers work together with intelligent systems.
+
+## How AI Agents Are Changing Development
+
+### 1. Faster Software Creation
+
+Developers can now describe a feature and receive an initial implementation within seconds.
+
+Instead of spending hours writing repetitive code, developers can focus on architecture, business logic, and user experience.
+
+### 2. Intelligent Debugging
+
+Finding software bugs is one of the most time-consuming tasks.
+
+AI systems can analyze:
+
+• Error messages.
+• Application logs.
+• Code structures.
+• Previous solutions.
+
+This allows developers to solve problems faster.
+
+### 3. Automated Testing
+
+Quality assurance is becoming smarter.
+
+AI-powered systems can generate test cases, identify possible failures, and improve application reliability.
+
+## The New Role Of Developers
+
+AI will not eliminate software developers.
+
+Instead, the role of developers will evolve.
+
+Future developers will need stronger skills in:
+
+• System architecture.
+• AI integration.
+• Data management.
+• Security.
+• Cloud infrastructure.
+
+Writing code is becoming easier.
+
+Designing reliable systems is becoming more valuable.
+
+## Building Intelligent Applications
+
+Modern applications are moving beyond simple database operations.
+
+The future includes systems that can:
+
+• Predict customer needs.
+• Automate business workflows.
+• Analyze large amounts of data.
+• Provide intelligent recommendations.
+
+This is the direction I am focusing on while building modern software platforms and business automation systems.
+
+## Final Thoughts
+
+The future developer is not someone who only writes code.
+
+The future developer is someone who understands problems, designs intelligent solutions, and uses AI as a powerful engineering partner.
+
+AI agents are not replacing software development.
+
+They are redefining what software developers can build.
+`
+},
+{
+  id: "47",
+
+  title: "Why Every Software Developer Must Learn Cybersecurity: Secure Coding in the Modern Web",
+
+  category: "Cybersecurity",
+
+  coverImage: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop",
+
+  readTime: "8 min read",
+
+  date: "2026-07-24",
+
+  tags: [
+    "Cybersecurity",
+    "Secure Coding",
+    "Web Security",
+    "Application Security",
+    "Data Protection"
+  ],
+
+
+  summary:
+    "Cybersecurity is no longer only the responsibility of security teams. Modern software developers must understand secure coding practices, authentication, API security, and data protection to build trustworthy applications.",
+
+
+  references: [
+    {
+      name: "OWASP Top 10 Web Application Security Risks",
+      url: "https://owasp.org/www-project-top-ten/"
+    },
+    {
+      name: "NIST Cybersecurity Framework",
+      url: "https://www.nist.gov/cyberframework"
+    },
+    {
+      name: "Mozilla Web Security Guidelines",
+      url: "https://infosec.mozilla.org/guidelines/web_security"
+    }
+  ],
+
+
+  relatedPosts: [
+    {
+      title: "AI Agents Are Changing Software Development: How Autonomous AI Will Transform Programming",
+      url: "/blog/46"
+    },
+    {
+      title: "Cloud Computing Explained: Why Modern Applications Are Moving Beyond Traditional Servers",
+      url: "/blog/48"
+    },
+    {
+      title: "Why Traditional Full-Stack Development is Dead (And What I'm Building Instead)",
+      url: "/blog/1"
+    }
+  ],
+
+
+  content: `
+When developers build software applications, the main focus is usually functionality.
+
+Can users log in?
+Can data be saved?
+Can the application perform the required tasks?
+
+However, one important question is often ignored:
+
+Is the application secure?
+
+In today's digital world, cybersecurity is not only the responsibility of security specialists. Every software developer plays an important role in protecting user data and preventing vulnerabilities.
+
+
+## Why Developers Need Cybersecurity Knowledge
+
+Modern applications handle sensitive information:
+
+• User accounts.
+• Personal information.
+• Financial transactions.
+• Business data.
+• Internal company systems.
+
+A single security mistake can expose thousands of users.
+
+Security must become part of the development process from the beginning.
+
+
+## Common Security Problems In Modern Applications
+
+
+### 1. Weak Authentication
+
+Authentication is the first protection layer of an application.
+
+Common mistakes include:
+
+• Weak password policies.
+• Storing passwords incorrectly.
+• Missing multi-factor authentication.
+• Poor session management.
+
+
+Developers should implement:
+
+• Secure password hashing.
+• Token-based authentication.
+• Proper access control.
+
+
+### 2. SQL Injection Attacks
+
+SQL injection happens when attackers manipulate database queries through unsafe user input.
+
+Example problems:
+
+• Directly inserting user input into SQL queries.
+• Missing input validation.
+• Poor database permissions.
+
+
+Modern applications should use:
+
+• Prepared statements.
+• ORM systems.
+• Input validation.
+
+
+### 3. API Security
+
+Today's applications depend heavily on APIs.
+
+An insecure API can expose:
+
+• User information.
+• Internal systems.
+• Business operations.
+
+
+Developers should consider:
+
+• API authentication.
+• Rate limiting.
+• Data encryption.
+• Proper error handling.
+
+
+## Security During Software Development
+
+Security should not be a final testing step.
+
+A better approach is:
+
+Planning → Secure Design → Development → Testing → Deployment
+
+
+This concept is known as "Security by Design."
+
+
+## The Developer's Responsibility
+
+A modern developer should understand:
+
+• Secure programming practices.
+• Network security basics.
+• Encryption concepts.
+• Authentication systems.
+• Cloud security.
+
+
+A developer who understands security can create applications that users trust.
+
+
+## The Future Of Secure Software
+
+As applications become more connected with artificial intelligence, cloud platforms, and automation systems, security becomes even more important.
+
+Future software developers will not only create features.
+
+They will create secure digital environments where businesses and users can safely operate.
+
+
+## Final Thoughts
+
+Cybersecurity is becoming a fundamental skill for every developer.
+
+Writing code that works is important.
+
+Writing code that works securely is what separates professional software developers from ordinary programmers.
+`
+},
+{
+  id: "48",
+  title: "Windows 11 Activation and License Management via Command Line (SLMGR Guide)",
+  category: "Windows & System Admin",
+  coverImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop",
+  readTime: "6 min read",
+  date: "2026-07-28",
+  tags: ["Windows 11", "CMD", "SLMGR", "System Administration", "Licensing"],
+  summary: "Learn how Windows activation and product key management works using the built-in Software Licensing Management Tool (SLMGR) in Windows 11.",
+  content: `Managing Windows 11 product keys and activation states is a fundamental skill for system administrators and power users. While the Windows Settings app provides a graphical interface, the command line offers deeper diagnostic control through **SLMGR** (Software Licensing Management Tool).
+
+## What is SLMGR?
+
+SLMGR is a VBScript tool built into Windows that allows administrators to configure licensing, view expiration dates, and manage product keys directly from an elevated Command Prompt or PowerShell terminal.
+
+### Essential SLMGR Commands for System Administrators
+
+To run these commands, open **Command Prompt as Administrator**:
+
+1. **Check Current License & Expiration Status:**
+\`\`\`cmd
+slmgr /dli
+\`\`\`
+This displays basic license information and current activation state.
+
+2. **Detailed Activation Information:**
+\`\`\`cmd
+slmgr /dlv
+\`\`\`
+Provides complete diagnostic data including installation ID, activation renewal intervals, and KMS server details.
+
+3. **Verify Activation Expiration Date:**
+\`\`\`cmd
+slmgr /xpr
+\`\`\`
+Displays whether the system is permanently activated or shows the exact expiration date for volume licenses.
+
+4. **Installing a Genuine Product Key:**
+\`\`\`cmd
+slmgr /ipk YOUR-PRODUCT-KEY-HERE
+\`\`\`
+
+5. **Trigger Online Activation:**
+\`\`\`cmd
+slmgr /ato
+\`\`\`
+
+### Enterprise KMS Volume Activation
+
+In corporate networks, organizations use Key Management Service (KMS) servers to activate devices locally:
+\`\`\`cmd
+slmgr /skms kms.yourdomain.com:1688
+slmgr /ato
+\`\`\`
+
+Understanding command-line license management ensures quick troubleshooting when configuring enterprise Windows images or verifying activation status.`
+},
+{
+  id: "49",
+  title: "Top 15 Hidden Windows 11 Hacks and Secret Shortcuts Every Power User Should Know",
+  category: "Windows & System Admin",
+  coverImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop",
+  readTime: "7 min read",
+  date: "2026-07-28",
+  tags: ["Windows 11", "Productivity", "Shortcuts", "OS Tricks", "Power User"],
+  summary: "Discover secret Windows 11 keyboard shortcuts, snap layout tricks, hidden menus, and workflow boosters for maximum daily productivity.",
+  content: `Windows 11 is packed with subtle features and keyboard shortcuts designed to accelerate your workflow. Here are 15 hidden tricks every developer and power user should master.
+
+## 1. Advanced Clipboard History (\`Win + V\`)
+Press \`Win + V\` to enable the clipboard history manager. You can pin frequently used code snippets, text blocks, and images across reboots.
+
+## 2. Windows Terminal Quick Launch (\`Win + X, I\`)
+The Power User Menu (\`Win + X\`) gives instant access to Device Manager, Disk Management, and Terminal. Pressing \`Win + X\` then \`I\` opens Terminal immediately.
+
+## 3. Instant Snap Layouts (\`Win + Z\`)
+Hover over any window's maximize button or press \`Win + Z\` to trigger pre-configured grid layouts for multi-monitor multitasking.
+
+## 4. Secret Emoji & Kaomoji Picker (\`Win + .\`)
+Access symbols, emoticons, GIFs, and special characters system-wide by hitting \`Win + .\` or \`Win + ;\`.
+
+## 5. Screen Recording with Xbox Game Bar (\`Win + Alt + R\`)
+No third-party app needed: start recording your screen instantly for demos or bug reports using \`Win + Alt + R\`.
+
+## 6. Virtual Desktop Switching (\`Win + Ctrl + Left/Right\`)
+Separate your dev tools, messaging apps, and personal browsing across Virtual Desktops. Switch seamlessly with arrow keys.
+
+## 7. Shake to Minimize (Title Bar Shake)
+Enable "Title bar window shake" in Settings -> System -> Multitasking. Click and shake a window's title bar to minimize all other open apps instantly.
+
+## 8. God Mode Folder
+Create a new folder on your desktop and rename it to:
+\`GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}\`
+This reveals a master control panel with over 200 system administrative settings in one list.`
+},
+{
+  id: "50",
+  title: "PowerShell vs Command Prompt (CMD) in Windows 11: Key Differences & When to Use Which",
+  category: "Windows & System Admin",
+  coverImage: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=1200&auto=format&fit=crop",
+  readTime: "6 min read",
+  date: "2026-07-28",
+  tags: ["PowerShell", "CMD", "Windows 11", "CLI", "Scripting"],
+  summary: "A comprehensive comparison between Windows PowerShell and legacy Command Prompt (CMD), object pipelines vs text streams, and modern terminal usage.",
+  content: `Many Windows users use Command Prompt (CMD) and PowerShell interchangeably, but under the hood, they are fundamentally different command-line environments.
+
+## The Core Difference: Text Streams vs Object Pipelines
+
+- **Command Prompt (cmd.exe):** Developed in the 1980s as an extension of MS-DOS. CMD operates entirely on **text streams**. Commands output plain text, and piping (\`|\`) passes raw text string characters to the next command.
+- **PowerShell (pwsh / powershell.exe):** Introduced in 2006, PowerShell is an object-oriented shell built on the .NET framework. Commands (called **cmdlets**) output structured **.NET objects**. Piping passes rich object properties directly without parsing string output.
+
+### Code Comparison
+
+#### Finding Running Services Consuming Memory in CMD:
+In CMD, you must parse text using \`tasklist\` or \`wmic\` with string manipulation.
+
+#### Finding Running Services Consuming Memory in PowerShell:
+\`\`\`powershell
+Get-Process | Where-Object WorkingSet -gt 100MB | Sort-Object WorkingSet -Descending
+\`\`\`
+PowerShell filters objects cleanly using actual properties (\`WorkingSet\`) rather than string matching.
+
+### Summary Table
+
+| Feature | Command Prompt (CMD) | PowerShell |
+|---|---|---|
+| Architecture | MS-DOS Legacy | .NET Object-Oriented |
+| Data Type | Plain Text Strings | Structured .NET Objects |
+| Cross-Platform | Windows Only | Windows, Linux, macOS |
+| Script File | \`.bat\` / \`.cmd\` | \`.ps1\` |
+| Execution Policy | Unrestricted | Configurable Security Rules |
+
+For quick system diagnostics, CMD is fast and lightweight. For serious automation, cloud management, and system administration, PowerShell is superior.`
+},
+{
+  id: "51",
+  title: "How to Speed Up Windows 11: Essential System Cleanup & Performance Tweaks",
+  category: "Windows & System Admin",
+  coverImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop",
+  readTime: "7 min read",
+  date: "2026-07-27",
+  tags: ["Windows 11", "Performance", "Optimization", "System Cleanup", "Hardware"],
+  summary: "Optimize Windows 11 for maximum speed and responsiveness by disabling visual bloat, managing startup apps, and running CLI cleanup tasks.",
+  content: `Over time, Windows 11 can accumulate temporary files, background startup applications, and unnecessary visual effects that degrade system responsiveness. Here is an engineering guide to restoring peak performance.
+
+## 1. CLI Storage Cleanup via Disk Cleanup & Cleanmgr
+
+Open Command Prompt as Administrator and launch automated cleanup:
+\`\`\`cmd
+cleanmgr /sageset:1
+cleanmgr /sagerun:1
+\`\`\`
+This purges cached Windows updates, memory dump files, temporary files, and system logs.
+
+## 2. Disable Non-Essential Startup Apps
+
+High startup impact applications consume CPU and RAM before you even launch your browser.
+Open Task Manager (\`Ctrl + Shift + Esc\`) -> **Startup apps** -> Disable everything except essential drivers and security software.
+
+## 3. Flush DNS & Reset Network Caches
+
+Run these commands in CMD to clear stale network caches:
+\`\`\`cmd
+ipconfig /flushdns
+netsh winsock reset
+\`\`\`
+
+## 4. Optimize Visual Effects for Speed
+
+1. Press \`Win + R\`, type \`sysdm.cpl\`, hit Enter.
+2. Go to **Advanced** tab -> **Performance Settings**.
+3. Select **Adjust for best performance**, then re-enable only smooth edges of screen fonts and drop shadows under desktop icons.
+
+## 5. Enable Storage Sense
+Navigate to **Settings -> System -> Storage** and enable **Storage Sense** to automatically delete temporary files when disk space runs low.`
+},
+{
+  id: "52",
+  title: "Mastering Windows Subsystem for Linux (WSL2) on Windows 11: Ultimate Developer Setup",
+  category: "Software Engineering",
+  coverImage: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=1200&auto=format&fit=crop",
+  readTime: "8 min read",
+  date: "2026-07-27",
+  tags: ["WSL2", "Linux", "Windows 11", "Ubuntu", "Docker"],
+  summary: "Run native Linux distributions directly on Windows 11 with WSL2. Setup Docker, zsh, and VS Code integration seamlessly.",
+  content: `Windows Subsystem for Linux 2 (WSL2) brings a real Linux kernel directly to Windows 11, allowing developers to execute Linux binaries, bash scripts, and Docker containers without dual-booting or virtual machine overhead.
+
+## One-Command Installation
+
+Open PowerShell as Administrator and run:
+\`\`\`powershell
+wsl --install
+\`\`\`
+This installs Ubuntu by default, along with the required Virtual Machine Platform components.
+
+## Setting WSL Version to WSL2
+
+Ensure your default WSL architecture is set to version 2:
+\`\`\`powershell
+wsl --set-default-version 2
+wsl -l -v
+\`\`\`
+
+## Integrating VS Code with WSL2
+
+1. Install Visual Studio Code on Windows.
+2. Install the **WSL extension** in VS Code.
+3. Open your Linux terminal and type:
+\`\`\`bash
+code .
+\`\`\`
+VS Code will launch on Windows while executing code and extensions inside the Linux environment!
+
+## Performance Tip: Store Files in the Linux File System
+
+For lightning-fast file read/write speeds, store your project repositories inside the Linux root directory (\`~/projects/\`) rather than accessing Windows drives (\`/mnt/c/\`).`
+},
+{
+  id: "53",
+  title: "How to Fix High CPU & RAM Usage in Windows 11: Diagnostics & Task Manager Secrets",
+  category: "Windows & System Admin",
+  coverImage: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=1200&auto=format&fit=crop",
+  readTime: "6 min read",
+  date: "2026-07-27",
+  tags: ["Windows 11", "Troubleshooting", "RAM", "CPU", "Diagnostics"],
+  summary: "Identify memory leaks, background process spikes, and unneeded telemetry services slowing down your system.",
+  content: `Spikes in CPU and RAM usage can freeze applications and drain laptop batteries. Here is how to diagnose and resolve high resource consumption in Windows 11.
+
+## Diagnosing Spikes with Resource Monitor
+
+Press \`Win + R\`, type \`resmon\`, and press Enter. 
+Resource Monitor provides deeper insights than Task Manager:
+- **CPU Tab:** Shows process threads, handle counts, and CPU frequency throttling.
+- **Memory Tab:** Differentiates between In Use, Modified, Standby, and Free physical RAM.
+
+## Common Culprits & Fixes
+
+### 1. High CPU from \`System Interrupts\`
+If System Interrupts consumes high CPU (>5%), it usually indicates a faulty driver or hardware component. Update network, GPU, and chipset drivers immediately.
+
+### 2. High Disk/CPU from \`SysMain\` (Superfetch)
+If your disk usage hits 100%, disable SysMain in PowerShell:
+\`\`\`powershell
+Stop-Service -Name "SysMain" -Force
+Set-Service -Name "SysMain" -StartupType Disabled
+\`\`\`
+
+### 3. Windows Search Indexing Spikes
+To pause background indexing temporarily during heavy compiling tasks:
+\`\`\`powershell
+Stop-Service -Name "WSearch"
+\`\`\`
+
+Using these diagnostic tools helps you keep system resource usage under control.`
+},
+{
+  id: "54",
+  title: "Essential Network Troubleshooting Commands in Windows 11 (Ping, Tracert, Netstat & Nslookup)",
+  category: "Hardware & Networking",
+  coverImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop",
+  readTime: "7 min read",
+  date: "2026-07-27",
+  tags: ["Networking", "CMD", "Windows 11", "Ping", "Netstat"],
+  summary: "Diagnose internet outages, open ports, DNS resolution issues, and network latency using native Windows command prompt tools.",
+  content: `Network issues can disrupt developer workflows and server connections. Windows 11 includes powerful built-in command-line tools to diagnose network bottlenecks.
+
+## 1. \`ping\` - Testing Connectivity & Latency
+Test connection to a target host or gateway:
+\`\`\`cmd
+ping 8.8.8.8 -t
+\`\`\`
+The \`-t\` flag continuous pings until stopped with \`Ctrl + C\`.
+
+## 2. \`tracert\` - Trace Network Hop Route
+Discover where packets drop along the routing path to a remote server:
+\`\`\`cmd
+tracert shavinjoseph.me
+\`\`\`
+
+## 3. \`netstat\` - Inspect Active Connections & Open Ports
+Identify what applications are using open network ports on your machine:
+\`\`\`cmd
+netstat -ano | findstr :8080
+\`\`\`
+The \`-a\` lists all connections, \`-n\` displays numerical IPs/ports, and \`-o\` displays the process ID (PID).
+
+## 4. \`nslookup\` - DNS Domain Resolution Troubleshooting
+Query DNS servers directly to test domain resolution:
+\`\`\`cmd
+nslookup google.com
+\`\`\`
+
+## 5. \`pathping\` - Combined Ping & Trace Diagnostic
+\`pathping\` sends packets to every router along the route over time to measure packet loss per hop.`
+},
+{
+  id: "55",
+  title: "Package Management in Windows 11: How to Use Winget and Chocolatey",
+  category: "Software Engineering",
+  coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+  readTime: "6 min read",
+  date: "2026-07-26",
+  tags: ["Winget", "Chocolatey", "Windows 11", "CLI", "Automation"],
+  summary: "Install, update, and manage all your Windows software from the terminal just like apt or brew.",
+  content: `Installing applications by manually downloading \`.exe\` installers from browser sites is inefficient. Windows 11 includes **Winget** natively, providing package management directly in your command line.
+
+## Using Winget (Windows Package Manager)
+
+Winget comes built into Windows 11.
+
+### 1. Search for Applications:
+\`\`\`cmd
+winget search Git.Git
+\`\`\`
+
+### 2. Install Applications:
+\`\`\`cmd
+winget install --id Git.Git -e
+winget install --id Microsoft.VisualStudioCode -e
+winget install --id Python.Python.3.12 -e
+\`\`\`
+
+### 3. Upgrade All Installed Packages at Once:
+\`\`\`cmd
+winget upgrade --all
+\`\`\`
+This single command updates every application on your machine in seconds!
+
+## Chocolatey: Enterprise Package Management
+
+Chocolatey is a third-party package manager for Windows widely used in CI/CD pipelines.
+
+To install Chocolatey via PowerShell:
+\`\`\`powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+\`\`\`
+
+Using Winget or Chocolatey automates environment setup for new developer machines.`
+},
+{
+  id: "56",
+  title: "Windows 11 Registry Editing 101: Safe Tweaks to Customize Your Operating System",
+  category: "Windows & System Admin",
+  coverImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
+  readTime: "7 min read",
+  date: "2026-07-26",
+  tags: ["Registry", "Windows 11", "Regedit", "Customization", "OS"],
+  summary: "Learn how the Windows Registry works, how to back it up safely, and how to apply custom system tweaks.",
+  content: `The Windows Registry is a centralized database storing configuration settings for the operating system, hardware devices, and installed applications.
+
+## Registry Architecture Overview
+
+The registry is divided into five main hives:
+- **HKEY_CLASSES_ROOT (HKCR):** File associations and OLE data.
+- **HKEY_CURRENT_USER (HKCU):** Settings for the currently logged-in user.
+- **HKEY_LOCAL_MACHINE (HKLM):** Settings applying to the system and all users.
+- **HKEY_USERS (HKU):** Profiles for all users on the machine.
+- **HKEY_CURRENT_CONFIG (HKCC):** Hardware profile information gathered at startup.
+
+## Rule #1: Always Export a Backup First
+
+Before modifying any registry key:
+1. Open \`regedit\` (\`Win + R\` -> \`regedit\`).
+2. Click **File -> Export**.
+3. Save the backup \`.reg\` file safely. If a tweak causes issues, double-clicking the backup restores the original keys instantly.
+
+## Useful Registry Tweak Example: Restore Full Classic Context Menu
+
+To restore the classic full right-click context menu in Windows 11 via Command Prompt:
+\`\`\`cmd
+reg add "HKCU\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\\InprocServer32" /f /ve
+taskkill /f /im explorer.exe && start explorer.exe
+\`\`\`
+
+Modifying the registry safely unlocks deep customization options.`
+},
+{
+  id: "57",
+  title: "Automating Daily Tasks with PowerShell Scripts and Task Scheduler",
+  category: "Automation",
+  coverImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
+  readTime: "6 min read",
+  date: "2026-07-26",
+  tags: ["PowerShell", "Automation", "Task Scheduler", "Scripting", "Windows"],
+  summary: "Automate file management, backup routines, and maintenance scripts on Windows 11 using PowerShell and Task Scheduler.",
+  content: `Repetitive computer tasks waste valuable engineering time. By combining PowerShell scripts with Windows Task Scheduler, you can automate routine tasks seamlessly.
+
+## Sample PowerShell Backup Script (\`backup.ps1\`)
+
+Create a script that backs up a specific project folder to an archive location:
+\`\`\`powershell
+$source = "C:\\Projects\\MyApp"
+$destination = "D:\\Backups\\MyApp_$(Get-Date -Format 'yyyy-MM-dd').zip"
+
+Compress-Archive -Path $source -DestinationPath $destination -Force
+Write-Host "Backup completed successfully at $destination"
+\`\`\`
+
+## Scheduling the Script in Task Scheduler
+
+1. Press \`Win + R\`, type \`taskschd.msc\`, hit Enter.
+2. Click **Create Basic Task** -> Name it "Daily Project Backup".
+3. Trigger: **Daily at 18:00**.
+4. Action: **Start a program**.
+   - Program/script: \`powershell.exe\`
+   - Add arguments: \`-ExecutionPolicy Bypass -File "C:\\Scripts\\backup.ps1"\`
+5. Click **Finish**.
+
+Now your backup script executes automatically every day in the background!`
+},
+{
+  id: "58",
+  title: "How to Repair Corrupted Windows 11 System Files Using SFC and DISM Commands",
+  category: "Windows & System Admin",
+  coverImage: "https://images.unsplash.com/photo-1588508065123-287b28e013da?q=80&w=1200&auto=format&fit=crop",
+  readTime: "6 min read",
+  date: "2026-07-26",
+  tags: ["SFC", "DISM", "Windows 11", "Repair", "CMD"],
+  summary: "Step-by-step guide on running System File Checker (SFC) and DISM to repair damaged system files and resolve Windows crashes.",
+  content: `Unexpected crashes, Blue Screen errors, or missing DLL files often stem from corrupted system files. Windows provides two command-line repair tools: **DISM** and **SFC**.
+
+## Step 1: Run DISM (Deployment Image Servicing and Management)
+
+DISM checks and repairs the underlying Windows component store image from Microsoft Update servers.
+
+Open Command Prompt as Administrator:
+\`\`\`cmd
+DISM.exe /Online /Cleanup-Image /ScanHealth
+DISM.exe /Online /Cleanup-Image /RestoreHealth
+\`\`\`
+
+## Step 2: Run System File Checker (SFC)
+
+Once the component store is repaired by DISM, run SFC to scan and replace corrupted protected system files:
+\`\`\`cmd
+sfc /scannow
+\`\`\`
+
+## Intercepting Log Results
+
+If SFC finds corrupted files it cannot fix, inspect the CBS log file:
+\`\`\`cmd
+findstr /c:"[SR]" %windir%\\Logs\\CBS\\CBS.log > "%userprofile%\\Desktop\\sfcdetails.txt"
+\`\`\`
+
+Running DISM followed by SFC resolves the vast majority of Windows stability issues.`
+},
+{
+  id: "59",
+  title: "Mastering Windows Terminal: Tabs, Profiles, Themes, and Shortcuts",
+  category: "Software Engineering",
+  coverImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop",
+  readTime: "6 min read",
+  date: "2026-07-25",
+  tags: ["Windows Terminal", "CLI", "Customization", "PowerShell", "DevTools"],
+  summary: "Transform your Windows terminal environment with custom themes, split panes, GPU acceleration, and shell profiles.",
+  content: `Windows Terminal is an open-source, modern command-line application featuring GPU-accelerated text rendering, tabs, split panes, and deep customization.
+
+## Essential Keyboard Shortcuts
+
+- **Open New Tab:** \`Ctrl + Shift + T\`
+- **Split Pane Horizontally:** \`Alt + Shift + -\`
+- **Split Pane Vertically:** \`Alt + Shift + +\`
+- **Close Pane:** \`Ctrl + Shift + W\`
+- **Command Palette:** \`Ctrl + Shift + P\`
+
+## Customizing \`settings.json\`
+
+Press \`Ctrl + ,\` to open settings, then click **Open JSON file** to edit configuration properties directly:
+\`\`\`json
+{
+  "profiles": {
+    "defaults": {
+      "font": {
+        "face": "Cascadia Code PL",
+        "size": 11
+      },
+      "opacity": 85,
+      "useAcrylic": true,
+      "colorScheme": "One Half Dark"
+    }
+  }
+}
+\`\`\`
+
+Configuring Windows Terminal improves daily command-line productivity.`
+},
+{
+  id: "60",
+  title: "Building Modern Web Applications with Next.js 15: App Router & React Server Components",
+  category: "Web Development",
+  coverImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
+  readTime: "7 min read",
+  date: "2026-07-25",
+  tags: ["Next.js", "React", "Web Development", "Server Components", "Frontend"],
+  summary: "Explore Next.js 15 features including Server Components, Server Actions, TurboPack, and advanced SEO optimization.",
+  content: `Next.js 15 continues to refine web development architecture with the App Router model, React Server Components (RSC), and enhanced caching primitives.
+
+## Why React Server Components Matter
+
+Traditional React applications render components on the client, requiring large JavaScript bundles to be downloaded by the browser. 
+
+Server Components render HTML on the server, streaming lightweight markup directly to the client with zero bundle size impact.
+
+### Code Example: Server Component Data Fetching
+\`\`\`tsx
+// app/blog/page.tsx (Server Component by default)
+async function getPosts() {
+  const res = await fetch('https://api.example.com/posts', { next: { revalidate: 3600 } });
+  return res.json();
+}
+
+export default async function BlogPage() {
+  const posts = await getPosts();
+  return (
+    <main>
+      <h1>Latest Posts</h1>
+      {posts.map((post: any) => (
+        <article key={post.id}>
+          <h2>{post.title}</h2>
+        </article>
+      ))}
+    </main>
+  );
+}
+\`\`\`
+
+Next.js 15 delivers faster initial page loads and built-in search engine optimization.`
+},
+{
+  id: "61",
+  title: "Python Scripting for System Administrators: Automating File & Network Operations",
+  category: "Artificial Intelligence",
+  coverImage: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=1200&auto=format&fit=crop",
+  readTime: "6 min read",
+  date: "2026-07-25",
+  tags: ["Python", "Automation", "System Admin", "Scripting", "DevOps"],
+  summary: "Use Python to write cross-platform scripts for monitoring server health, parsing log files, and sending automated alerts.",
+  content: `Python is one of the most versatile languages for system administration and DevOps automation due to its extensive standard library.
+
+## Automating Server Health Checks with \`psutil\`
+
+The \`psutil\` library provides cross-platform metrics on CPU, RAM, disk, and network interfaces:
+
+\`\`\`python
+import psutil
+
+def check_system_health():
+    cpu_usage = psutil.cpu_percent(interval=1)
+    memory_info = psutil.virtual_memory()
+    disk_info = psutil.disk_usage('/')
+
+    print(f"CPU Usage: {cpu_usage}%")
+    print(f"RAM Usage: {memory_info.percent}% ({memory_info.used // (1024**2)}MB used)")
+    print(f"Disk Usage: {disk_info.percent}% ({disk_info.free // (1024**3)}GB free)")
+
+    if cpu_usage > 85:
+        print("[WARNING] High CPU usage detected!")
+
+if __name__ == "__main__":
+    check_system_health()
+\`\`\`
+
+Python scripts keep infrastructure running smoothly.`
+},
+{
+  id: "62",
+  title: "Cisco Router & Switch Initial Configuration: Essential CLI Commands Guide",
+  category: "Hardware & Networking",
+  coverImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop",
+  readTime: "7 min read",
+  date: "2026-07-25",
+  tags: ["Cisco", "Networking", "CLI", "Router", "Switch"],
+  summary: "Learn essential Cisco IOS commands to configure hostnames, IP addresses, SSH access, and VLANs on enterprise hardware.",
+  content: `Configuring Cisco networking hardware requires familiarity with Cisco IOS command modes: User EXEC, Privileged EXEC, and Global Configuration.
+
+## Basic Cisco IOS Initial Setup Sequence
+
+Connecting via Console cable:
+\`\`\`text
+Router> enable
+Router# configure terminal
+Router(config)# hostname Core-Router-01
+Core-Router-01(config)# enable secret AdminPassword123
+\`\`\`
+
+## Configuring Interface IP Address
+
+\`\`\`text
+Core-Router-01(config)# interface GigabitEthernet0/0/0
+Core-Router-01(config-if)# ip address 192.168.1.1 255.255.255.0
+Core-Router-01(config-if)# no shutdown
+Core-Router-01(config-if)# exit
+\`\`\`
+
+## Saving Running Configuration to Startup NVRAM
+
+\`\`\`text
+Core-Router-01# copy running-config startup-config
+\`\`\`
+
+Understanding Cisco CLI commands is vital for managing corporate network backbones.`
+},
+{
+  id: "63",
+  title: "How to Secure Your Web Application Against OWASP Top 10 Vulnerabilities",
+  category: "Cybersecurity",
+  coverImage: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop",
+  readTime: "8 min read",
+  date: "2026-07-25",
+  tags: ["Cybersecurity", "OWASP", "Web Security", "AppSec", "Secure Coding"],
+  summary: "Protect your web apps against SQL injection, XSS, CSRF, broken authentication, and security misconfigurations.",
+  content: `Application security must be designed from the start. The OWASP Top 10 lists the most critical web application security risks.
+
+## Key Vulnerabilities & Defenses
+
+### 1. Injection (SQLi)
+Never concatenate untrusted user input into SQL queries. Always use parameterized queries or ORMs.
+
+### 2. Broken Authentication
+Implement multi-factor authentication (MFA), secure password hashing (bcrypt/argon2), and proper session expiration.
+
+### 3. Cross-Site Scripting (XSS)
+Sanitize all user inputs and enforce a strict **Content Security Policy (CSP)** HTTP header.
+
+### 4. Security Misconfigurations
+Disable default admin credentials, remove unused endpoints, and set security headers (\`X-Frame-Options\`, \`Strict-Transport-Security\`).
+
+Prioritizing AppSec protects user data and builds trust.`
+},
+{
+  id: "64",
+  title: "Running Local AI Models (Ollama & Llama 3) on Windows 11: Step-by-Step Setup",
+  category: "Artificial Intelligence",
+  coverImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop",
+  readTime: "7 min read",
+  date: "2026-07-24",
+  tags: ["AI", "Ollama", "Llama 3", "Local AI", "Windows 11"],
+  summary: "Run powerful open-source Large Language Models offline on your Windows 11 PC using Ollama and GPU acceleration.",
+  content: `Running LLMs locally on your own machine ensures complete privacy and zero API costs.
+
+## Installing Ollama on Windows
+
+1. Download Ollama for Windows from \`ollama.com\`.
+2. Open Windows Terminal and run your first model:
+\`\`\`powershell
+ollama run llama3
+\`\`\`
+Ollama downloads the weights and launches an interactive chat prompt directly in your terminal!
+
+## Integrating Local LLM with Node.js / Python
+
+Ollama exposes a local REST API on port \`11434\`:
+\`\`\`javascript
+const response = await fetch('http://localhost:11434/api/generate', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    model: 'llama3',
+    prompt: 'Explain REST API security in 2 sentences.',
+    stream: false
+  })
+});
+const data = await response.json();
+console.log(data.response);
+\`\`\`
+
+Local AI gives developers complete control over prompt engineering and private data inference.`
+},
+{
+  id: "65",
+  title: "Docker Desktop on Windows 11: Setup, Containerization, and WSL2 Integration",
+  category: "Software Engineering",
+  coverImage: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=1200&auto=format&fit=crop",
+  readTime: "7 min read",
+  date: "2026-07-24",
+  tags: ["Docker", "Containers", "DevOps", "Windows 11", "WSL2"],
+  summary: "Containerize applications using Docker Desktop for Windows 11 with Hyper-V and WSL2 backend integration.",
+  content: `Docker eliminates the "it works on my machine" problem by packaging applications with all runtime dependencies into isolated containers.
+
+## Dockerfile Basics
+
+Create a \`Dockerfile\` for a Node.js application:
+\`\`\`dockerfile
+FROM node:20-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
+\`\`\`
+
+## Building and Running the Container
+
+\`\`\`cmd
+docker build -t my-web-app .
+docker run -p 3000:3000 -d my-web-app
+\`\`\`
+
+Integrating Docker Desktop with WSL2 ensures fast container execution on Windows 11.`
+},
+{
+  id: "66",
+  title: "How to Backup and Restore Environment Variables in Windows 11 via CMD & PowerShell",
+  category: "Windows & System Admin",
+  coverImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
+  readTime: "6 min read",
+  date: "2026-07-24",
+  tags: ["Windows 11", "PATH", "Environment Variables", "CLI", "Dev Setup"],
+  summary: "Manage System and User PATH variables from the command line, export configurations, and restore lost variables.",
+  content: `Environment variables (like \`PATH\`) tell Windows where executable programs reside. Accidental deletion of the PATH variable can break development tools.
+
+## Viewing Environment Variables in PowerShell
+
+\`\`\`powershell
+Get-ChildItem Env:
+$env:PATH -split ';'
+\`\`\`
+
+## Backing Up PATH Variable to a File
+
+\`\`\`powershell
+$env:PATH | Out-File -FilePath "$env:USERPROFILE\\Desktop\\path_backup.txt"
+\`\`\`
+
+## Adding a New Directory to User PATH Permanently via CLI
+
+\`\`\`powershell
+[Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";C:\\MyTools", "User")
+\`\`\`
+
+Managing PATH programmatically avoids manual errors in the Windows GUI.`
+},
+{
+  id: "67",
+  title: "Mastering Git Terminal Commands: From Undo Operations to Advanced Rebase",
+  category: "Software Engineering",
+  coverImage: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?q=80&w=1200&auto=format&fit=crop",
+  readTime: "7 min read",
+  date: "2026-07-24",
+  tags: ["Git", "GitHub", "Version Control", "Terminal", "DevTools"],
+  summary: "Essential Git terminal workflows: cherry-picking, interactive rebasing, stash management, and reflog recovery.",
+  content: `Git is the industry standard for version control. Beyond basic \`git add\` and \`git commit\`, advanced terminal commands help fix mistakes.
+
+## 1. Undoing Last Commit (Keep Changes Staged)
+\`\`\`bash
+git reset --soft HEAD~1
+\`\`\`
+
+## 2. Recover Lost Commits with Reflog
+If you accidentally deleted a branch or reset hard:
+\`\`\`bash
+git reflog
+git checkout -b recovered-branch <COMMIT_HASH>
+\`\`\`
+
+## 3. Interactive Rebase (Clean Commit History)
+Combine multiple small commits before merging:
+\`\`\`bash
+git rebase -i HEAD~3
+\`\`\`
+
+## 4. Stashing Specific Files
+\`\`\`bash
+git stash push -m "work in progress" src/components/Header.jsx
+git stash pop
+\`\`\`
+
+Mastering Git command line gives you total control over version history.`
+}];
+
 const BlogPost = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const article = HARDCODED_ARTICLES.find(a => a.id === id);
-  
+
   const [stats, setStats] = useState({ views: 0, likes: 0 });
   const [isLiked, setIsLiked] = useState(false);
-  
-  // 👇 ADD THIS MISSING LINE RIGHT HERE 👇
-  const hasRecordedView = useRef(false); 
+
+  // Track the specific article ID recorded to ensure view tracking works cleanly on route updates
+  const recordedArticleId = useRef(null);
 
   useEffect(() => {
     if (!article) return;
-    
 
+    // Reset liked state when switching articles
+    setIsLiked(false);
 
-    // 1. INJECT VIRAL SEO METADATA
-    document.title = `${article.title} | Shavin Heshan Joseph`;
-    const setMeta = (name, content, isProperty = false) => {
-      const attr = isProperty ? 'property' : 'name';
-      let meta = document.querySelector(`meta[${attr}="${name}"]`);
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute(attr, name);
-        document.head.appendChild(meta);
+    const docRef = doc(db, 'articleStats', article.id);
+
+    // 1. REAL-TIME FIREBASE LISTENER
+    const unsubscribe = onSnapshot(docRef, (docSnap) => {
+      if (docSnap.exists()) {
+        setStats({
+          views: docSnap.data().views || 0,
+          likes: docSnap.data().likes || 0
+        });
       }
-      meta.content = content;
-    };
-    setMeta('description', article.summary);
-    setMeta('keywords', article.tags.join(', '));
-    setMeta('og:title', article.title, true);
-    setMeta('og:description', article.summary, true);
-    setMeta('og:image', article.coverImage, true);
-    setMeta('og:url', window.location.href, true);
-    setMeta('og:type', 'article', true);
+    });
 
-const docRef = doc(db, 'articleStats', article.id);
-
-  // 2. REAL-TIME FIREBASE LISTENER (Watches for live changes)
-  const unsubscribe = onSnapshot(docRef, (docSnap) => {
-    if (docSnap.exists()) {
-      setStats({ views: docSnap.data().views || 0, likes: docSnap.data().likes || 0 });
+    // 2. ATOMIC VIEW COUNTER (Executes once per unique article ID per session)
+    if (recordedArticleId.current !== article.id) {
+      recordedArticleId.current = article.id;
+      setDoc(docRef, { views: increment(1) }, { merge: true }).catch(console.error);
     }
-  });
 
-// 3. SECURE VIEW COUNTER (Only counts once per session)
-  const recordView = async () => {
-    if (hasRecordedView.current) return;
-    hasRecordedView.current = true;
+    return () => unsubscribe();
+  }, [article]);
 
+  const handleLike = async () => {
+    if (isLiked || !article) return;
+    setIsLiked(true); // Optimistic UI update
+
+    const docRef = doc(db, 'articleStats', article.id);
     try {
-      // Try to increment existing document
-      await updateDoc(docRef, { views: increment(1) });
+      await setDoc(docRef, { likes: increment(1) }, { merge: true });
     } catch (error) {
-      // If document doesn't exist yet, create it safely
-      await setDoc(docRef, { views: 1, likes: 0 }, { merge: true });
+      console.error("Error updating likes:", error);
     }
   };
-  
-  recordView();
 
-  // Cleanup the listener when user leaves the page
-  return () => unsubscribe();
-}, [article]);
-
-const handleLike = async () => {
-  if (isLiked || !article) return;
-  setIsLiked(true); // Instantly update UI for the user
-  
-  const docRef = doc(db, 'articleStats', article.id);
-  try {
-    await updateDoc(docRef, { likes: increment(1) });
-  } catch (error) {
-    await setDoc(docRef, { views: 1, likes: 1 }, { merge: true });
-  }
-};
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
     alert("Transmission Link Copied!");
@@ -1223,159 +2293,121 @@ const handleLike = async () => {
   if (!article) return <div className="min-h-screen flex items-center justify-center text-white">Article Not Found</div>;
 
   return (
-    return (
-  <>
-    <Helmet>
+    <>
+      <Helmet>
+        <title>{article.title} | Shavin Heshan Joseph</title>
+        <meta name="description" content={article.summary} />
+        <meta name="keywords" content={article.tags.join(", ")} />
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.summary} />
+        <meta property="og:image" content={article.coverImage} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={window.location.href} />
+        <link rel="canonical" href={`https://shavinjoseph.me/blog/${article.id}`} />
 
-      <title>
-        {article.title} | Shavin Heshan Joseph
-      </title>
+        {/* Google Article Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": article.title,
+            "description": article.summary,
+            "image": article.coverImage,
+            "datePublished": article.date,
+            "author": {
+              "@type": "Person",
+              "name": "Shavin Heshan Joseph",
+              "url": "https://shavinjoseph.me"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Shavin Heshan Joseph"
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://shavinjoseph.me/blog/${article.id}`
+            },
+            "keywords": article.tags.join(", ")
+          })}
+        </script>
+      </Helmet>
 
-      <meta
-        name="description"
-        content={article.summary}
-      />
+      <motion.article 
+        initial={{ opacity: 0, y: 20 }} 
+        animate={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 0.6 }}
+        className="w-full min-h-screen pt-28 pb-32 md:pt-32 md:pb-24 px-5 md:px-8 max-w-[900px] mx-auto overflow-x-hidden"
+      >
+        <button onClick={() => navigate('/blog')} className="flex items-center gap-2 text-[#8a93a6] hover:text-[color:var(--theme-main)] transition-colors mb-8 font-mono text-xs uppercase tracking-widest">
+          <FiArrowLeft /> Return to Logs
+        </button>
 
-      <meta
-        name="keywords"
-        content={article.tags.join(", ")}
-      />
-
-      <meta
-        property="og:title"
-        content={article.title}
-      />
-
-      <meta
-        property="og:description"
-        content={article.summary}
-      />
-
-      <meta
-        property="og:image"
-        content={article.coverImage}
-      />
-
-      <meta
-        property="og:type"
-        content="article"
-      />
-
-      <link
-        rel="canonical"
-        href={`https://shavinjoseph.me/blog/${article.id}`}
-      />
-
-
-      {/* Google Article Schema */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": article.title,
-          "description": article.summary,
-          "image": article.coverImage,
-          "datePublished": article.date,
-
-          "author": {
-            "@type": "Person",
-            "name": "Shavin Heshan Joseph",
-            "url": "https://shavinjoseph.me"
-          },
-
-          "publisher": {
-            "@type": "Person",
-            "name": "Shavin Heshan Joseph"
-          },
-
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": `https://shavinjoseph.me/blog/${article.id}`
-          },
-
-          "keywords": article.tags.join(", ")
-        })}
-      </script>
-
-
-    </Helmet>
-
-
-    <motion.article 
-      initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-      className="w-full min-h-screen pt-28 pb-32 md:pt-32 md:pb-24 px-5 md:px-8 max-w-[900px] mx-auto overflow-x-hidden"
-    >
-      <button onClick={() => navigate('/blog')} className="flex items-center gap-2 text-[#8a93a6] hover:text-[color:var(--theme-main)] transition-colors mb-8 font-mono text-xs uppercase tracking-widest">
-        <FiArrowLeft /> Return to Logs
-      </button>
-
-      <div className="flex items-center gap-3 font-mono text-xs text-[color:var(--theme-main)] uppercase tracking-wider mb-5">
-        <span className="px-3 py-1 rounded-full bg-[var(--theme-main)]/10 border border-[var(--theme-main)]/30">{article.category}</span>
-        <span className="text-[#5b6472]">{article.date}</span>
-      </div>
-
-      <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-8 leading-tight">{article.title}</h1>
-
-      <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-white/10 mb-10">
-        <div className="flex items-center gap-6 font-mono text-xs text-[#8a93a6] uppercase tracking-widest">
-          <span className="flex items-center gap-1.5"><FiClock /> {article.readTime}</span>
-          <span className="flex items-center gap-1.5"><FiEye /> {stats.views} Reads</span>
+        <div className="flex items-center gap-3 font-mono text-xs text-[color:var(--theme-main)] uppercase tracking-wider mb-5">
+          <span className="px-3 py-1 rounded-full bg-[var(--theme-main)]/10 border border-[var(--theme-main)]/30">{article.category}</span>
+          <span className="text-[#5b6472]">{article.date}</span>
         </div>
-        <div className="flex items-center gap-3">
-          <button onClick={handleShare} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[#8a93a6] hover:text-white transition-colors">
-            <FiShare2 />
-          </button>
-          <button onClick={handleLike} className={`flex items-center gap-2 px-4 py-2 rounded-full border font-mono text-xs font-bold transition-colors ${isLiked ? 'bg-rose-500/20 border-rose-500/50 text-rose-400' : 'bg-rose-500/10 border-rose-500/30 text-rose-400 hover:bg-rose-500/20'}`}>
-            <FiHeart className={isLiked ? "fill-rose-400" : ""} /> {stats.likes}
-          </button>
+
+        <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-8 leading-tight">{article.title}</h1>
+
+        <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-white/10 mb-10">
+          <div className="flex items-center gap-6 font-mono text-xs text-[#8a93a6] uppercase tracking-widest">
+            <span className="flex items-center gap-1.5"><FiClock /> {article.readTime}</span>
+            <span className="flex items-center gap-1.5"><FiEye /> {stats.views} Reads</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <button onClick={handleShare} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[#8a93a6] hover:text-white transition-colors">
+              <FiShare2 />
+            </button>
+            <button onClick={handleLike} className={`flex items-center gap-2 px-4 py-2 rounded-full border font-mono text-xs font-bold transition-colors ${isLiked ? 'bg-rose-500/20 border-rose-500/50 text-rose-400' : 'bg-rose-500/10 border-rose-500/30 text-rose-400 hover:bg-rose-500/20'}`}>
+              <FiHeart className={isLiked ? "fill-rose-400" : ""} /> {stats.likes}
+            </button>
+          </div>
         </div>
-      </div>
 
-      {article.coverImage && (
-        <div className="w-full aspect-video rounded-3xl overflow-hidden mb-12 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-          <img src={article.coverImage} alt={article.title} className="w-full h-full object-cover" />
+        {article.coverImage && (
+          <div className="w-full aspect-video rounded-3xl overflow-hidden mb-12 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <img src={article.coverImage} alt={article.title} className="w-full h-full object-cover" />
+          </div>
+        )}
+
+        <div className="prose prose-invert prose-headings:text-white prose-a:text-[color:var(--theme-main)] max-w-none text-[#c5cbd3] text-lg leading-relaxed whitespace-pre-line font-sans mb-16">
+          {article.content}
         </div>
-      )}
 
-      <div className="prose prose-invert prose-headings:text-white prose-a:text-[color:var(--theme-main)] max-w-none text-[#c5cbd3] text-lg leading-relaxed whitespace-pre-line font-sans mb-16">
-        {article.content}
-      </div>
-
-      <div className="flex flex-wrap gap-2 mb-10 pt-8 border-t border-white/10">
-        {article.tags.map((tag, i) => (
-          <span key={i} className="font-mono text-xs px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#8a93a6]">#{tag}</span>
-        ))}
-      </div>
-    </motion.article>
+        <div className="flex flex-wrap gap-2 mb-10 pt-8 border-t border-white/10">
+          {article.tags.map((tag, i) => (
+            <span key={i} className="font-mono text-xs px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#8a93a6]">#{tag}</span>
+          ))}
+        </div>
+      </motion.article>
+    </>
   );
 };
 
-
-
-// --- 2. MAIN BLOG LIST PAGE (Intelligent Layout & Cover Flow) ---
+// --- 2. MAIN BLOG LIST PAGE ---
+// --- 2. MAIN BLOG LIST PAGE WITH INFINITE CONTINUOUS FOCAL CAROUSEL & ADVANCED FILTERING ---
 const BlogHome = () => {
   const [stats, setStats] = useState({});
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
   
-  // Slider Controls
+  // Carousel Controls
   const sliderRef = useRef(null);
-  const [isSliderHovered, setIsSliderHovered] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isSliderHovered, setIsSliderHovered] = useState(false);
 
   useEffect(() => {
-    document.title = "Engineering Logs | Shavin Heshan Joseph";
-    
-    // REAL-TIME LISTENER FOR ALL BLOGS
-  const unsubscribe = onSnapshot(collection(db, "articleStats"), (snapshot) => {
-    const statsData = {};
-    snapshot.forEach((doc) => {
-      statsData[doc.id] = doc.data();
+    // Real-time listener for all blog metrics
+    const unsubscribe = onSnapshot(collection(db, "articleStats"), (snapshot) => {
+      const statsData = {};
+      snapshot.forEach((doc) => {
+        statsData[doc.id] = doc.data();
+      });
+      setStats(statsData);
     });
-    setStats(statsData);
-  });
 
-  // Cleanup listener on unmount
-  return () => unsubscribe();
-}, []);
+    return () => unsubscribe();
+  }, []);
 
   const intelligentArticles = HARDCODED_ARTICLES.map(article => ({
     ...article,
@@ -1383,26 +2415,30 @@ const BlogHome = () => {
     likes: stats[article.id]?.likes || 0
   }));
 
-  const latestArticles = [...intelligentArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
-  const trendingArticles = [...intelligentArticles].sort((a, b) => (b.views + b.likes * 2) - (a.views + a.likes * 2)).slice(0, 5); // Increased to 5 so the slider has more items to show
+  const totalViews = Object.values(stats).reduce((acc, curr) => acc + (curr.views || 0), 0);
+  const totalLikes = Object.values(stats).reduce((acc, curr) => acc + (curr.likes || 0), 0);
 
-  // --- SCROLL TRACKING MATH (Finds the exact center card) ---
+  const categories = ['All', ...Array.from(new Set(HARDCODED_ARTICLES.map(a => a.category)))];
+
+  const latestArticles = [...intelligentArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const trendingArticles = [...intelligentArticles].sort((a, b) => (b.views + b.likes * 2) - (a.views + a.likes * 2)).slice(0, 8);
+
+  // Duplicated array for seamless continuous infinite looping focal carousel
+  const marqueeArticles = [...trendingArticles, ...trendingArticles, ...trendingArticles];
+
+  // --- SCROLL TRACKING MATH: Calculates which card is nearest to center ---
   const handleScroll = () => {
     if (!sliderRef.current) return;
     const slider = sliderRef.current;
     
-    // Calculate the exact pixel center of the visible scrolling area
     const scrollCenter = slider.scrollLeft + slider.clientWidth / 2;
-    
     let closestIndex = 0;
     let closestDistance = Infinity;
     
     Array.from(slider.children).forEach((child, index) => {
-      // Find the center of each individual card
       const childCenter = child.offsetLeft + (child.offsetWidth / 2);
       const distance = Math.abs(scrollCenter - childCenter);
       
-      // The card with the shortest distance to the center becomes active
       if (distance < closestDistance) {
         closestDistance = distance;
         closestIndex = index;
@@ -1412,133 +2448,331 @@ const BlogHome = () => {
     setActiveIndex(closestIndex);
   };
 
-  // Run scroll check once on load to center the first item
   useEffect(() => {
     handleScroll();
   }, [trendingArticles.length]);
 
-  // --- INTELLIGENT AUTO-SCROLL TIMER ---
+  // --- CONTINUOUS INFINITE AUTO-SCROLL (NEVER STOPS) ---
   useEffect(() => {
     if (isSliderHovered || trendingArticles.length === 0) return;
 
     const interval = setInterval(() => {
       if (sliderRef.current) {
-        // Calculate the next card, looping back to 0 if at the end
-        const nextIndex = (activeIndex + 1) % trendingArticles.length;
-        const targetChild = sliderRef.current.children[nextIndex];
-        
-        if (targetChild) {
-          // Scroll the container so the target child is perfectly centered
-          const scrollPos = targetChild.offsetLeft - (sliderRef.current.clientWidth / 2) + (targetChild.offsetWidth / 2);
-          sliderRef.current.scrollTo({ left: scrollPos, behavior: 'smooth' });
+        const slider = sliderRef.current;
+        const cardWidth = slider.children[0]?.offsetWidth || 340;
+        const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+        // If approaching the end of the triplicated list, reset scrollLeft seamlessly to middle
+        if (slider.scrollLeft >= maxScroll - 100) {
+          slider.scrollLeft = slider.scrollLeft / 2;
         }
+
+        slider.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
       }
-    }, 3000);
+    }, 2800);
 
     return () => clearInterval(interval);
-  }, [isSliderHovered, activeIndex, trendingArticles.length]);
+  }, [isSliderHovered, trendingArticles.length]);
+
+  // Filtered Articles based on search & category pill
+  const filteredArticles = latestArticles.filter(article => {
+    const matchesCategory = selectedCategory === 'All' || article.category === selectedCategory;
+    const query = searchQuery.toLowerCase().trim();
+    const matchesSearch = !query || 
+      article.title.toLowerCase().includes(query) ||
+      article.summary.toLowerCase().includes(query) ||
+      article.category.toLowerCase().includes(query) ||
+      (article.tags && article.tags.some(tag => tag.toLowerCase().includes(query)));
+    return matchesCategory && matchesSearch;
+  });
 
   return (
-    <motion.main 
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }}
-      className="relative z-10 w-full min-h-screen pt-28 pb-32 md:pt-32 md:pb-24 overflow-x-hidden"
-    >
-      <div className="max-w-[1280px] mx-auto px-5 md:px-8">
-        <div className="mb-10">
-          <div className="font-mono text-sm tracking-[0.06em] text-[color:var(--theme-main)] mb-3 flex items-center gap-3">
-            <span className="w-8 h-px bg-[var(--theme-main)]" /> <span className="uppercase tracking-widest">Knowledge Base Archive</span>
+    <>
+      <Helmet>
+        <title>Engineering Logs & Transmissions | Shavin Heshan Joseph</title>
+        <meta name="description" content="Technical engineering logs, architectural deep dives, AI research, and software development transmissions by Shavin Heshan Joseph." />
+        <link rel="canonical" href="https://shavinjoseph.me/blog" />
+        <meta property="og:title" content="Engineering Logs | Shavin Heshan Joseph" />
+        <meta property="og:description" content="Technical engineering logs, architectural deep dives, and system development transmissions by Shavin Heshan Joseph." />
+        <meta property="og:url" content="https://shavinjoseph.me/blog" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      <motion.main 
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }} 
+        exit={{ opacity: 0 }} 
+        transition={{ duration: 0.6 }}
+        className="relative z-10 w-full min-h-screen pt-28 pb-32 md:pt-32 md:pb-24 overflow-x-hidden"
+      >
+        {/* --- HERO HEADER SECTION --- */}
+        <div className="max-w-[1280px] mx-auto px-5 md:px-8 mb-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/10">
+            <div>
+              <div className="font-mono text-xs md:text-sm tracking-[0.08em] text-[color:var(--theme-main)] mb-3 flex items-center gap-3">
+                <span className="w-2 h-2 rounded-full bg-[var(--theme-main)] animate-ping" />
+                <span className="uppercase tracking-widest font-semibold">Live Transmission Vault</span>
+              </div>
+              <h1 className="font-bold text-[clamp(38px,7vw,84px)] leading-[0.9] tracking-tight uppercase text-white">
+                Engineering <span className="text-transparent" style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.7)' }}>Logs.</span>
+              </h1>
+            </div>
+
+            {/* LIVE METRICS STATS BADGES */}
+            <div className="flex items-center gap-3 flex-wrap">
+              <div className="px-4 py-2.5 rounded-2xl bg-[#12151b]/80 border border-white/10 backdrop-blur-md flex items-center gap-2.5 font-mono text-xs text-white">
+                <span className="w-2 h-2 rounded-full bg-[var(--theme-main)]" />
+                <span className="text-[#8a93a6] uppercase text-[10px]">Total Articles:</span>
+                <span className="font-bold text-[color:var(--theme-main)]">{HARDCODED_ARTICLES.length}</span>
+              </div>
+
+              {totalViews > 0 && (
+                <div className="px-4 py-2.5 rounded-2xl bg-[#12151b]/80 border border-white/10 backdrop-blur-md flex items-center gap-2.5 font-mono text-xs text-white">
+                  <FiEye className="text-emerald-400" size={14} />
+                  <span className="text-[#8a93a6] uppercase text-[10px]">Reads:</span>
+                  <span className="font-bold text-emerald-400">{totalViews}</span>
+                </div>
+              )}
+
+              {totalLikes > 0 && (
+                <div className="px-4 py-2.5 rounded-2xl bg-[#12151b]/80 border border-white/10 backdrop-blur-md flex items-center gap-2.5 font-mono text-xs text-white">
+                  <FiHeart className="text-rose-500" size={14} />
+                  <span className="text-[#8a93a6] uppercase text-[10px]">Likes:</span>
+                  <span className="font-bold text-rose-400">{totalLikes}</span>
+                </div>
+              )}
+            </div>
           </div>
-          <h1 className="font-bold text-[clamp(36px,8vw,80px)] leading-[0.9] tracking-tight uppercase text-white">
-            Engineering <span className="text-transparent" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.6)' }}>Logs.</span>
-          </h1>
         </div>
-      </div>
 
-      {/* --- NETFLIX-STYLE TRENDING MARQUEE (CENTER FOCUSED) --- */}
-      <div className="w-full mb-20 overflow-hidden">
-        <div className="max-w-[1280px] mx-auto px-5 md:px-8 mb-2 flex items-center gap-3 font-mono text-xs text-white uppercase tracking-widest">
-          <FiTrendingUp className="text-rose-500" size={16} /> Trending Transmissions
-        </div>
-        
-        {/* Scroll Container with heavy padding to allow first/last items to reach the center */}
-        <div 
-          ref={sliderRef}
-          onScroll={handleScroll}
-          onMouseEnter={() => setIsSliderHovered(true)}
-          onMouseLeave={() => setIsSliderHovered(false)}
-          onTouchStart={() => setIsSliderHovered(true)}
-          onTouchEnd={() => setIsSliderHovered(false)}
-          className="relative flex items-center overflow-x-auto gap-4 md:gap-8 px-[15vw] md:px-[35vw] py-12 snap-x snap-mandatory hide-scrollbar" 
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          {trendingArticles.map((article, index) => (
-            <motion.div
-              key={`trending-${article.id}`}
-              // The magic happens here: If it is the active center index, scale to 1. Otherwise shrink to 0.8
-              animate={{ 
-                scale: activeIndex === index ? 1 : 0.8,
-                opacity: activeIndex === index ? 1 : 0.4
-              }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              // Cards are now much smaller (w-[240px] and w-[340px])
-              className="w-[240px] md:w-[340px] flex-shrink-0 snap-center"
-            >
-              <Link to={`/blog/${article.id}`} className="block w-full group">
-                <div 
-                  className={`relative w-full aspect-[16/11] rounded-2xl overflow-hidden mb-4 border transition-colors duration-500 shadow-2xl ${activeIndex === index ? 'border-[color:var(--theme-main)]/50' : 'border-white/10'}`}
+        {/* --- CONTINUOUS FOCAL CAROUSEL WITH ACTIVE CARD SCALING (NEVER STOPS) --- */}
+        <div className="w-full mb-16 relative">
+          <div className="max-w-[1280px] mx-auto px-5 md:px-8 mb-4 flex items-center justify-between font-mono text-xs text-white uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-rose-400 font-bold">
+              <FiTrendingUp className="text-rose-500 animate-pulse" size={16} /> 
+              <span>Popular & Trending Transmissions</span>
+              <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 ml-2 font-normal hidden sm:inline-block">Infinite Stream</span>
+            </div>
+            <span className="text-[10px] text-[#5b6472] hidden md:block">Active card auto-focus • Hover to pause</span>
+          </div>
+
+          {/* SLIDER WRAPPER WITH CENTERED DYNAMIC FOCUS & SCALING */}
+          <div 
+            ref={sliderRef}
+            onScroll={handleScroll}
+            onMouseEnter={() => setIsSliderHovered(true)}
+            onMouseLeave={() => setIsSliderHovered(false)}
+            onTouchStart={() => setIsSliderHovered(true)}
+            onTouchEnd={() => setIsSliderHovered(false)}
+            className="relative flex items-center overflow-x-auto gap-4 md:gap-8 px-[12vw] md:px-[35vw] py-10 snap-x snap-mandatory hide-scrollbar border-y border-white/5 bg-[#0a0c10]/40 backdrop-blur-sm" 
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {marqueeArticles.map((article, index) => {
+              const isActive = activeIndex === index;
+              const rankIndex = index % trendingArticles.length;
+              
+              return (
+                <motion.div
+                  key={`trending-${article.id}-${index}`}
+                  animate={{ 
+                    scale: isActive ? 1.05 : 0.82,
+                    opacity: isActive ? 1 : 0.45,
+                    y: isActive ? -4 : 0
+                  }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="w-[260px] sm:w-[320px] md:w-[380px] flex-shrink-0 snap-center"
                 >
-                  <img src={article.coverImage} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
-                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-[#0a0c10] via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="font-mono text-[10px] text-[color:var(--theme-main)] uppercase tracking-wider mb-2">{article.category}</div>
-                    <h3 className="text-white font-bold text-base md:text-lg leading-tight line-clamp-2">{article.title}</h3>
-                  </div>
-                  <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md font-mono text-[10px] text-white">
-                    <FiEye className="text-[color:var(--theme-main)]" /> {article.views}
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+                  <Link to={`/blog/${article.id}`} className="block w-full group">
+                    <div className={`relative w-full aspect-[16/10] rounded-3xl overflow-hidden bg-[#12151b] border transition-all duration-500 shadow-2xl ${
+                      isActive 
+                        ? 'border-[color:var(--theme-main)] shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(var(--theme-rgb),0.3)]' 
+                        : 'border-white/10 group-hover:border-white/20'
+                    }`}>
+                      <img 
+                        src={article.coverImage} 
+                        alt={article.title} 
+                        className={`w-full h-full object-cover transition-all duration-700 ${isActive ? 'scale-105 opacity-100' : 'opacity-65 group-hover:opacity-85'}`} 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c10] via-[#0a0c10]/50 to-transparent" />
+                      
+                      {/* BADGES */}
+                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                        <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0a0c10]/80 backdrop-blur-md border border-white/10 text-[color:var(--theme-main)]">
+                          {article.category}
+                        </span>
+                        
+                        {rankIndex < 3 && (
+                          <span className={`font-mono text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full text-white shadow-lg flex items-center gap-1 ${
+                            isActive ? 'bg-gradient-to-r from-rose-500 to-amber-500' : 'bg-black/60 backdrop-blur-md'
+                          }`}>
+                            <FiZap size={10} /> #{ rankIndex + 1 } Trending
+                          </span>
+                        )}
+                      </div>
 
-      {/* LATEST ARTICLES GRID */}
-      <div className="max-w-[1280px] mx-auto px-5 md:px-8">
-        <div className="mb-8 flex items-center gap-3 font-mono text-xs text-white uppercase tracking-widest border-b border-white/10 pb-4">
-          <FiClock className="text-[color:var(--theme-main)]" size={16} /> Chronological Release
+                      {/* BOTTOM DETAILS */}
+                      <div className="absolute bottom-4 left-5 right-5">
+                        <div className="flex items-center gap-3 font-mono text-[10px] text-[#8a93a6] uppercase tracking-wider mb-2">
+                          <span className="flex items-center gap-1"><FiClock size={11} /> {article.readTime}</span>
+                          <span>•</span>
+                          <span className="flex items-center gap-1 text-emerald-400"><FiEye size={11} /> {article.views} Reads</span>
+                        </div>
+                        <h3 className={`font-bold text-base md:text-lg leading-snug line-clamp-2 transition-colors ${isActive ? 'text-white' : 'text-[#c5cbd3]'}`}>
+                          {article.title}
+                        </h3>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {latestArticles.map((article) => (
-            <Link key={article.id} to={`/blog/${article.id}`}>
-              <motion.div whileHover={{ y: -5 }} className="flex flex-col bg-[#12151b]/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden hover:border-[color:var(--theme-main)]/50 transition-all duration-300 h-full">
-                <div className="w-full h-48 overflow-hidden bg-[#0a0c10] relative">
-                  <img src={article.coverImage} className="w-full h-full object-cover opacity-80" alt={article.title} />
-                </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <div className="flex justify-between items-center font-mono text-[10px] text-[#5b6472] uppercase tracking-widest mb-3">
-                    <span>{article.date}</span>
-                    <span className="flex items-center gap-1"><FiHeart className="text-rose-500" /> {article.likes}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3 line-clamp-2">{article.title}</h3>
-                  <p className="text-[#8a93a6] text-sm leading-relaxed mb-6 flex-grow line-clamp-3">{article.summary}</p>
-                  <div className="pt-4 border-t border-white/5 font-mono text-xs text-[color:var(--theme-main)] font-semibold flex items-center gap-2">
-                    Read Transmission <FiBookOpen size={13} />
-                  </div>
-                </div>
-              </motion.div>
-            </Link>
-          ))}
-        </div>
-      </div>
 
-    </motion.main>
+        {/* --- SEARCH & CATEGORY FILTERING TOOLBAR --- */}
+        <div className="max-w-[1280px] mx-auto px-5 md:px-8 mb-10">
+          <div className="flex flex-col lg:flex-row gap-6 lg:items-center justify-between bg-[#12151b]/60 backdrop-blur-xl border border-white/10 rounded-3xl p-4 md:p-6 shadow-2xl">
+            
+            {/* SEARCH INPUT BOX */}
+            <div className="relative flex-grow max-w-lg">
+              <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5b6472]" size={18} />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search by keyword, title, tag, or topic..."
+                className="w-full pl-11 pr-10 py-3 rounded-2xl bg-[#090b0f]/80 border border-white/10 text-white text-sm placeholder-[#5b6472] focus:outline-none focus:border-[color:var(--theme-main)]/60 transition-colors font-sans"
+              />
+              {searchQuery && (
+                <button 
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:text-white"
+                >
+                  <FiX size={12} />
+                </button>
+              )}
+            </div>
+
+            {/* CATEGORY PILLS */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 hide-scrollbar" style={{ scrollbarWidth: 'none' }}>
+              <span className="font-mono text-[10px] text-[#5b6472] uppercase tracking-wider mr-1 flex items-center gap-1">
+                <FiFilter size={12} /> Topic:
+              </span>
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`whitespace-nowrap px-3.5 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                    selectedCategory === cat
+                      ? 'bg-[var(--theme-main)] text-[#04140c] font-bold shadow-[0_0_15px_rgba(var(--theme-rgb),0.3)]'
+                      : 'bg-white/[0.03] border border-white/10 text-[#8a93a6] hover:text-white hover:bg-white/[0.08]'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* --- MAIN CHRONOLOGICAL LOGS GRID --- */}
+        <div className="max-w-[1280px] mx-auto px-5 md:px-8">
+          <div className="mb-8 flex items-center justify-between font-mono text-xs text-white uppercase tracking-widest border-b border-white/10 pb-4">
+            <div className="flex items-center gap-3">
+              <FiClock className="text-[color:var(--theme-main)]" size={16} /> 
+              <span>
+                {selectedCategory !== 'All' ? `${selectedCategory} Transmissions` : 'Chronological Release Stream'}
+              </span>
+            </div>
+            <span className="text-[#5b6472] text-[11px]">
+              Showing {filteredArticles.length} of {latestArticles.length}
+            </span>
+          </div>
+          
+          {filteredArticles.length === 0 ? (
+            <div className="py-20 text-center bg-[#12151b]/40 rounded-3xl border border-white/5 font-mono">
+              <div className="text-4xl mb-3">🔍</div>
+              <h3 className="text-white text-lg font-bold uppercase mb-2">No Transmissions Found</h3>
+              <p className="text-[#8a93a6] text-xs max-w-sm mx-auto mb-6">No matching logs were found for your query "{searchQuery}". Try clearing filters or searching another keyword.</p>
+              <button 
+                onClick={() => { setSearchQuery(''); setSelectedCategory('All'); }}
+                className="px-5 py-2.5 rounded-xl bg-[var(--theme-main)] text-[#04140c] font-bold text-xs uppercase tracking-wider cursor-pointer"
+              >
+                Reset Search Filters
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {filteredArticles.map((article) => (
+                <Link key={article.id} to={`/blog/${article.id}`}>
+                  <motion.div 
+                    whileHover={{ y: -6 }} 
+                    className="flex flex-col bg-[#12151b]/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-[color:var(--theme-main)]/50 transition-all duration-300 h-full group shadow-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+                  >
+                    {/* IMAGE HEADER */}
+                    <div className="w-full h-52 overflow-hidden bg-[#0a0c10] relative">
+                      <img 
+                        src={article.coverImage} 
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
+                        alt={article.title} 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#12151b] via-transparent to-transparent opacity-90" />
+                      
+                      <div className="absolute top-4 left-4">
+                        <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0a0c10]/80 backdrop-blur-md border border-white/10 text-[color:var(--theme-main)]">
+                          {article.category}
+                        </span>
+                      </div>
+
+                      <div className="absolute bottom-3 right-4 flex items-center gap-3 font-mono text-[10px] text-white/80">
+                        <span className="flex items-center gap-1"><FiEye className="text-emerald-400" /> {article.views}</span>
+                        <span className="flex items-center gap-1"><FiHeart className="text-rose-400" /> {article.likes}</span>
+                      </div>
+                    </div>
+
+                    {/* CARD CONTENT */}
+                    <div className="p-6 flex flex-col flex-grow">
+                      <div className="flex justify-between items-center font-mono text-[10px] text-[#5b6472] uppercase tracking-widest mb-3">
+                        <span>{article.date}</span>
+                        <span className="flex items-center gap-1.5 text-[#8a93a6]"><FiClock size={11} /> {article.readTime}</span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-white mb-3 leading-snug line-clamp-2 group-hover:text-[color:var(--theme-main)] transition-colors">
+                        {article.title}
+                      </h3>
+
+                      <p className="text-[#8a93a6] text-sm leading-relaxed mb-6 flex-grow line-clamp-3 font-sans">
+                        {article.summary}
+                      </p>
+
+                      {/* TAG CHIPS */}
+                      {article.tags && (
+                        <div className="flex flex-wrap gap-1.5 mb-6">
+                          {article.tags.slice(0, 3).map((tag, i) => (
+                            <span key={i} className="font-mono text-[9px] px-2.5 py-0.5 rounded-md bg-white/[0.03] border border-white/5 text-[#8a93a6]">
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="pt-4 border-t border-white/5 font-mono text-xs text-[color:var(--theme-main)] font-semibold flex items-center justify-between group-hover:translate-x-1 transition-transform">
+                        <span className="flex items-center gap-2">Read Transmission <FiBookOpen size={13} /></span>
+                        <FiArrowRight size={14} />
+                      </div>
+                    </div>
+                  </motion.div>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      </motion.main>
+    </>
   );
 };
 
 // --- 3. MASTER ROUTER COMPONENT ---
-// This handles deciding whether to show the Blog List or a Specific Article
 const Blog = () => {
   return (
     <Routes>

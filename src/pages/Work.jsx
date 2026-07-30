@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useMotionTemplate, useTransform } from 'framer-motion';
 import { FiFolder, FiCode } from 'react-icons/fi';
+import { Helmet } from 'react-helmet-async';
 
 // --- SCRAMBLE TEXT UTILITY ---
 const ScrambleText = ({ text }) => {
@@ -179,71 +180,20 @@ const ProjectCard = ({ project, index }) => {
 
 // --- MAIN WORK COMPONENT ---
 const Work = () => {
-  // --- ADVANCED SEO & SCHEMA INJECTION FOR PORTFOLIO ---
-  useEffect(() => {
-    document.title = "Architectural Builds & Projects | Shavin Heshan Joseph";
-
-    const setMetaTag = (name, content, isProperty = false) => {
-      const attr = isProperty ? 'property' : 'name';
-      let meta = document.querySelector(`meta[${attr}="${name}"]`);
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute(attr, name);
-        document.head.appendChild(meta);
-      }
-      meta.content = content;
-    };
-
-    // Standard SEO Tags
-    setMetaTag('description', 'Explore the portfolio of Shavin Heshan Joseph. Featuring full-stack platforms, Android applications, and bespoke web architectures like Flux Service and KWAS.');
-    setMetaTag('keywords', 'shavin joseph portfolio, shavin heshan joseph projects, website developer portfolio sri lanka, android app developer projects, full stack web apps, kwas solutions, flux ac software');
-    setMetaTag('author', 'Shavin Heshan Joseph');
-    
-    // Open Graph for Google Images & Socials
-    setMetaTag('og:title', 'Systems Deployed | Shavin Heshan Joseph Portfolio', true);
-    setMetaTag('og:description', 'Explore full stack platforms, digital commerce environments, and web architectures engineered by Shavin Heshan Joseph.', true);
-    setMetaTag('og:image', `${window.location.origin}/ac-platform.png`, true); // Uses a project image as the default share thumbnail
-    setMetaTag('og:url', window.location.href, true);
-    setMetaTag('og:type', 'website', true);
-
-    // JSON-LD Structured Data (Tells Google exactly what projects you built)
-    let script = document.getElementById('seo-structured-data-work');
-    if (!script) {
-      script = document.createElement('script');
-      script.id = 'seo-structured-data-work';
-      script.type = 'application/ld+json';
-      document.head.appendChild(script);
-    }
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Shavin Heshan Joseph - Architectural Builds & Projects",
-      "description": "A curated selection of full stack platforms, digital commerce environments, and web architectures engineered for performance and scalability.",
-      "author": {
-        "@type": "Person",
-        "name": "Shavin Heshan Joseph",
-        "url": window.location.origin
-      },
-      "itemListElement": projects.map((p, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "name": p.title,
-        "description": p.description
-      }))
-    };
-    script.innerHTML = JSON.stringify(structuredData);
-
-    // Cleanup script when navigating away to avoid duplicate schemas
-    return () => {
-      const existingScript = document.getElementById('seo-structured-data-work');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, []);
-
   return (
-    <motion.main 
+    <>
+      <Helmet>
+        <title>Work & Projects | Shavin Heshan Joseph</title>
+        <meta name="description" content="Explore the portfolio of Shavin Heshan Joseph. Featuring full-stack platforms, Android applications, and web architectures like Flux Service and KWAS." />
+        <meta name="keywords" content="shavin joseph portfolio, shavin heshan joseph projects, website developer portfolio sri lanka, android app developer projects, full stack web apps, kwas solutions, flux ac software" />
+        <link rel="canonical" href="https://shavinjoseph.me/work" />
+        <meta property="og:title" content="Work & Projects | Shavin Heshan Joseph" />
+        <meta property="og:description" content="Explore full stack platforms, digital commerce environments, and web architectures engineered by Shavin Heshan Joseph." />
+        <meta property="og:url" content="https://shavinjoseph.me/work" />
+        <meta property="og:image" content="https://shavinjoseph.me/ac-platform.png" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <motion.main 
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
@@ -314,6 +264,7 @@ const Work = () => {
       </motion.div>
       
     </motion.main>
+    </>
   );
 };
 

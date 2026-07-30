@@ -4,6 +4,7 @@ import { FiMail, FiSend, FiMessageSquare } from 'react-icons/fi';
 import { FaFacebookF, FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase'; 
+import { Helmet } from 'react-helmet-async';
 
 // --- SCRAMBLE TEXT UTILITY ---
 const ScrambleText = ({ text }) => {
@@ -202,7 +203,18 @@ const Contact = () => {
   };
 
   return (
-    <motion.main 
+    <>
+      <Helmet>
+        <title>Contact | Shavin Heshan Joseph</title>
+        <meta name="description" content="Get in touch with Shavin Heshan Joseph for website development, Android app creation, full-stack software projects, and technical consultations." />
+        <meta name="keywords" content="contact shavin joseph, hire website developer sri lanka, android developer contact, full stack developer consultation" />
+        <link rel="canonical" href="https://shavinjoseph.me/contact" />
+        <meta property="og:title" content="Contact | Shavin Heshan Joseph" />
+        <meta property="og:description" content="Get in touch with Shavin Heshan Joseph for website development, Android app creation, and software development." />
+        <meta property="og:url" content="https://shavinjoseph.me/contact" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <motion.main 
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
@@ -345,7 +357,8 @@ const Contact = () => {
           </form>
         )}
       </motion.div>
-    </motion.main>
+      </motion.main>
+    </>
   );
 };
 

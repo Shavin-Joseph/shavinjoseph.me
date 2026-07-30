@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { FiMonitor, FiCpu, FiSmartphone, FiCrosshair, FiMapPin } from 'react-icons/fi';
+import { Helmet } from 'react-helmet-async';
 
 // --- SCRAMBLE TEXT UTILITY ---
 const ScrambleText = ({ text }) => {
@@ -136,35 +137,20 @@ const DataModule = ({ title, icon, items, delay }) => (
 
 // --- MAIN ABOUT COMPONENT ---
 const About = () => {
-  // --- SEO & META TAG INJECTION ---
-  useEffect(() => {
-    document.title = "About Shavin Heshan Joseph | Website & Android App Developer";
-
-    const setMetaTag = (name, content, isProperty = false) => {
-      const attr = isProperty ? 'property' : 'name';
-      let meta = document.querySelector(`meta[${attr}="${name}"]`);
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute(attr, name);
-        document.head.appendChild(meta);
-      }
-      meta.content = content;
-    };
-
-    // Inject Search Engine Keywords & Descriptions
-    setMetaTag('description', 'Learn more about Shavin Heshan Joseph, a professional website developer, Android app developer, and full-stack systems architect from the University of Colombo.');
-    setMetaTag('keywords', 'shavin joseph, shavin heshan joseph, heshan joseph, shavin, heshan, joseph, website developer, android app developer, full stack developer, web design sri lanka, app creator, software engineer');
-    setMetaTag('author', 'Shavin Heshan Joseph');
-    
-    // Image & Social SEO (Ensures profile image shows in Google searches and links)
-    setMetaTag('og:title', 'Shavin Heshan Joseph | Developer Profile', true);
-    setMetaTag('og:description', 'System profile for Shavin Heshan Joseph - Expert in full-stack web, mobile apps, and Cisco networks.', true);
-    setMetaTag('og:image', `${window.location.origin}/profile.jpg`, true);
-    setMetaTag('og:type', 'profile', true);
-  }, []);
-
   return (
-    <motion.main 
+    <>
+      <Helmet>
+        <title>About | Shavin Heshan Joseph</title>
+        <meta name="description" content="Learn more about Shavin Heshan Joseph, a professional website developer, Android app developer, and full-stack systems architect from the University of Colombo." />
+        <meta name="keywords" content="shavin joseph, shavin heshan joseph, heshan joseph, website developer, android app developer, full stack developer, web design sri lanka" />
+        <link rel="canonical" href="https://shavinjoseph.me/about" />
+        <meta property="og:title" content="About | Shavin Heshan Joseph" />
+        <meta property="og:description" content="System profile for Shavin Heshan Joseph - Expert in full-stack web, mobile apps, and Cisco networks." />
+        <meta property="og:url" content="https://shavinjoseph.me/about" />
+        <meta property="og:image" content="https://shavinjoseph.me/profile.jpg" />
+        <meta property="og:type" content="profile" />
+      </Helmet>
+      <motion.main 
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
@@ -245,6 +231,7 @@ const About = () => {
         </div>
       </div>
     </motion.main>
+    </>
   );
 };
 

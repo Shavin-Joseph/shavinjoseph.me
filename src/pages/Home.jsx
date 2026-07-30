@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 import { FiCpu, FiTerminal, FiDatabase, FiWifi, FiLayers, FiCode } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 // --- SCRAMBLE TEXT UTILITY ---
 const ScrambleText = ({ text }) => {
@@ -252,7 +253,16 @@ const Home = () => {
   }, []);
 
   return (
-    <motion.main 
+    <>
+      <Helmet>
+        <title>Shavin Heshan Joseph | Software & Application Developer</title>
+        <meta name="description" content="Official portfolio of Shavin Heshan Joseph, a Software & Application Developer from Sri Lanka. Explore web development, Android applications, AI solutions, and full-stack projects." />
+        <link rel="canonical" href="https://shavinjoseph.me/" />
+        <meta property="og:title" content="Shavin Heshan Joseph | Software & Application Developer" />
+        <meta property="og:description" content="Official portfolio of Shavin Heshan Joseph. Explore web development, Android applications, AI solutions, and full-stack projects." />
+        <meta property="og:url" content="https://shavinjoseph.me/" />
+      </Helmet>
+      <motion.main 
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
@@ -337,6 +347,7 @@ const Home = () => {
 
       </div>
     </motion.main>
+    </>
   );
 };
 
