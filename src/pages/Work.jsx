@@ -111,7 +111,7 @@ const ProjectCard = ({ project, index }) => {
         onTouchMove={handleTouchMove}
         onTouchEnd={resetTilt}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="relative group flex flex-col bg-[#12151b]/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden hover:border-[color:var(--theme-main)]/50 transition-colors duration-500 h-full shadow-[0_15px_30px_-10px_rgba(0,0,0,0.6)] touch-pan-y cursor-crosshair"
+        className="relative group flex flex-col bg-white dark:bg-[#12151b] border border-slate-200 dark:border-white/10 rounded-2xl overflow-hidden hover:border-[color:var(--theme-main)]/50 transition-all duration-500 h-full shadow-md dark:shadow-2xl touch-pan-y cursor-crosshair"
       >
         <motion.div
           className="pointer-events-none absolute -inset-px opacity-0 transition duration-500 group-hover:opacity-100 z-0"
@@ -123,7 +123,7 @@ const ProjectCard = ({ project, index }) => {
         <div className="relative z-10 flex flex-col h-full" style={{ transform: "translateZ(30px)" }}>
           
           {/* Image Container */}
-          <div className="relative w-full aspect-video overflow-hidden border-b border-white/10 bg-[#0a0c10]">
+          <div className="relative w-full aspect-video overflow-hidden border-b border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-[#0a0c10]">
             <div className="absolute inset-0 bg-[color:var(--theme-main)]/10 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             <img 
               src={project.image} 
@@ -148,15 +148,15 @@ const ProjectCard = ({ project, index }) => {
 
           {/* Content Container */}
           <div className="p-5 md:p-8 flex flex-col flex-grow">
-            <span className="font-mono text-[10px] text-[color:var(--theme-main)] tracking-widest uppercase mb-3 md:mb-4 block">
+            <span className="font-mono text-[10px] text-[color:var(--theme-main)] tracking-widest uppercase mb-3 md:mb-4 block font-bold">
               {project.category}
             </span>
             
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-[color:var(--theme-main)] transition-colors duration-300 line-clamp-2 md:line-clamp-none">
+            <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-[color:var(--theme-main)] transition-colors duration-300 line-clamp-2 md:line-clamp-none">
               {project.title}
             </h3>
             
-            <p className="text-[#8a93a6] text-sm md:text-base leading-relaxed mb-6 md:mb-8 flex-grow">
+            <p className="text-slate-600 dark:text-[#8a93a6] text-sm md:text-base leading-relaxed mb-6 md:mb-8 flex-grow">
               {project.description}
             </p>
             
@@ -165,7 +165,7 @@ const ProjectCard = ({ project, index }) => {
               {project.tags.map((tag, i) => (
                 <span 
                   key={i} 
-                  className="font-mono text-[9px] md:text-[10px] tracking-wide px-2.5 md:px-3 py-1 md:py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[#eef1f6] group-hover:border-[color:var(--theme-main)]/30 transition-colors duration-300"
+                  className="font-mono text-[9px] md:text-[10px] tracking-wide px-2.5 md:px-3 py-1 md:py-1.5 rounded-full bg-slate-100 dark:bg-[#0a0c10] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-[#eef1f6] group-hover:border-[color:var(--theme-main)]/30 transition-colors duration-300 font-semibold"
                 >
                   {tag}
                 </span>
@@ -202,14 +202,14 @@ const Work = () => {
     >
       {/* Header */}
       <div className="mb-12 md:mb-20 text-center md:text-left">
-        <div className="font-mono text-sm tracking-[0.06em] text-[color:var(--theme-main)] mb-3 md:mb-4 flex items-center justify-center md:justify-start gap-3">
+        <div className="font-mono text-sm tracking-[0.06em] text-[color:var(--theme-main)] mb-3 md:mb-4 flex items-center justify-center md:justify-start gap-3 font-bold">
           <span className="w-8 h-px bg-[var(--theme-main)]" />
           <ScrambleText text="SYSTEMS DEPLOYED" />
         </div>
-        <h1 className="font-bold text-[clamp(36px,8vw,80px)] leading-[0.9] tracking-tight uppercase text-white mb-5 md:mb-6">
-          Architectural <span className="text-transparent" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.6)' }}>Builds.</span>
+        <h1 className="font-bold text-[clamp(36px,8vw,80px)] leading-[0.9] tracking-tight uppercase hero-title-solid mb-5 md:mb-6">
+          Architectural <span className="hero-title-stroke">Builds.</span>
         </h1>
-        <p className="max-w-[600px] text-[#8a93a6] text-sm md:text-lg leading-relaxed mx-auto md:mx-0">
+        <p className="max-w-[600px] text-slate-600 dark:text-[#8a93a6] text-sm md:text-lg leading-relaxed mx-auto md:mx-0">
           A curated selection of full stack platforms, digital commerce environments, and web architectures engineered for performance and scalability.
         </p>
       </div>
@@ -227,35 +227,35 @@ const Work = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative bg-[#12151b]/90 backdrop-blur-xl border border-[color:var(--theme-main)]/30 rounded-3xl p-6 md:p-8 lg:p-12 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+        className="relative bg-white dark:bg-[#12151b] backdrop-blur-xl border border-slate-200 dark:border-[color:var(--theme-main)]/30 rounded-3xl p-6 md:p-8 lg:p-12 overflow-hidden shadow-lg dark:shadow-2xl"
       >
         <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-[var(--theme-main)]/5 rounded-full blur-3xl pointer-events-none" />
         
         <div className="relative z-10 flex flex-col lg:grid lg:grid-cols-[1fr_auto] gap-8 items-center text-center lg:text-left">
           
           <div className="flex flex-col items-center lg:items-start">
-            <div className="flex items-center justify-center lg:justify-start gap-2 md:gap-3 font-mono text-[10px] md:text-xs text-[color:var(--theme-main)] tracking-widest uppercase mb-3">
+            <div className="flex items-center justify-center lg:justify-start gap-2 md:gap-3 font-mono text-[10px] md:text-xs text-[color:var(--theme-main)] tracking-widest uppercase mb-3 font-bold">
               <span className="w-2 h-2 rounded-full bg-[var(--theme-main)] animate-pulse" />
               Independent Brand Ecosystem
             </div>
             
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white uppercase tracking-tight mb-4 flex flex-col lg:block items-center">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white uppercase tracking-tight mb-4 flex flex-col lg:block items-center">
               KWAS <span className="text-[color:var(--theme-main)] font-mono text-sm md:text-lg lowercase font-normal mt-1 lg:mt-0 lg:ml-2">(Key Web App Solutions)</span>
             </h2>
             
-            <p className="text-[#8a93a6] text-sm md:text-base lg:text-lg max-w-[700px] leading-relaxed">
+            <p className="text-slate-600 dark:text-[#8a93a6] text-sm md:text-base lg:text-lg max-w-[700px] leading-relaxed">
               Serving as the incubator brand for upcoming proprietary software and mobile applications. Built to streamline client operations, KWAS is expanding into a full suite of downloadable desktop software and mobile apps built for independent deployment and commercial scale.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
-            <div className="px-5 md:px-6 py-4 rounded-2xl bg-white/[0.02] border border-white/10 flex items-center justify-center lg:justify-start gap-4">
+            <div className="px-5 md:px-6 py-4 rounded-2xl bg-slate-50 dark:bg-[#0a0c10] border border-slate-200 dark:border-white/10 flex items-center justify-center lg:justify-start gap-4">
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[var(--theme-main)]/10 flex items-center justify-center overflow-hidden border border-[color:var(--theme-main)]/30 p-1 flex-shrink-0">
                 <img src="/kwas-logo.png" alt="KWAS Logo" className="w-full h-full object-contain" />
               </div>
               <div className="text-left">
-                <div className="font-mono text-[9px] md:text-[10px] text-[#5b6472] uppercase tracking-widest">Future Releases</div>
-                <div className="text-white font-bold text-xs md:text-sm tracking-wide">Software & Apps</div>
+                <div className="font-mono text-[9px] md:text-[10px] text-slate-500 dark:text-[#5b6472] uppercase tracking-widest font-bold">Future Releases</div>
+                <div className="text-slate-900 dark:text-white font-bold text-xs md:text-sm tracking-wide">Software & Apps</div>
               </div>
             </div>
           </div>

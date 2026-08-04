@@ -128,42 +128,43 @@ const ChannelCard = ({ channel, index }) => {
         onMouseLeave={handleMouseLeave}
         whileTap={{ scale: 0.98 }}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className={`relative group flex flex-col bg-[#12151b]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 overflow-hidden transition-all duration-500 h-full shadow-[0_15px_30px_-10px_rgba(0,0,0,0.6)] ${channel.borderColor}`}
+        className="relative group flex flex-col bg-white dark:bg-[#12151b]/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-2xl p-6 md:p-8 overflow-hidden hover:border-[color:var(--theme-main)]/50 transition-colors duration-500 h-full shadow-md dark:shadow-[0_20px_40px_rgba(0,0,0,0.6)] touch-pan-y cursor-pointer"
       >
+        {/* Glow */}
         <motion.div
           className="pointer-events-none absolute -inset-px opacity-0 transition duration-500 group-hover:opacity-100 z-0"
           style={{
-            background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(var(--theme-rgb), 0.15), transparent 40%)`,
+            background: useMotionTemplate`radial-gradient(500px circle at ${mouseX}px ${mouseY}px, rgba(var(--theme-rgb), 0.15), transparent 40%)`,
           }}
         />
 
         <div className="relative z-10 flex flex-col h-full" style={{ transform: "translateZ(30px)" }}>
           <div className="flex justify-between items-start mb-6">
             <motion.div 
-              className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[color:var(--theme-main)] transition-colors duration-300 group-hover:bg-[var(--theme-main)]/10"
+              className="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 flex items-center justify-center text-[color:var(--theme-main)] transition-colors duration-300 group-hover:bg-[var(--theme-main)]/10"
               whileHover={{ rotate: [0, -10, 10, 0], transition: { duration: 0.5 } }}
             >
               {channel.icon}
             </motion.div>
-            <span className="font-mono text-[10px] tracking-widest uppercase px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[#c5cbd3] group-hover:border-[color:var(--theme-main)]/40 transition-colors duration-300">
+            <span className="font-mono text-[10px] tracking-widest uppercase px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-[#c5cbd3] group-hover:border-[color:var(--theme-main)]/40 transition-colors duration-300 font-bold">
               {channel.badge}
             </span>
           </div>
 
-          <span className="font-mono text-xs text-[color:var(--theme-main)] tracking-widest uppercase mb-1">
+          <span className="font-mono text-xs text-[color:var(--theme-main)] tracking-widest uppercase mb-1 font-bold">
             {channel.name}
           </span>
           
-          <h3 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-[color:var(--theme-main)] transition-colors duration-300">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-[color:var(--theme-main)] transition-colors duration-300">
             {channel.handle}
           </h3>
           
-          <p className="text-[#8a93a6] text-sm leading-relaxed mb-6 flex-grow">
+          <p className="text-slate-600 dark:text-[#8a93a6] text-sm leading-relaxed mb-6 flex-grow">
             {channel.description}
           </p>
 
           <motion.div 
-            className="font-mono text-xs text-white flex items-center gap-2 group-hover:text-[color:var(--theme-main)] transition-colors mt-auto"
+            className="font-mono text-xs text-slate-900 dark:text-white font-bold flex items-center gap-2 group-hover:text-[color:var(--theme-main)] transition-colors mt-auto"
             whileHover={{ x: 5 }}
           >
             Initialize Link <span>→</span>
@@ -222,14 +223,14 @@ const Contact = () => {
       className="relative z-10 w-full min-h-screen pt-32 pb-24 px-5 md:px-8 max-w-[1280px] mx-auto"
     >
       <div className="mb-16 md:mb-24 text-center md:text-left">
-        <div className="font-mono text-sm tracking-[0.06em] text-[color:var(--theme-main)] mb-4 flex items-center justify-center md:justify-start gap-3">
+        <div className="font-mono text-sm tracking-[0.06em] text-[color:var(--theme-main)] mb-4 flex items-center justify-center md:justify-start gap-3 font-bold">
           <span className="w-8 h-px bg-[var(--theme-main)]" />
           <ScrambleText text="ESTABLISH CONNECTION" />
         </div>
-        <h1 className="font-bold text-[clamp(40px,6vw,80px)] leading-[0.9] tracking-tight uppercase text-white mb-6">
-          Let's <span className="text-transparent" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.6)' }}>Talk.</span>
+        <h1 className="font-bold text-[clamp(40px,6vw,80px)] leading-[0.9] tracking-tight uppercase hero-title-solid mb-6">
+          Let's <span className="hero-title-stroke">Talk.</span>
         </h1>
-        <p className="max-w-[600px] text-[#8a93a6] text-base md:text-lg leading-relaxed mx-auto md:mx-0">
+        <p className="max-w-[600px] text-slate-600 dark:text-[#8a93a6] text-base md:text-lg leading-relaxed mx-auto md:mx-0">
           Connect directly via secure communication channels or send an encrypted transmission straight to the terminal array.
         </p>
       </div>
@@ -245,7 +246,7 @@ const Contact = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8 }}
-        className="bg-[#12151b]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+        className="bg-white dark:bg-[#12151b]/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-lg dark:shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
       >
         {/* Animated Breathing Glow */}
         <motion.div 
@@ -262,7 +263,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="font-mono text-xs text-[color:var(--theme-main)] tracking-widest uppercase mb-2 flex items-center gap-2"
+            className="font-mono text-xs text-[color:var(--theme-main)] tracking-widest uppercase mb-2 flex items-center gap-2 font-bold"
           >
             <FiMessageSquare /> Secure Terminal Dispatch
           </motion.div>
@@ -270,7 +271,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-2xl md:text-3xl font-bold text-white uppercase tracking-tight"
+            className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white uppercase tracking-tight"
           >
             Send a Direct Transmission
           </motion.h2>
@@ -280,7 +281,7 @@ const Contact = () => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            className="p-8 rounded-2xl bg-[var(--theme-main)]/10 border border-[var(--theme-main)]/40 text-center font-mono text-sm text-white relative z-10"
+            className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-500/40 text-center font-mono text-sm text-emerald-700 dark:text-emerald-300 font-bold relative z-10"
           >
             [OK] Transmission received and securely encrypted. System operator will respond shortly.
           </motion.div>
@@ -293,15 +294,15 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <label className="block font-mono text-xs text-[#8a93a6] uppercase tracking-wider mb-2">Operator Name</label>
+                <label className="block font-mono text-xs text-slate-600 dark:text-[#8a93a6] uppercase tracking-wider mb-2 font-bold">Operator Name</label>
                 <motion.input 
-                  whileFocus={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.02)" }}
+                  whileFocus={{ scale: 1.01 }}
                   type="text" 
                   required
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                   placeholder="e.g. John Doe"
-                  className="w-full bg-[#0a0c10] border border-white/10 rounded-xl px-5 py-4 text-white placeholder-[#5b6472] font-mono text-sm focus:outline-none focus:border-[color:var(--theme-main)] transition-colors"
+                  className="w-full bg-slate-100 dark:bg-[#0a0c10] border border-slate-300 dark:border-white/10 rounded-xl px-5 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-[#5b6472] font-mono text-sm focus:outline-none focus:border-[color:var(--theme-main)] transition-colors"
                 />
               </motion.div>
 
@@ -310,15 +311,15 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <label className="block font-mono text-xs text-[#8a93a6] uppercase tracking-wider mb-2">Return Address (Email)</label>
+                <label className="block font-mono text-xs text-slate-600 dark:text-[#8a93a6] uppercase tracking-wider mb-2 font-bold">Return Address (Email)</label>
                 <motion.input 
-                  whileFocus={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.02)" }}
+                  whileFocus={{ scale: 1.01 }}
                   type="email" 
                   required
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                   placeholder="name@domain.com"
-                  className="w-full bg-[#0a0c10] border border-white/10 rounded-xl px-5 py-4 text-white placeholder-[#5b6472] font-mono text-sm focus:outline-none focus:border-[color:var(--theme-main)] transition-colors"
+                  className="w-full bg-slate-100 dark:bg-[#0a0c10] border border-slate-300 dark:border-white/10 rounded-xl px-5 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-[#5b6472] font-mono text-sm focus:outline-none focus:border-[color:var(--theme-main)] transition-colors"
                 />
               </motion.div>
 
@@ -329,15 +330,15 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
             >
-              <label className="block font-mono text-xs text-[#8a93a6] uppercase tracking-wider mb-2">Transmission Message</label>
+              <label className="block font-mono text-xs text-slate-600 dark:text-[#8a93a6] uppercase tracking-wider mb-2 font-bold">Transmission Message</label>
               <motion.textarea 
-                whileFocus={{ scale: 1.01, backgroundColor: "rgba(255,255,255,0.02)" }}
+                whileFocus={{ scale: 1.01 }}
                 rows="5"
                 required
                 value={formState.message}
                 onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                 placeholder="Enter project details, inquiry, or collaboration terms..."
-                className="w-full bg-[#0a0c10] border border-white/10 rounded-xl p-5 text-white placeholder-[#5b6472] font-mono text-sm focus:outline-none focus:border-[color:var(--theme-main)] transition-colors resize-none"
+                className="w-full bg-slate-100 dark:bg-[#0a0c10] border border-slate-300 dark:border-white/10 rounded-xl p-5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-[#5b6472] font-mono text-sm focus:outline-none focus:border-[color:var(--theme-main)] transition-colors resize-none"
               />
             </motion.div>
 

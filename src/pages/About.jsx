@@ -74,7 +74,7 @@ const ProfileCard = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={resetTilt}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="relative group aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 bg-[#0d1015] shadow-[0_30px_60px_rgba(0,0,0,0.8)] cursor-crosshair touch-none"
+        className="relative group aspect-[3/4] rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0d1015] shadow-lg dark:shadow-[0_30px_60px_rgba(0,0,0,0.8)] cursor-crosshair touch-none"
       >
         {/* Animated Scanline Overlay */}
         <motion.div 
@@ -119,16 +119,16 @@ const DataModule = ({ title, icon, items, delay }) => (
     initial={{ opacity: 0, y: 20 }} 
     animate={{ opacity: 1, y: 0 }} 
     transition={{ duration: 0.6, delay }}
-    className="bg-[#12151b]/50 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:border-[color:var(--theme-main)]/50 transition-colors duration-500 group"
+    className="bg-white dark:bg-[#12151b] backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-2xl p-6 hover:border-[color:var(--theme-main)]/50 transition-colors duration-500 group shadow-sm dark:shadow-xl"
   >
-    <div className="w-10 h-10 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-center justify-center mb-5 text-[color:var(--theme-main)] group-hover:scale-110 transition-transform duration-300">
+    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-[#0a0c10] border border-slate-200 dark:border-white/10 flex items-center justify-center mb-5 text-[color:var(--theme-main)] group-hover:scale-110 transition-transform duration-300">
       {icon}
     </div>
-    <h3 className="font-sans text-[16px] font-bold text-white mb-4 uppercase tracking-wide">{title}</h3>
+    <h3 className="font-sans text-[16px] font-bold text-slate-900 dark:text-white mb-4 uppercase tracking-wide">{title}</h3>
     <ul className="space-y-2">
       {items.map((item, i) => (
-        <li key={i} className="flex items-start gap-2 font-mono text-[13px] text-[#8a93a6]">
-          <span className="text-[color:var(--theme-main)] mt-0.5">›</span> {item}
+        <li key={i} className="flex items-start gap-2 font-mono text-[13px] text-slate-600 dark:text-[#8a93a6]">
+          <span className="text-[color:var(--theme-main)] mt-0.5 font-bold">›</span> {item}
         </li>
       ))}
     </ul>
@@ -159,12 +159,12 @@ const About = () => {
     >
       {/* Header */}
       <div className="mb-16 md:mb-24 text-center md:text-left mt-8 md:mt-0">
-        <div className="font-mono text-sm tracking-[0.06em] text-[color:var(--theme-main)] mb-4 flex items-center justify-center md:justify-start gap-3">
+        <div className="font-mono text-sm tracking-[0.06em] text-[color:var(--theme-main)] mb-4 flex items-center justify-center md:justify-start gap-3 font-bold">
           <span className="w-8 h-px bg-[var(--theme-main)]" />
           <ScrambleText text="OPERATOR CLEARANCE LEVEL" />
         </div>
-        <h1 className="font-bold text-[clamp(40px,6vw,80px)] leading-[0.9] tracking-tight uppercase text-white">
-          System <span className="text-transparent" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.6)' }}>Profile.</span>
+        <h1 className="font-bold text-[clamp(40px,6vw,80px)] leading-[0.9] tracking-tight uppercase hero-title-solid">
+          System <span className="hero-title-stroke">Profile.</span>
         </h1>
       </div>
 
@@ -187,13 +187,13 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="prose prose-invert max-w-none font-sans text-base md:text-lg text-[#8a93a6] leading-relaxed mb-12"
+            className="prose prose-invert max-w-none font-sans text-base md:text-lg text-slate-600 dark:text-[#8a93a6] leading-relaxed mb-12"
           >
             <p className="mb-6">
-              I am an undergraduate at the <strong className="text-[#eef1f6] font-medium">Faculty of Technology, University of Colombo</strong>, pursuing a Bachelor of Information and Communication Technology. Beyond academia, I am an entrepreneur and digital creator focused on building robust solutions that bridge complex backend logic with seamless user experiences.
+              I am an undergraduate at the <strong className="text-slate-900 dark:text-white font-semibold">Faculty of Technology, University of Colombo</strong>, pursuing a Bachelor of Information and Communication Technology. Beyond academia, I am an entrepreneur and digital creator focused on building robust solutions that bridge complex backend logic with seamless user experiences.
             </p>
-            <p className="mb-6 p-5 rounded-xl border border-white/10 bg-white/[0.02] shadow-inner">
-              I design and develop <strong className="text-[color:var(--theme-main)] font-medium">full stack web and mobile applications</strong> using HTML, CSS, JavaScript, Python, and modern development frameworks. I also build <strong className="text-white font-medium">Android applications</strong>, configure and troubleshoot <strong className="text-white font-medium">Cisco network infrastructure</strong>, diagnose and resolve software issues, and leverage <strong className="text-[color:var(--theme-main)] font-medium">AI tools</strong> to streamline development, automate workflows, and create scalable digital solutions.
+            <p className="mb-6 p-5 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-[#12151b] shadow-inner text-slate-800 dark:text-slate-200">
+              I design and develop <strong className="text-[color:var(--theme-main)] font-bold">full stack web and mobile applications</strong> using HTML, CSS, JavaScript, Python, and modern development frameworks. I also build <strong className="text-slate-950 dark:text-white font-bold">Android applications</strong>, configure and troubleshoot <strong className="text-slate-950 dark:text-white font-bold">Cisco network infrastructure</strong>, diagnose and resolve software issues, and leverage <strong className="text-[color:var(--theme-main)] font-bold">AI tools</strong> to streamline development, automate workflows, and create scalable digital solutions.
             </p>
             <p>
               I believe in holistic system design. True engineering doesn't stop at the frontend it extends through the routing protocols and into the databases. My background also includes serving as President of a local youth association, where I honed the leadership skills necessary to manage complex, community driven projects from the ground up.

@@ -94,10 +94,10 @@ const HolographicHero = () => {
     >
       {/* Base Layer: Outline & Solid */}
       <h1 className="font-bold text-[clamp(45px,11vw,140px)] leading-[0.85] tracking-tighter uppercase flex flex-col">
-        <span className="text-transparent pb-1" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.8)' }}>
+        <span className="pb-1 hero-title-stroke">
           SHAVIN
         </span>
-        <span className="text-white/90 pb-1">
+        <span className="pb-1 hero-title-solid">
           JOSEPH
         </span>
       </h1>
@@ -137,10 +137,10 @@ const DraggableNode = ({ icon, label, positionClasses, delay }) => {
         dragElastic={0.2}
         dragMomentum={true}
         whileDrag={{ scale: 1.1, cursor: "grabbing" }}
-        className="flex items-center gap-1.5 md:gap-3 px-3 md:px-5 py-2 md:py-3 bg-[#12151b]/80 backdrop-blur-md border border-[rgba(240,244,250,0.1)] rounded-full cursor-grab shadow-xl hover:border-[color:var(--theme-main)] transition-colors duration-300"
+        className="flex items-center gap-1.5 md:gap-3 px-3 md:px-5 py-2 md:py-3 bg-white dark:bg-[#12151b] backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-full cursor-grab shadow-xl hover:border-[color:var(--theme-main)] transition-colors duration-300"
       >
         <span className="text-[color:var(--theme-main)] transition-colors duration-500 scale-75 md:scale-100">{icon}</span>
-        <span className="font-mono text-[8px] md:text-xs text-[#eef1f6] tracking-widest uppercase whitespace-nowrap">{label}</span>
+        <span className="font-mono text-[8px] md:text-xs text-slate-900 dark:text-[#eef1f6] font-bold tracking-widest uppercase whitespace-nowrap">{label}</span>
       </motion.div>
     </motion.div>
   );
@@ -149,10 +149,10 @@ const DraggableNode = ({ icon, label, positionClasses, delay }) => {
 // --- 3. BLUEPRINT DRAWING LINES ---
 const BlueprintLines = () => (
   <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-    <motion.div initial={{ height: 0 }} animate={{ height: '100%' }} transition={{ duration: 1.5, ease: "easeInOut" }} className="absolute left-[5%] md:left-[10%] top-0 w-px bg-white/10" />
-    <motion.div initial={{ height: 0 }} animate={{ height: '100%' }} transition={{ duration: 1.5, ease: "easeInOut", delay: 0.2 }} className="absolute right-[5%] md:right-[10%] top-0 w-px bg-white/10" />
-    <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 1.5, ease: "easeInOut", delay: 0.4 }} className="absolute top-[15%] md:top-[20%] left-0 h-px bg-white/10" />
-    <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 1.5, ease: "easeInOut", delay: 0.6 }} className="absolute bottom-[15%] md:bottom-[20%] left-0 h-px bg-white/10" />
+    <motion.div initial={{ height: 0 }} animate={{ height: '100%' }} transition={{ duration: 1.5, ease: "easeInOut" }} className="absolute left-[5%] md:left-[10%] top-0 w-px bg-slate-300/40 dark:bg-white/10" />
+    <motion.div initial={{ height: 0 }} animate={{ height: '100%' }} transition={{ duration: 1.5, ease: "easeInOut", delay: 0.2 }} className="absolute right-[5%] md:right-[10%] top-0 w-px bg-slate-300/40 dark:bg-white/10" />
+    <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 1.5, ease: "easeInOut", delay: 0.4 }} className="absolute top-[15%] md:top-[20%] left-0 h-px bg-slate-300/40 dark:bg-white/10" />
+    <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 1.5, ease: "easeInOut", delay: 0.6 }} className="absolute bottom-[15%] md:bottom-[20%] left-0 h-px bg-slate-300/40 dark:bg-white/10" />
   </div>
 );
 
@@ -188,7 +188,7 @@ const SystemLog = () => {
   }, []);
 
   return (
-    <div className="absolute bottom-5 right-5 md:bottom-6 md:right-12 text-right flex flex-col items-end gap-1 font-mono text-[8px] md:text-[10px] tracking-widest text-[#5b6472] uppercase z-40 pointer-events-none">
+    <div className="absolute bottom-5 right-5 md:bottom-6 md:right-12 text-right flex flex-col items-end gap-1 font-mono text-[8px] md:text-[10px] tracking-widest text-slate-500 dark:text-[#5b6472] uppercase z-40 pointer-events-none">
       {logs.map((log, index) => (
         <motion.div 
           key={log + index} 
@@ -290,7 +290,7 @@ const Home = () => {
         {/* Added flex-col to perfectly control the vertical ordering using 'order-1', 'order-2' */}
         <div className="flex flex-col justify-center w-full relative z-10">
           
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="order-1 font-mono text-xs md:text-sm tracking-[0.06em] text-[#8a93a6] mb-[2vh]">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="order-1 font-mono text-xs md:text-sm tracking-[0.06em] text-slate-600 dark:text-[#8a93a6] mb-[2vh]">
             <ScrambleText text="// undergraduate — university of colombo" />
           </motion.div>
           
@@ -307,17 +307,17 @@ const Home = () => {
           >
             <Link 
               to="/work" 
-              className="group flex items-center gap-3 text-[#eef1f6] font-mono text-[11px] md:text-[13px] tracking-widest uppercase hover:text-[color:var(--theme-main)] transition-colors duration-300"
+              className="group flex items-center gap-3 text-slate-900 dark:text-[#eef1f6] font-mono text-[11px] md:text-[13px] tracking-widest uppercase hover:text-[color:var(--theme-main)] transition-colors duration-300 font-bold"
             >
-              <span className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[color:var(--theme-main)] transition-colors duration-300">
+              <span className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-slate-300 dark:border-white/20 flex items-center justify-center group-hover:border-[color:var(--theme-main)] transition-colors duration-300">
                 <FiCode size={14} className="md:w-4 md:h-4" />
               </span>
               Initialize Systems
             </Link>
             
-            <div className="w-6 md:w-12 h-[1px] bg-white/20 hidden xs:block" />
+            <div className="w-6 md:w-12 h-[1px] bg-slate-300 dark:bg-white/20 hidden xs:block" />
             
-            <div className="font-mono text-[9px] md:text-[10px] tracking-widest text-[#5b6472] uppercase">
+            <div className="font-mono text-[9px] md:text-[10px] tracking-widest text-slate-500 dark:text-[#5b6472] uppercase font-bold">
               Wattala, LK <br/> Active Environment
             </div>
           </motion.div>
@@ -327,9 +327,9 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ delay: 0.4 }} 
-            className="order-4 lg:order-3 max-w-[500px] text-[#8a93a6] text-sm md:text-lg leading-relaxed mt-4 lg:mt-[2vh] relative z-20"
+            className="order-4 lg:order-3 max-w-[500px] text-slate-600 dark:text-[#8a93a6] text-sm md:text-lg leading-relaxed mt-4 lg:mt-[2vh] relative z-20"
           >
-            I am a professional <strong className="text-[#eef1f6] font-medium">website developer</strong> and <strong className="text-[#eef1f6] font-medium">Android app developer</strong> building full-stack applications using HTML, CSS, JavaScript, and Python. I configure complex <strong className="text-[#eef1f6] font-medium">Cisco network infrastructure</strong>, diagnose hardware issues, and leverage <strong className="text-[#eef1f6] font-medium">AI tools</strong> to create automated digital solutions.
+            I am a professional <strong className="text-slate-900 dark:text-[#eef1f6] font-semibold">website developer</strong> and <strong className="text-slate-900 dark:text-[#eef1f6] font-semibold">Android app developer</strong> building full-stack applications using HTML, CSS, JavaScript, and Python. I configure complex <strong className="text-slate-900 dark:text-[#eef1f6] font-semibold">Cisco network infrastructure</strong>, diagnose hardware issues, and leverage <strong className="text-slate-900 dark:text-[#eef1f6] font-semibold">AI tools</strong> to create automated digital solutions.
           </motion.p>
           
         </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 import { Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
-import { FiHeart, FiEye, FiClock, FiTrendingUp, FiArrowLeft, FiShare2, FiBookOpen, FiSearch, FiFilter, FiZap, FiX, FiTag, FiArrowRight } from 'react-icons/fi';
+import { FiHeart, FiEye, FiClock, FiTrendingUp, FiArrowLeft, FiShare2, FiBookOpen, FiSearch, FiFilter, FiZap, FiX, FiTag, FiArrowRight, FiCopy, FiCheck, FiSun, FiMoon, FiList, FiExternalLink, FiUser, FiCheckCircle, FiSliders, FiMail } from 'react-icons/fi';
 import { db } from '../firebase'; // Ensure your firebase config is correct
 import { doc, setDoc, updateDoc, increment, collection, onSnapshot } from 'firebase/firestore';
 import { Helmet } from "react-helmet-async";
@@ -2235,6 +2235,337 @@ git stash pop
 Mastering Git command line gives you total control over version history.`
 }];
 
+// --- PRO MARKDOWN RENDERER & CODE HIGHLIGHTER COMPONENT ---
+const CodeBlock = ({ language, code }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="my-8 rounded-2xl overflow-hidden border border-slate-700/80 bg-[#0d1117] shadow-2xl text-left font-mono">
+      {/* IDE Header Bar */}
+      <div className="flex items-center justify-between px-4 py-3 bg-[#161b22] border-b border-slate-700/70 text-xs text-slate-400">
+        <div className="flex items-center gap-2">
+          <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
+          <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
+          <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
+          <span className="ml-2 font-bold uppercase tracking-widest text-emerald-400 text-[11px]">
+            {language || 'code'}
+          </span>
+        </div>
+        <button
+          onClick={handleCopy}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all text-xs border border-slate-700 shadow-sm"
+          title="Copy code to clipboard"
+        >
+          {copied ? (
+            <>
+              <FiCheck className="text-emerald-400" size={14} />
+              <span className="text-emerald-400 font-semibold">Copied!</span>
+            </>
+          ) : (
+            <>
+              <FiCopy size={13} />
+              <span>Copy Code</span>
+            </>
+          )}
+        </button>
+      </div>
+
+      {/* Code Content Area */}
+      <pre className="p-5 overflow-x-auto text-sm leading-relaxed text-[#e6edf3] font-mono scrollbar-thin scrollbar-thumb-slate-700">
+        <code>{code}</code>
+      </pre>
+    </div>
+  );
+};
+
+const ProMarkdownRenderer = ({ content, isLightMode, fontSizeClass }) => {
+  // Parse inline markdown: bold, inline code, links, italic
+  const renderInline = (text) => {
+    if (!text) return '';
+    const parts = [];
+    const regex = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\)|\*[^*]+\*)/g;
+    let match;
+    let lastIndex = 0;
+    let key = 0;
+
+    while ((match = regex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        parts.push(text.substring(lastIndex, match.index));
+      }
+
+      const token = match[0];
+      if (token.startsWith('**') && token.endsWith('**')) {
+        parts.push(
+          <strong key={key++} className={isLightMode ? "font-extrabold text-slate-950" : "font-extrabold text-white"}>
+            {token.slice(2, -2)}
+          </strong>
+        );
+      } else if (token.startsWith('`') && token.endsWith('`')) {
+        parts.push(
+          <code
+            key={key++}
+            className={`px-2 py-0.5 mx-0.5 rounded text-sm font-mono font-medium ${
+              isLightMode
+                ? "bg-slate-200/90 text-emerald-800 border border-slate-300"
+                : "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+            }`}
+          >
+            {token.slice(1, -1)}
+          </code>
+        );
+      } else if (token.startsWith('[') && token.includes('](')) {
+        const linkText = token.slice(1, token.indexOf(']('));
+        const linkUrl = token.slice(token.indexOf('](') + 2, -1);
+        parts.push(
+          <a
+            key={key++}
+            href={linkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[color:var(--theme-main)] font-semibold underline underline-offset-4 hover:opacity-80 inline-flex items-center gap-1"
+          >
+            {linkText} <FiExternalLink size={12} />
+          </a>
+        );
+      } else if (token.startsWith('*') && token.endsWith('*')) {
+        parts.push(<em key={key++} className="italic">{token.slice(1, -1)}</em>);
+      } else {
+        parts.push(token);
+      }
+
+      lastIndex = regex.lastIndex;
+    }
+
+    if (lastIndex < text.length) {
+      parts.push(text.substring(lastIndex));
+    }
+
+    return parts.length > 0 ? parts : text;
+  };
+
+  // Parse block-level markdown structures
+  const renderBlocks = () => {
+    const blocks = [];
+    const lines = content.split('\n');
+    let i = 0;
+
+    while (i < lines.length) {
+      const line = lines[i];
+
+      // 1. Code Blocks (```)
+      if (line.trim().startsWith('```')) {
+        const lang = line.trim().replace('```', '').trim();
+        const codeLines = [];
+        i++;
+        while (i < lines.length && !lines[i].trim().startsWith('```')) {
+          codeLines.push(lines[i]);
+          i++;
+        }
+        i++; // skip closing ```
+        blocks.push(
+          <CodeBlock key={`code-${i}`} language={lang} code={codeLines.join('\n')} />
+        );
+        continue;
+      }
+
+      // 2. Headings (##, ###, ####)
+      if (line.startsWith('## ')) {
+        const titleText = line.replace('## ', '').trim();
+        const slug = titleText.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+        blocks.push(
+          <h2
+            key={`h2-${i}`}
+            id={slug}
+            className={`text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-6 pb-3 border-b flex items-center gap-3 scroll-mt-28 ${
+              isLightMode
+                ? "text-slate-900 border-slate-200"
+                : "text-white border-white/10"
+            }`}
+          >
+            <span className="w-2.5 h-7 rounded-full bg-[color:var(--theme-main)] inline-block flex-shrink-0" />
+            {titleText}
+          </h2>
+        );
+        i++;
+        continue;
+      }
+
+      if (line.startsWith('### ')) {
+        const titleText = line.replace('### ', '').trim();
+        const slug = titleText.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+        blocks.push(
+          <h3
+            key={`h3-${i}`}
+            id={slug}
+            className={`text-xl md:text-2xl font-bold tracking-tight mt-9 mb-4 scroll-mt-28 ${
+              isLightMode ? "text-slate-900" : "text-white"
+            }`}
+          >
+            {titleText}
+          </h3>
+        );
+        i++;
+        continue;
+      }
+
+      if (line.startsWith('#### ')) {
+        const titleText = line.replace('#### ', '').trim();
+        blocks.push(
+          <h4
+            key={`h4-${i}`}
+            className={`text-lg font-bold mt-7 mb-3 ${
+              isLightMode ? "text-slate-800" : "text-slate-200"
+            }`}
+          >
+            {titleText}
+          </h4>
+        );
+        i++;
+        continue;
+      }
+
+      // 3. Tables (| col1 | col2 |)
+      if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
+        const tableLines = [];
+        while (i < lines.length && lines[i].trim().startsWith('|')) {
+          tableLines.push(lines[i]);
+          i++;
+        }
+
+        if (tableLines.length >= 2) {
+          const headerCells = tableLines[0].split('|').slice(1, -1).map(c => c.trim());
+          const bodyRows = tableLines.slice(2).map(r => r.split('|').slice(1, -1).map(c => c.trim()));
+
+          blocks.push(
+            <div key={`table-${i}`} className="my-8 overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md">
+              <table className="w-full text-left text-sm border-collapse">
+                <thead>
+                  <tr className={isLightMode ? "bg-slate-100 text-slate-900 border-b border-slate-300" : "bg-[#161b22] text-white border-b border-white/10"}>
+                    {headerCells.map((h, idx) => (
+                      <th key={idx} className="px-5 py-3.5 font-bold uppercase tracking-wider text-xs">
+                        {renderInline(h)}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className={isLightMode ? "divide-y divide-slate-200 bg-white" : "divide-y divide-white/5 bg-[#0f131a]"}>
+                  {bodyRows.map((row, rIdx) => (
+                    <tr key={rIdx} className={isLightMode ? "hover:bg-slate-50 transition-colors" : "hover:bg-white/5 transition-colors"}>
+                      {row.map((cell, cIdx) => (
+                        <td key={cIdx} className={`px-5 py-3.5 ${isLightMode ? "text-slate-700" : "text-slate-300"}`}>
+                          {renderInline(cell)}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
+        continue;
+      }
+
+      // 4. Blockquotes (> quote)
+      if (line.trim().startsWith('>')) {
+        const quoteText = line.trim().replace(/^>\s*/, '');
+        blocks.push(
+          <blockquote
+            key={`quote-${i}`}
+            className={`my-7 pl-6 py-4 rounded-r-2xl border-l-4 border-[color:var(--theme-main)] italic font-serif ${
+              isLightMode
+                ? "bg-slate-100/90 text-slate-800"
+                : "bg-white/5 text-slate-300"
+            }`}
+          >
+            {renderInline(quoteText)}
+          </blockquote>
+        );
+        i++;
+        continue;
+      }
+
+      // 5. Bullet Lists (- or *)
+      if (line.trim().startsWith('- ') || line.trim().startsWith('• ') || line.trim().startsWith('* ')) {
+        const listItems = [];
+        while (
+          i < lines.length &&
+          (lines[i].trim().startsWith('- ') || lines[i].trim().startsWith('• ') || lines[i].trim().startsWith('* '))
+        ) {
+          const itemText = lines[i].trim().replace(/^[-•*]\s*/, '');
+          listItems.push(itemText);
+          i++;
+        }
+        blocks.push(
+          <ul key={`ul-${i}`} className="my-6 space-y-3.5 pl-2">
+            {listItems.map((item, idx) => (
+              <li key={idx} className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-[color:var(--theme-main)] mt-2.5 flex-shrink-0" />
+                <span className={isLightMode ? "text-slate-800 leading-relaxed" : "text-slate-200 leading-relaxed"}>
+                  {renderInline(item)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        );
+        continue;
+      }
+
+      // 6. Numbered Lists (1. 2.)
+      if (/^\d+\.\s/.test(line.trim())) {
+        const listItems = [];
+        while (i < lines.length && /^\d+\.\s/.test(lines[i].trim())) {
+          const itemText = lines[i].trim().replace(/^\d+\.\s*/, '');
+          listItems.push(itemText);
+          i++;
+        }
+        blocks.push(
+          <ol key={`ol-${i}`} className="my-6 space-y-3.5 pl-2">
+            {listItems.map((item, idx) => (
+              <li key={idx} className="flex items-start gap-3">
+                <span className="w-6 h-6 rounded-full bg-[color:var(--theme-main)]/15 border border-[color:var(--theme-main)]/30 text-[color:var(--theme-main)] font-mono text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
+                  {idx + 1}
+                </span>
+                <span className={isLightMode ? "text-slate-800 leading-relaxed" : "text-slate-200 leading-relaxed"}>
+                  {renderInline(item)}
+                </span>
+              </li>
+            ))}
+          </ol>
+        );
+        continue;
+      }
+
+      // 7. Regular Paragraphs
+      if (line.trim() !== '') {
+        blocks.push(
+          <p
+            key={`p-${i}`}
+            className={`my-6 leading-[1.85] tracking-normal ${fontSizeClass} ${
+              isLightMode ? "text-slate-800 font-normal" : "text-slate-300 font-normal"
+            }`}
+          >
+            {renderInline(line)}
+          </p>
+        );
+      }
+
+      i++;
+    }
+
+    return blocks;
+  };
+
+  return <div className="pro-markdown-body">{renderBlocks()}</div>;
+};
+
+// --- PRO SINGLE BLOG POST READER PAGE ---
 const BlogPost = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -2242,19 +2573,40 @@ const BlogPost = () => {
 
   const [stats, setStats] = useState({ views: 0, likes: 0 });
   const [isLiked, setIsLiked] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(() => !document.documentElement.classList.contains('dark'));
+  const [fontSizeLevel, setFontSizeLevel] = useState('base'); // 'sm' | 'base' | 'lg'
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Track the specific article ID recorded to ensure view tracking works cleanly on route updates
   const recordedArticleId = useRef(null);
+
+  // Sync with global theme switcher (Dark/Light mode)
+  useEffect(() => {
+    const syncTheme = () => {
+      setIsLightMode(!document.documentElement.classList.contains('dark'));
+    };
+    syncTheme();
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
+
+  // Scroll Reading Progress Listener
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setScrollProgress((window.scrollY / totalHeight) * 100);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     if (!article) return;
-
-    // Reset liked state when switching articles
     setIsLiked(false);
 
     const docRef = doc(db, 'articleStats', article.id);
-
-    // 1. REAL-TIME FIREBASE LISTENER
     const unsubscribe = onSnapshot(docRef, (docSnap) => {
       if (docSnap.exists()) {
         setStats({
@@ -2264,7 +2616,6 @@ const BlogPost = () => {
       }
     });
 
-    // 2. ATOMIC VIEW COUNTER (Executes once per unique article ID per session)
     if (recordedArticleId.current !== article.id) {
       recordedArticleId.current = article.id;
       setDoc(docRef, { views: increment(1) }, { merge: true }).catch(console.error);
@@ -2275,8 +2626,7 @@ const BlogPost = () => {
 
   const handleLike = async () => {
     if (isLiked || !article) return;
-    setIsLiked(true); // Optimistic UI update
-
+    setIsLiked(true);
     const docRef = doc(db, 'articleStats', article.id);
     try {
       await setDoc(docRef, { likes: increment(1) }, { merge: true });
@@ -2287,10 +2637,31 @@ const BlogPost = () => {
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
-    alert("Transmission Link Copied!");
+    alert("Article Transmission Link Copied!");
   };
 
   if (!article) return <div className="min-h-screen flex items-center justify-center text-white">Article Not Found</div>;
+
+  // Extract table of contents headings (## )
+  const tocHeadings = article.content
+    .split('\n')
+    .filter(l => l.startsWith('## '))
+    .map(l => {
+      const title = l.replace('## ', '').trim();
+      const slug = title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+      return { title, slug };
+    });
+
+  // Related articles (same category or top trending)
+  const relatedArticles = HARDCODED_ARTICLES
+    .filter(a => a.id !== article.id)
+    .slice(0, 2);
+
+  const fontSizeClasses = {
+    sm: 'text-base md:text-lg',
+    base: 'text-lg md:text-xl',
+    lg: 'text-xl md:text-2xl'
+  };
 
   return (
     <>
@@ -2305,7 +2676,6 @@ const BlogPost = () => {
         <meta property="og:url" content={window.location.href} />
         <link rel="canonical" href={`https://shavinjoseph.me/blog/${article.id}`} />
 
-        {/* Google Article Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -2332,72 +2702,211 @@ const BlogPost = () => {
         </script>
       </Helmet>
 
-      <motion.article 
-        initial={{ opacity: 0, y: 20 }} 
-        animate={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 0.6 }}
-        className="w-full min-h-screen pt-28 pb-32 md:pt-32 md:pb-24 px-5 md:px-8 max-w-[900px] mx-auto overflow-x-hidden"
-      >
-        <button onClick={() => navigate('/blog')} className="flex items-center gap-2 text-[#8a93a6] hover:text-[color:var(--theme-main)] transition-colors mb-8 font-mono text-xs uppercase tracking-widest">
-          <FiArrowLeft /> Return to Logs
-        </button>
+      {/* TOP SCROLL READING PROGRESS BAR */}
+      <div 
+        className="fixed top-0 left-0 right-0 h-1.5 z-50 bg-[color:var(--theme-main)] transition-all duration-150" 
+        style={{ width: `${scrollProgress}%` }}
+      />
 
-        <div className="flex items-center gap-3 font-mono text-xs text-[color:var(--theme-main)] uppercase tracking-wider mb-5">
-          <span className="px-3 py-1 rounded-full bg-[var(--theme-main)]/10 border border-[var(--theme-main)]/30">{article.category}</span>
-          <span className="text-[#5b6472]">{article.date}</span>
-        </div>
-
-        <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-8 leading-tight">{article.title}</h1>
-
-        <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-white/10 mb-10">
-          <div className="flex items-center gap-6 font-mono text-xs text-[#8a93a6] uppercase tracking-widest">
-            <span className="flex items-center gap-1.5"><FiClock /> {article.readTime}</span>
-            <span className="flex items-center gap-1.5"><FiEye /> {stats.views} Reads</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <button onClick={handleShare} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[#8a93a6] hover:text-white transition-colors">
-              <FiShare2 />
-            </button>
-            <button onClick={handleLike} className={`flex items-center gap-2 px-4 py-2 rounded-full border font-mono text-xs font-bold transition-colors ${isLiked ? 'bg-rose-500/20 border-rose-500/50 text-rose-400' : 'bg-rose-500/10 border-rose-500/30 text-rose-400 hover:bg-rose-500/20'}`}>
-              <FiHeart className={isLiked ? "fill-rose-400" : ""} /> {stats.likes}
+      <div className={`w-full min-h-screen transition-colors duration-500 ${
+        isLightMode ? "bg-[#f8fafc] text-slate-900" : "bg-[#090b0f] text-slate-100"
+      }`}>
+        <motion.article 
+          initial={{ opacity: 0, y: 15 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.5 }}
+          className="w-full pt-28 pb-32 md:pt-32 md:pb-24 px-5 md:px-8 max-w-[920px] mx-auto overflow-x-hidden"
+        >
+          {/* NAVIGATION RETURN LINK */}
+          <div className="mb-8 pb-4 border-b border-slate-200 dark:border-white/10">
+            <button 
+              onClick={() => navigate('/blog')} 
+              className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest transition-colors text-[color:var(--theme-main)] font-bold hover:underline"
+            >
+              <FiArrowLeft size={14} /> Back to Vault
             </button>
           </div>
-        </div>
 
-        {article.coverImage && (
-          <div className="w-full aspect-video rounded-3xl overflow-hidden mb-12 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-            <img src={article.coverImage} alt={article.title} className="w-full h-full object-cover" />
+          {/* CATEGORY & METADATA */}
+          <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-wider mb-6">
+            <span className="px-3.5 py-1 rounded-full bg-[color:var(--theme-main)]/15 text-[color:var(--theme-main)] font-bold border border-[color:var(--theme-main)]/30">
+              {article.category}
+            </span>
+            <span className={isLightMode ? "text-slate-500 font-semibold" : "text-[#5b6472]"}>
+              {article.date}
+            </span>
           </div>
-        )}
 
-        <div className="prose prose-invert prose-headings:text-white prose-a:text-[color:var(--theme-main)] max-w-none text-[#c5cbd3] text-lg leading-relaxed whitespace-pre-line font-sans mb-16">
-          {article.content}
-        </div>
+          {/* ARTICLE TITLE */}
+          <h1 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-8 leading-[1.15] ${
+            isLightMode ? "text-slate-950" : "text-white"
+          }`}>
+            {article.title}
+          </h1>
 
-        <div className="flex flex-wrap gap-2 mb-10 pt-8 border-t border-white/10">
-          {article.tags.map((tag, i) => (
-            <span key={i} className="font-mono text-xs px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#8a93a6]">#{tag}</span>
-          ))}
-        </div>
-      </motion.article>
+          {/* AUTHOR & METRICS BAR */}
+          <div className={`flex flex-wrap items-center justify-between gap-4 py-4 px-6 rounded-2xl mb-10 border ${
+            isLightMode 
+              ? "bg-white border-slate-200 shadow-sm text-slate-700" 
+              : "bg-[#12151b] border-white/10 text-slate-300"
+          }`}>
+            {/* Author Badge */}
+            <div className="flex items-center gap-3">
+              <img 
+                src="/profile.jpg" 
+                alt="Shavin Heshan Joseph" 
+                className="w-11 h-11 rounded-full object-cover border-2 border-[color:var(--theme-main)]"
+              />
+              <div>
+                <div className="flex items-center gap-1.5 font-bold text-sm">
+                  <span className={isLightMode ? "text-slate-900" : "text-white"}>Shavin Heshan Joseph</span>
+                  <FiCheckCircle className="text-emerald-500" size={14} />
+                </div>
+                <div className="text-xs text-slate-500 font-mono">Software & App Developer • University of Colombo</div>
+              </div>
+            </div>
+
+            {/* Read Time & Stats */}
+            <div className="flex items-center gap-5 font-mono text-xs">
+              <span className="flex items-center gap-1.5 text-slate-500"><FiClock size={14} /> {article.readTime}</span>
+              <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-bold"><FiEye size={14} /> {stats.views} Reads</span>
+              
+              {/* Share & Like */}
+              <div className="flex items-center gap-2 ml-2">
+                <button 
+                  onClick={handleShare} 
+                  className={`w-9 h-9 rounded-full border flex items-center justify-center transition-colors ${
+                    isLightMode ? "border-slate-300 hover:bg-slate-100 text-slate-700" : "border-white/10 hover:bg-white/10 text-slate-300"
+                  }`}
+                  title="Share Transmission"
+                >
+                  <FiShare2 size={14} />
+                </button>
+
+                <button 
+                  onClick={handleLike} 
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border font-mono text-xs font-bold transition-all ${
+                    isLiked 
+                      ? 'bg-rose-500/20 border-rose-500/50 text-rose-500' 
+                      : isLightMode 
+                        ? 'bg-rose-50 border-rose-200 text-rose-600 hover:bg-rose-100' 
+                        : 'bg-rose-500/10 border-rose-500/30 text-rose-400 hover:bg-rose-500/20'
+                  }`}
+                >
+                  <FiHeart className={isLiked ? "fill-rose-500" : ""} size={14} /> {stats.likes}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* COVER IMAGE */}
+          {article.coverImage && (
+            <div className="w-full aspect-[16/9] rounded-3xl overflow-hidden mb-12 border border-slate-200 dark:border-white/10 shadow-2xl">
+              <img src={article.coverImage} alt={article.title} className="w-full h-full object-cover" />
+            </div>
+          )}
+
+          {/* TABLE OF CONTENTS (IF HEADINGS EXIST) */}
+          {tocHeadings.length > 0 && (
+            <div className={`p-6 rounded-2xl mb-12 border ${
+              isLightMode 
+                ? "bg-slate-50 border-slate-200 text-slate-900" 
+                : "bg-[#12151b]/80 border-white/10 text-white"
+            }`}>
+              <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider mb-3 text-[color:var(--theme-main)]">
+                <FiList size={16} /> Table of Contents
+              </div>
+              <ul className="space-y-2 text-sm font-medium">
+                {tocHeadings.map((h, i) => (
+                  <li key={i}>
+                    <a 
+                      href={`#${h.slug}`} 
+                      className={`hover:text-[color:var(--theme-main)] transition-colors flex items-center gap-2 ${
+                        isLightMode ? "text-slate-700" : "text-slate-300"
+                      }`}
+                    >
+                      <span className="text-xs text-[color:var(--theme-main)] font-mono">0{i+1}.</span> {h.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* PRO MARKDOWN CONTENT RENDERER */}
+          <ProMarkdownRenderer 
+            content={article.content} 
+            isLightMode={isLightMode} 
+            fontSizeClass={fontSizeClasses[fontSizeLevel]} 
+          />
+
+          {/* TAGS */}
+          <div className="flex flex-wrap gap-2.5 my-12 pt-8 border-t border-slate-200 dark:border-white/10">
+            {article.tags.map((tag, i) => (
+              <span 
+                key={i} 
+                className={`font-mono text-xs px-3.5 py-1.5 rounded-full border transition-colors ${
+                  isLightMode 
+                    ? "bg-slate-100 border-slate-300 text-slate-700" 
+                    : "bg-white/5 border-white/10 text-[#8a93a6]"
+                }`}
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+
+          {/* RELATED ARTICLES FOOTER */}
+          <div className="mt-16 pt-10 border-t border-slate-200 dark:border-white/10">
+            <h3 className={`font-mono text-xs uppercase tracking-widest mb-6 font-bold flex items-center gap-2 ${
+              isLightMode ? "text-slate-900" : "text-white"
+            }`}>
+              <FiBookOpen className="text-[color:var(--theme-main)]" size={16} /> Recommended Transmissions
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {relatedArticles.map(rel => (
+                <Link key={rel.id} to={`/blog/${rel.id}`} className="block group">
+                  <div className={`p-5 rounded-2xl border transition-all ${
+                    isLightMode 
+                      ? "bg-white border-slate-200 group-hover:border-[color:var(--theme-main)] shadow-sm" 
+                      : "bg-[#12151b] border-white/10 group-hover:border-[color:var(--theme-main)]"
+                  }`}>
+                    <span className="font-mono text-[10px] uppercase font-bold text-[color:var(--theme-main)]">
+                      {rel.category}
+                    </span>
+                    <h4 className={`font-bold text-base mt-2 line-clamp-2 transition-colors ${
+                      isLightMode ? "text-slate-900 group-hover:text-[color:var(--theme-main)]" : "text-white group-hover:text-[color:var(--theme-main)]"
+                    }`}>
+                      {rel.title}
+                    </h4>
+                    <p className={`text-xs mt-2 line-clamp-2 ${isLightMode ? "text-slate-600" : "text-slate-400"}`}>
+                      {rel.summary}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </motion.article>
+      </div>
     </>
   );
 };
 
-// --- 2. MAIN BLOG LIST PAGE ---
-// --- 2. MAIN BLOG LIST PAGE WITH INFINITE CONTINUOUS FOCAL CAROUSEL & ADVANCED FILTERING ---
+// --- 2. MAIN BLOG LIST PAGE WITH FLAWLESS MAGAZINE EDITORIAL DESIGN ---
 const BlogHome = () => {
   const [stats, setStats] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [sortBy, setSortBy] = useState('newest'); // 'newest' | 'popular' | 'likes'
+  const [visibleCount, setVisibleCount] = useState(9);
   
-  // Carousel Controls
-  const sliderRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isSliderHovered, setIsSliderHovered] = useState(false);
+  // Newsletter State
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
 
   useEffect(() => {
-    // Real-time listener for all blog metrics
     const unsubscribe = onSnapshot(collection(db, "articleStats"), (snapshot) => {
       const statsData = {};
       snapshot.forEach((doc) => {
@@ -2418,64 +2927,29 @@ const BlogHome = () => {
   const totalViews = Object.values(stats).reduce((acc, curr) => acc + (curr.views || 0), 0);
   const totalLikes = Object.values(stats).reduce((acc, curr) => acc + (curr.likes || 0), 0);
 
-  const categories = ['All', ...Array.from(new Set(HARDCODED_ARTICLES.map(a => a.category)))];
-
-  const latestArticles = [...intelligentArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
-  const trendingArticles = [...intelligentArticles].sort((a, b) => (b.views + b.likes * 2) - (a.views + a.likes * 2)).slice(0, 8);
-
-  // Duplicated array for seamless continuous infinite looping focal carousel
-  const marqueeArticles = [...trendingArticles, ...trendingArticles, ...trendingArticles];
-
-  // --- SCROLL TRACKING MATH: Calculates which card is nearest to center ---
-  const handleScroll = () => {
-    if (!sliderRef.current) return;
-    const slider = sliderRef.current;
-    
-    const scrollCenter = slider.scrollLeft + slider.clientWidth / 2;
-    let closestIndex = 0;
-    let closestDistance = Infinity;
-    
-    Array.from(slider.children).forEach((child, index) => {
-      const childCenter = child.offsetLeft + (child.offsetWidth / 2);
-      const distance = Math.abs(scrollCenter - childCenter);
-      
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestIndex = index;
-      }
-    });
-    
-    setActiveIndex(closestIndex);
+  const rawCategories = Array.from(new Set(HARDCODED_ARTICLES.map(a => a.category)));
+  const categoryCounts = {
+    All: HARDCODED_ARTICLES.length,
+    ...rawCategories.reduce((acc, cat) => {
+      acc[cat] = HARDCODED_ARTICLES.filter(a => a.category === cat).length;
+      return acc;
+    }, {})
   };
+  const categories = ['All', ...rawCategories];
 
-  useEffect(() => {
-    handleScroll();
-  }, [trendingArticles.length]);
+  // Featured Spotlight Post (#1 Newest or Top Rated)
+  const featuredArticle = intelligentArticles[0];
 
-  // --- CONTINUOUS INFINITE AUTO-SCROLL (NEVER STOPS) ---
-  useEffect(() => {
-    if (isSliderHovered || trendingArticles.length === 0) return;
+  // Sorting & Filtering
+  const sortedArticles = [...intelligentArticles].sort((a, b) => {
+    if (sortBy === 'popular') return (b.views + b.likes * 2) - (a.views + a.likes * 2);
+    if (sortBy === 'likes') return b.likes - a.likes;
+    return new Date(b.date) - new Date(a.date);
+  });
 
-    const interval = setInterval(() => {
-      if (sliderRef.current) {
-        const slider = sliderRef.current;
-        const cardWidth = slider.children[0]?.offsetWidth || 340;
-        const maxScroll = slider.scrollWidth - slider.clientWidth;
+  const trendingArticles = [...intelligentArticles].sort((a, b) => (b.views + b.likes * 2) - (a.views + a.likes * 2)).slice(0, 3);
 
-        // If approaching the end of the triplicated list, reset scrollLeft seamlessly to middle
-        if (slider.scrollLeft >= maxScroll - 100) {
-          slider.scrollLeft = slider.scrollLeft / 2;
-        }
-
-        slider.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
-      }
-    }, 2800);
-
-    return () => clearInterval(interval);
-  }, [isSliderHovered, trendingArticles.length]);
-
-  // Filtered Articles based on search & category pill
-  const filteredArticles = latestArticles.filter(article => {
+  const filteredArticles = sortedArticles.filter(article => {
     const matchesCategory = selectedCategory === 'All' || article.category === selectedCategory;
     const query = searchQuery.toLowerCase().trim();
     const matchesSearch = !query || 
@@ -2486,11 +2960,24 @@ const BlogHome = () => {
     return matchesCategory && matchesSearch;
   });
 
+  const visibleArticles = filteredArticles.slice(0, visibleCount);
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (newsletterEmail) {
+      setSubscribed(true);
+      setTimeout(() => {
+        setSubscribed(false);
+        setNewsletterEmail('');
+      }, 5000);
+    }
+  };
+
   return (
     <>
       <Helmet>
         <title>Engineering Logs & Transmissions | Shavin Heshan Joseph</title>
-        <meta name="description" content="Technical engineering logs, architectural deep dives, AI research, and software development transmissions by Shavin Heshan Joseph." />
+        <meta name="description" content="Technical engineering logs, architectural deep dives, AI research, Windows power user guides, and software development transmissions by Shavin Heshan Joseph." />
         <link rel="canonical" href="https://shavinjoseph.me/blog" />
         <meta property="og:title" content="Engineering Logs | Shavin Heshan Joseph" />
         <meta property="og:description" content="Technical engineering logs, architectural deep dives, and system development transmissions by Shavin Heshan Joseph." />
@@ -2505,198 +2992,262 @@ const BlogHome = () => {
         transition={{ duration: 0.6 }}
         className="relative z-10 w-full min-h-screen pt-28 pb-32 md:pt-32 md:pb-24 overflow-x-hidden"
       >
-        {/* --- HERO HEADER SECTION --- */}
-        <div className="max-w-[1280px] mx-auto px-5 md:px-8 mb-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/10">
+        {/* --- 1. HERO MAGAZINE HEADER --- */}
+        <div className="max-w-[1280px] mx-auto px-5 md:px-8 mb-12">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-slate-200 dark:border-white/10">
             <div>
-              <div className="font-mono text-xs md:text-sm tracking-[0.08em] text-[color:var(--theme-main)] mb-3 flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-[var(--theme-main)] animate-ping" />
-                <span className="uppercase tracking-widest font-semibold">Live Transmission Vault</span>
+              <div className="font-mono text-xs md:text-sm tracking-[0.08em] text-[color:var(--theme-main)] mb-3 flex items-center gap-3 font-bold">
+                <span className="w-2.5 h-2.5 rounded-full bg-[var(--theme-main)] animate-pulse" />
+                <span className="uppercase tracking-widest">Engineering & Architecture Publication</span>
               </div>
-              <h1 className="font-bold text-[clamp(38px,7vw,84px)] leading-[0.9] tracking-tight uppercase text-white">
-                Engineering <span className="text-transparent" style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.7)' }}>Logs.</span>
+              <h1 className="font-bold text-[clamp(38px,7vw,84px)] leading-[0.9] tracking-tight uppercase hero-title-solid mb-4">
+                Engineering <span className="hero-title-stroke">Logs.</span>
               </h1>
+              <p className="max-w-2xl text-slate-600 dark:text-[#8a93a6] text-sm md:text-base leading-relaxed">
+                Technical engineering logs, architectural deep dives, Windows 11 kernel diagnostics, Cisco networking protocols, AI systems, and full-stack software transmissions by Shavin Heshan Joseph.
+              </p>
             </div>
 
-            {/* LIVE METRICS STATS BADGES */}
+            {/* METRICS STATS BADGES */}
             <div className="flex items-center gap-3 flex-wrap">
-              <div className="px-4 py-2.5 rounded-2xl bg-[#12151b]/80 border border-white/10 backdrop-blur-md flex items-center gap-2.5 font-mono text-xs text-white">
-                <span className="w-2 h-2 rounded-full bg-[var(--theme-main)]" />
-                <span className="text-[#8a93a6] uppercase text-[10px]">Total Articles:</span>
-                <span className="font-bold text-[color:var(--theme-main)]">{HARDCODED_ARTICLES.length}</span>
+              <div className="px-4 py-3 rounded-2xl bg-white dark:bg-[#12151b] border border-slate-200 dark:border-white/10 shadow-sm flex items-center gap-3 font-mono text-xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-[var(--theme-main)]" />
+                <span className="text-slate-500 dark:text-[#8a93a6] uppercase text-[10px] tracking-wider font-bold">Transmissions</span>
+                <span className="font-extrabold text-slate-900 dark:text-white text-sm">{HARDCODED_ARTICLES.length}</span>
               </div>
 
               {totalViews > 0 && (
-                <div className="px-4 py-2.5 rounded-2xl bg-[#12151b]/80 border border-white/10 backdrop-blur-md flex items-center gap-2.5 font-mono text-xs text-white">
-                  <FiEye className="text-emerald-400" size={14} />
-                  <span className="text-[#8a93a6] uppercase text-[10px]">Reads:</span>
-                  <span className="font-bold text-emerald-400">{totalViews}</span>
+                <div className="px-4 py-3 rounded-2xl bg-white dark:bg-[#12151b] border border-slate-200 dark:border-white/10 shadow-sm flex items-center gap-3 font-mono text-xs">
+                  <FiEye className="text-emerald-500" size={16} />
+                  <span className="text-slate-500 dark:text-[#8a93a6] uppercase text-[10px] tracking-wider font-bold">Reads</span>
+                  <span className="font-extrabold text-emerald-600 dark:text-emerald-400 text-sm">{totalViews}</span>
                 </div>
               )}
 
               {totalLikes > 0 && (
-                <div className="px-4 py-2.5 rounded-2xl bg-[#12151b]/80 border border-white/10 backdrop-blur-md flex items-center gap-2.5 font-mono text-xs text-white">
-                  <FiHeart className="text-rose-500" size={14} />
-                  <span className="text-[#8a93a6] uppercase text-[10px]">Likes:</span>
-                  <span className="font-bold text-rose-400">{totalLikes}</span>
+                <div className="px-4 py-3 rounded-2xl bg-white dark:bg-[#12151b] border border-slate-200 dark:border-white/10 shadow-sm flex items-center gap-3 font-mono text-xs">
+                  <FiHeart className="text-rose-500" size={16} />
+                  <span className="text-slate-500 dark:text-[#8a93a6] uppercase text-[10px] tracking-wider font-bold">Likes</span>
+                  <span className="font-extrabold text-rose-500 text-sm">{totalLikes}</span>
                 </div>
               )}
             </div>
           </div>
         </div>
 
-        {/* --- CONTINUOUS FOCAL CAROUSEL WITH ACTIVE CARD SCALING (NEVER STOPS) --- */}
-        <div className="w-full mb-16 relative">
-          <div className="max-w-[1280px] mx-auto px-5 md:px-8 mb-4 flex items-center justify-between font-mono text-xs text-white uppercase tracking-widest">
-            <div className="flex items-center gap-2 text-rose-400 font-bold">
-              <FiTrendingUp className="text-rose-500 animate-pulse" size={16} /> 
-              <span>Popular & Trending Transmissions</span>
-              <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 ml-2 font-normal hidden sm:inline-block">Infinite Stream</span>
-            </div>
-            <span className="text-[10px] text-[#5b6472] hidden md:block">Active card auto-focus • Hover to pause</span>
-          </div>
-
-          {/* SLIDER WRAPPER WITH CENTERED DYNAMIC FOCUS & SCALING */}
-          <div 
-            ref={sliderRef}
-            onScroll={handleScroll}
-            onMouseEnter={() => setIsSliderHovered(true)}
-            onMouseLeave={() => setIsSliderHovered(false)}
-            onTouchStart={() => setIsSliderHovered(true)}
-            onTouchEnd={() => setIsSliderHovered(false)}
-            className="relative flex items-center overflow-x-auto gap-4 md:gap-8 px-[12vw] md:px-[35vw] py-10 snap-x snap-mandatory hide-scrollbar border-y border-white/5 bg-[#0a0c10]/40 backdrop-blur-sm" 
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            {marqueeArticles.map((article, index) => {
-              const isActive = activeIndex === index;
-              const rankIndex = index % trendingArticles.length;
+        {/* --- 2. FEATURED SPOTLIGHT EDITORIAL BANNER (#1 ARTICLE) --- */}
+        {featuredArticle && !searchQuery && selectedCategory === 'All' && (
+          <div className="max-w-[1280px] mx-auto px-5 md:px-8 mb-16">
+            <div className="relative group rounded-3xl overflow-hidden bg-white dark:bg-[#12151b] border border-slate-200 dark:border-white/10 shadow-lg hover:shadow-2xl lg:grid lg:grid-cols-12 items-stretch transition-all duration-500 hover:border-[color:var(--theme-main)]/60">
               
-              return (
-                <motion.div
-                  key={`trending-${article.id}-${index}`}
-                  animate={{ 
-                    scale: isActive ? 1.05 : 0.82,
-                    opacity: isActive ? 1 : 0.45,
-                    y: isActive ? -4 : 0
-                  }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="w-[260px] sm:w-[320px] md:w-[380px] flex-shrink-0 snap-center"
-                >
-                  <Link to={`/blog/${article.id}`} className="block w-full group">
-                    <div className={`relative w-full aspect-[16/10] rounded-3xl overflow-hidden bg-[#12151b] border transition-all duration-500 shadow-2xl ${
-                      isActive 
-                        ? 'border-[color:var(--theme-main)] shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(var(--theme-rgb),0.3)]' 
-                        : 'border-white/10 group-hover:border-white/20'
-                    }`}>
+              {/* Left Column: Big Cover Image */}
+              <div className="lg:col-span-7 relative min-h-[300px] md:min-h-[380px] overflow-hidden bg-slate-100 dark:bg-slate-900">
+                <img 
+                  src={featuredArticle.coverImage} 
+                  alt={featuredArticle.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-[color:var(--theme-main)] text-black shadow-md flex items-center gap-1.5">
+                    <FiZap size={12} /> Spotlight Transmission
+                  </span>
+                </div>
+              </div>
+
+              {/* Right Column: Editorial Details */}
+              <div className="lg:col-span-5 p-6 md:p-10 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-3 font-mono text-xs text-slate-500 dark:text-[#8a93a6] uppercase tracking-wider mb-4">
+                    <span className="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-200 dark:border-emerald-800">
+                      {featuredArticle.category}
+                    </span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1"><FiClock size={13} /> {featuredArticle.readTime}</span>
+                  </div>
+
+                  <Link to={`/blog/${featuredArticle.id}`}>
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white leading-tight tracking-tight mb-4 group-hover:text-[color:var(--theme-main)] transition-colors">
+                      {featuredArticle.title}
+                    </h2>
+                  </Link>
+
+                  <p className="text-slate-600 dark:text-[#8a93a6] text-sm md:text-base leading-relaxed mb-6 line-clamp-3">
+                    {featuredArticle.summary}
+                  </p>
+                </div>
+
+                {/* Footer & CTA */}
+                <div className="pt-6 border-t border-slate-200 dark:border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-slate-900 dark:bg-slate-800 text-white flex items-center justify-center font-bold text-xs font-mono shadow-sm">
+                      SJ
+                    </div>
+                    <div>
+                      <div className="font-bold text-xs text-slate-900 dark:text-white">Shavin Heshan Joseph</div>
+                      <div className="font-mono text-[10px] text-slate-500 dark:text-[#8a93a6]">{featuredArticle.date}</div>
+                    </div>
+                  </div>
+
+                  <Link 
+                    to={`/blog/${featuredArticle.id}`} 
+                    className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest font-bold text-[color:var(--theme-main)] hover:translate-x-1 transition-transform"
+                  >
+                    <span>Read Article</span>
+                    <FiArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        )}
+
+        {/* --- 3. TOP 3 TRENDING SPOTLIGHT GRID --- */}
+        {!searchQuery && selectedCategory === 'All' && (
+          <div className="max-w-[1280px] mx-auto px-5 md:px-8 mb-16">
+            <div className="flex items-center justify-between font-mono text-xs uppercase tracking-widest mb-6 border-b border-slate-200 dark:border-white/10 pb-3">
+              <div className="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold">
+                <FiTrendingUp className="text-rose-500 animate-pulse" size={16} /> 
+                <span>Popular & Trending Transmissions</span>
+              </div>
+              <span className="text-[10px] text-slate-500 dark:text-[#5b6472]">Most Read Engineering Logs</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              {trendingArticles.map((article, index) => (
+                <Link key={`trending-grid-${article.id}`} to={`/blog/${article.id}`}>
+                  <div className="group relative rounded-3xl overflow-hidden bg-white dark:bg-[#12151b] border border-slate-200 dark:border-white/10 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full hover:border-[color:var(--theme-main)]">
+                    
+                    {/* Image Header */}
+                    <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-900">
                       <img 
                         src={article.coverImage} 
                         alt={article.title} 
-                        className={`w-full h-full object-cover transition-all duration-700 ${isActive ? 'scale-105 opacity-100' : 'opacity-65 group-hover:opacity-85'}`} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c10] via-[#0a0c10]/50 to-transparent" />
-                      
-                      {/* BADGES */}
-                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                        <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0a0c10]/80 backdrop-blur-md border border-white/10 text-[color:var(--theme-main)]">
-                          {article.category}
+                      <div className="absolute top-3 left-3 flex items-center gap-2">
+                        <span className="font-mono text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full bg-gradient-to-r from-rose-500 to-amber-500 text-white shadow-md flex items-center gap-1">
+                          <FiZap size={10} /> #{index + 1} Trending
                         </span>
-                        
-                        {rankIndex < 3 && (
-                          <span className={`font-mono text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full text-white shadow-lg flex items-center gap-1 ${
-                            isActive ? 'bg-gradient-to-r from-rose-500 to-amber-500' : 'bg-black/60 backdrop-blur-md'
-                          }`}>
-                            <FiZap size={10} /> #{ rankIndex + 1 } Trending
-                          </span>
-                        )}
                       </div>
-
-                      {/* BOTTOM DETAILS */}
-                      <div className="absolute bottom-4 left-5 right-5">
-                        <div className="flex items-center gap-3 font-mono text-[10px] text-[#8a93a6] uppercase tracking-wider mb-2">
-                          <span className="flex items-center gap-1"><FiClock size={11} /> {article.readTime}</span>
-                          <span>•</span>
-                          <span className="flex items-center gap-1 text-emerald-400"><FiEye size={11} /> {article.views} Reads</span>
-                        </div>
-                        <h3 className={`font-bold text-base md:text-lg leading-snug line-clamp-2 transition-colors ${isActive ? 'text-white' : 'text-[#c5cbd3]'}`}>
-                          {article.title}
-                        </h3>
+                      <div className="absolute bottom-3 right-3 flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-white font-mono text-[10px]">
+                        <FiEye size={11} className="text-emerald-400" /> {article.views} Reads
                       </div>
                     </div>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
 
-        {/* --- SEARCH & CATEGORY FILTERING TOOLBAR --- */}
+                    {/* Content */}
+                    <div className="p-5 flex flex-col flex-grow">
+                      <div className="flex items-center justify-between font-mono text-[10px] text-slate-500 dark:text-[#8a93a6] uppercase tracking-wider mb-2">
+                        <span className="font-bold text-emerald-700 dark:text-emerald-400">{article.category}</span>
+                        <span>{article.readTime}</span>
+                      </div>
+                      <h3 className="font-bold text-base md:text-lg leading-snug line-clamp-2 text-slate-900 dark:text-white mb-2 group-hover:text-[color:var(--theme-main)] transition-colors">
+                        {article.title}
+                      </h3>
+                      <p className="text-slate-600 dark:text-[#8a93a6] text-xs leading-relaxed line-clamp-2 flex-grow">
+                        {article.summary}
+                      </p>
+                    </div>
+
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* --- 4. CONTROL TOOLBAR (SEARCH + SORT + CATEGORY TABS) --- */}
         <div className="max-w-[1280px] mx-auto px-5 md:px-8 mb-10">
-          <div className="flex flex-col lg:flex-row gap-6 lg:items-center justify-between bg-[#12151b]/60 backdrop-blur-xl border border-white/10 rounded-3xl p-4 md:p-6 shadow-2xl">
+          <div className="flex flex-col lg:flex-row gap-6 lg:items-center justify-between bg-white dark:bg-[#12151b] backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-3xl p-4 md:p-6 shadow-md dark:shadow-2xl">
             
             {/* SEARCH INPUT BOX */}
             <div className="relative flex-grow max-w-lg">
-              <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5b6472]" size={18} />
+              <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-[#5b6472]" size={18} />
               <input
                 type="text"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by keyword, title, tag, or topic..."
-                className="w-full pl-11 pr-10 py-3 rounded-2xl bg-[#090b0f]/80 border border-white/10 text-white text-sm placeholder-[#5b6472] focus:outline-none focus:border-[color:var(--theme-main)]/60 transition-colors font-sans"
+                onChange={(e) => { setSearchQuery(e.target.value); setVisibleCount(9); }}
+                placeholder="Search by title, keyword, tag, or topic..."
+                className="w-full pl-11 pr-10 py-3 rounded-2xl bg-slate-100 dark:bg-[#090b0f]/80 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white text-sm placeholder-slate-400 dark:placeholder-[#5b6472] focus:outline-none focus:border-[color:var(--theme-main)] transition-colors font-sans"
               />
               {searchQuery && (
                 <button 
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:text-white"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-slate-200 dark:bg-white/10 flex items-center justify-center text-slate-600 dark:text-white/60 hover:text-slate-900 dark:hover:text-white"
                 >
                   <FiX size={12} />
                 </button>
               )}
             </div>
 
-            {/* CATEGORY PILLS */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 hide-scrollbar" style={{ scrollbarWidth: 'none' }}>
-              <span className="font-mono text-[10px] text-[#5b6472] uppercase tracking-wider mr-1 flex items-center gap-1">
-                <FiFilter size={12} /> Topic:
+            {/* SORT SELECTOR DROPDOWN */}
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-[10px] text-slate-500 dark:text-[#5b6472] uppercase tracking-wider flex items-center gap-1 shrink-0">
+                <FiSliders size={12} /> Sort:
               </span>
-              {categories.map((cat) => (
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="px-3.5 py-2 rounded-2xl bg-slate-100 dark:bg-[#090b0f] border border-slate-300 dark:border-white/10 text-slate-800 dark:text-slate-200 text-xs font-mono font-bold focus:outline-none focus:border-[color:var(--theme-main)] cursor-pointer"
+              >
+                <option value="newest">Newest First</option>
+                <option value="popular">Most Popular (Reads)</option>
+                <option value="likes">Most Liked</option>
+              </select>
+            </div>
+
+          </div>
+
+          {/* CATEGORY TABS WITH COUNTS */}
+          <div className="mt-4 flex items-center gap-2 overflow-x-auto pb-2 hide-scrollbar" style={{ scrollbarWidth: 'none' }}>
+            {categories.map((cat) => {
+              const isSelected = selectedCategory === cat;
+              const count = categoryCounts[cat] || 0;
+
+              return (
                 <button
                   key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`whitespace-nowrap px-3.5 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                    selectedCategory === cat
-                      ? 'bg-[var(--theme-main)] text-[#04140c] font-bold shadow-[0_0_15px_rgba(var(--theme-rgb),0.3)]'
-                      : 'bg-white/[0.03] border border-white/10 text-[#8a93a6] hover:text-white hover:bg-white/[0.08]'
+                  onClick={() => { setSelectedCategory(cat); setVisibleCount(9); }}
+                  className={`whitespace-nowrap px-4 py-2 rounded-2xl font-mono text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-[var(--theme-main)] text-black font-bold shadow-md'
+                      : 'bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 text-slate-600 dark:text-[#8a93a6] hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/[0.08]'
                   }`}
                 >
-                  {cat}
+                  <span>{cat}</span>
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                    isSelected ? 'bg-black/20 text-black' : 'bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-300'
+                  }`}>
+                    {count}
+                  </span>
                 </button>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* --- MAIN CHRONOLOGICAL LOGS GRID --- */}
+        {/* --- 5. EDITORIAL ARTICLES STREAM GRID --- */}
         <div className="max-w-[1280px] mx-auto px-5 md:px-8">
-          <div className="mb-8 flex items-center justify-between font-mono text-xs text-white uppercase tracking-widest border-b border-white/10 pb-4">
-            <div className="flex items-center gap-3">
+          <div className="mb-8 flex items-center justify-between font-mono text-xs uppercase tracking-widest border-b border-slate-200 dark:border-white/10 pb-4">
+            <div className="flex items-center gap-3 font-bold text-slate-800 dark:text-slate-200">
               <FiClock className="text-[color:var(--theme-main)]" size={16} /> 
               <span>
-                {selectedCategory !== 'All' ? `${selectedCategory} Transmissions` : 'Chronological Release Stream'}
+                {selectedCategory !== 'All' ? `${selectedCategory} Transmissions` : 'All Engineering Logs'}
               </span>
             </div>
-            <span className="text-[#5b6472] text-[11px]">
-              Showing {filteredArticles.length} of {latestArticles.length}
+            <span className="text-slate-500 dark:text-[#5b6472] text-[11px]">
+              Showing {filteredArticles.length} Transmissions
             </span>
           </div>
           
           {filteredArticles.length === 0 ? (
-            <div className="py-20 text-center bg-[#12151b]/40 rounded-3xl border border-white/5 font-mono">
+            <div className="py-20 text-center bg-white dark:bg-[#12151b]/40 rounded-3xl border border-slate-200 dark:border-white/5 font-mono shadow-sm">
               <div className="text-4xl mb-3">🔍</div>
-              <h3 className="text-white text-lg font-bold uppercase mb-2">No Transmissions Found</h3>
-              <p className="text-[#8a93a6] text-xs max-w-sm mx-auto mb-6">No matching logs were found for your query "{searchQuery}". Try clearing filters or searching another keyword.</p>
+              <h3 className="text-slate-900 dark:text-white text-lg font-bold uppercase mb-2">No Transmissions Found</h3>
+              <p className="text-slate-600 dark:text-[#8a93a6] text-xs max-w-sm mx-auto mb-6">No matching engineering logs were found for "{searchQuery}". Try adjusting your keywords or clearing topic filters.</p>
               <button 
                 onClick={() => { setSearchQuery(''); setSelectedCategory('All'); }}
-                className="px-5 py-2.5 rounded-xl bg-[var(--theme-main)] text-[#04140c] font-bold text-xs uppercase tracking-wider cursor-pointer"
+                className="px-6 py-3 rounded-2xl bg-[var(--theme-main)] text-black font-bold text-xs uppercase tracking-wider cursor-pointer shadow-md"
               >
                 Reset Search Filters
               </button>
@@ -2707,24 +3258,23 @@ const BlogHome = () => {
                 <Link key={article.id} to={`/blog/${article.id}`}>
                   <motion.div 
                     whileHover={{ y: -6 }} 
-                    className="flex flex-col bg-[#12151b]/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-[color:var(--theme-main)]/50 transition-all duration-300 h-full group shadow-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+                    className="flex flex-col bg-white dark:bg-[#12151b] border border-slate-200 dark:border-white/10 rounded-3xl overflow-hidden hover:border-[color:var(--theme-main)] transition-all duration-300 h-full group shadow-sm hover:shadow-xl"
                   >
                     {/* IMAGE HEADER */}
-                    <div className="w-full h-52 overflow-hidden bg-[#0a0c10] relative">
+                    <div className="w-full h-52 overflow-hidden bg-slate-100 dark:bg-slate-900 relative">
                       <img 
                         src={article.coverImage} 
-                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" 
                         alt={article.title} 
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#12151b] via-transparent to-transparent opacity-90" />
                       
                       <div className="absolute top-4 left-4">
-                        <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0a0c10]/80 backdrop-blur-md border border-white/10 text-[color:var(--theme-main)]">
+                        <span className="font-mono text-[9px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-white/90 dark:bg-black/70 backdrop-blur-md border border-slate-200 dark:border-white/20 text-emerald-800 dark:text-emerald-400 shadow-sm">
                           {article.category}
                         </span>
                       </div>
 
-                      <div className="absolute bottom-3 right-4 flex items-center gap-3 font-mono text-[10px] text-white/80">
+                      <div className="absolute bottom-3 right-4 flex items-center gap-3 font-mono text-[10px] text-white bg-black/60 px-2.5 py-1 rounded-full backdrop-blur-md">
                         <span className="flex items-center gap-1"><FiEye className="text-emerald-400" /> {article.views}</span>
                         <span className="flex items-center gap-1"><FiHeart className="text-rose-400" /> {article.likes}</span>
                       </div>
@@ -2732,16 +3282,16 @@ const BlogHome = () => {
 
                     {/* CARD CONTENT */}
                     <div className="p-6 flex flex-col flex-grow">
-                      <div className="flex justify-between items-center font-mono text-[10px] text-[#5b6472] uppercase tracking-widest mb-3">
+                      <div className="flex justify-between items-center font-mono text-[10px] text-slate-500 dark:text-[#5b6472] uppercase tracking-widest mb-3">
                         <span>{article.date}</span>
-                        <span className="flex items-center gap-1.5 text-[#8a93a6]"><FiClock size={11} /> {article.readTime}</span>
+                        <span className="flex items-center gap-1.5 text-slate-600 dark:text-[#8a93a6]"><FiClock size={11} /> {article.readTime}</span>
                       </div>
 
-                      <h3 className="text-xl font-bold text-white mb-3 leading-snug line-clamp-2 group-hover:text-[color:var(--theme-main)] transition-colors">
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 leading-snug line-clamp-2 group-hover:text-[color:var(--theme-main)] transition-colors">
                         {article.title}
                       </h3>
 
-                      <p className="text-[#8a93a6] text-sm leading-relaxed mb-6 flex-grow line-clamp-3 font-sans">
+                      <p className="text-slate-600 dark:text-[#8a93a6] text-sm leading-relaxed mb-6 flex-grow line-clamp-3 font-sans">
                         {article.summary}
                       </p>
 
@@ -2749,14 +3299,14 @@ const BlogHome = () => {
                       {article.tags && (
                         <div className="flex flex-wrap gap-1.5 mb-6">
                           {article.tags.slice(0, 3).map((tag, i) => (
-                            <span key={i} className="font-mono text-[9px] px-2.5 py-0.5 rounded-md bg-white/[0.03] border border-white/5 text-[#8a93a6]">
+                            <span key={i} className="font-mono text-[9px] px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 text-slate-600 dark:text-[#8a93a6]">
                               #{tag}
                             </span>
                           ))}
                         </div>
                       )}
 
-                      <div className="pt-4 border-t border-white/5 font-mono text-xs text-[color:var(--theme-main)] font-semibold flex items-center justify-between group-hover:translate-x-1 transition-transform">
+                      <div className="pt-4 border-t border-slate-200 dark:border-white/5 font-mono text-xs text-[color:var(--theme-main)] font-semibold flex items-center justify-between group-hover:translate-x-1 transition-transform">
                         <span className="flex items-center gap-2">Read Transmission <FiBookOpen size={13} /></span>
                         <FiArrowRight size={14} />
                       </div>
