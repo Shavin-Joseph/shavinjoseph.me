@@ -9,6 +9,637 @@ import { Helmet } from "react-helmet-async";
 // --- HARDCODED CONTENT DATABASE (Fast, Secure, Free) ---
  export const HARDCODED_ARTICLES = [
   {
+    id: "111",
+    title: "The 2026 Full-Stack Systems Architect Handbook: Building Resilient Microservices, Event Loops, and Real-Time Infrastructure",
+    category: "System Architecture",
+    coverImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop",
+    readTime: "15 min read",
+    date: "2026-08-04",
+    tags: ["System Architecture", "Microservices", "Event Loops", "Full Stack", "Distributed Systems"],
+    summary: "A comprehensive enterprise handbook for full-stack architects. Deep dive into microservices decomposition, event-driven streaming with Apache Kafka, database sharding, high-availability caching, and telemetry.",
+    content: `Modern software engineering has evolved far beyond building isolated monoliths. Today’s senior systems architects must design distributed ecosystems capable of processing millions of concurrent events with zero downtime.\n\n### 1. Decomposing Monoliths into Microservices\nWhen splitting a monolithic codebase into microservices, the primary boundary rule is **Domain-Driven Design (DDD)**. Services should be bounded by business domains (e.g., Auth, Inventory, Billing) rather than technical layers.\n\n• **Loose Coupling:** Services must communicate strictly through well-defined API contracts (REST, gRPC) or event buses.\n• **Database-per-Service:** Each microservice must own its persistent storage layer to prevent direct cross-service database locks.\n\n### 2. Event-Driven Architecture with Apache Kafka & Redis\nSynchronous HTTP requests create cascading latency bottlenecks. Event-driven architectures replace synchronous calls with asynchronous event publishing.\n\n\`\`\`python\n# Example: Publishing Order Created Event in Python with Kafka\nfrom kafka import KafkaProducer\nimport json\n\nproducer = KafkaProducer(\n    bootstrap_servers=['localhost:9092'],\n    value_serializer=lambda v: json.dumps(v).encode('utf-8')\n)\n\ndef place_order(order_id, customer_id, items):\n    event = {\n        'event_type': 'OrderCreated',\n        'order_id': order_id,\n        'customer_id': customer_id,\n        'items': items\n    }\n    producer.send('order-events', event)\n    producer.flush()\n\`\`\`\n\n### 3. Database Partitioning, Sharding & Read Replicas\nAs data volumes grow, single database nodes fail under write pressure:\n\n• **Read/Write Splitting:** Route write queries to a primary database node while distributing read queries across multiple read replicas.\n• **Horizontal Sharding:** Partition data across physical databases using a consistent hash key (e.g., \`user_id % num_shards\`).\n\n### 4. Resiliency & Circuit Breakers\nIn distributed systems, network calls will fail. Implementing **Circuit Breakers** (e.g., with Resilience4j or custom state machines) prevents failing downstream services from crashing the entire platform.\n\n### Summary Checklist for Systems Architects\n1. Enforce strict API versioning.\n2. Implement distributed tracing with OpenTelemetry.\n3. Deploy rate-limiting API gateways at the perimeter.`
+  },
+  {
+    id: "112",
+    title: "Mastering Windows PowerShell Automation & Security Hardening: The Complete Enterprise Administrator's Guide",
+    category: "Windows & System Admin",
+    coverImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop",
+    readTime: "14 min read",
+    date: "2026-08-04",
+    tags: ["PowerShell", "Sysadmin", "Windows 11", "Security", "Automation"],
+    summary: "An extensive enterprise guide to Windows PowerShell 7.4+. Master advanced pipeline scripting, WinRM remoting, Active Directory management, security auditing, and automated workstation provisioning.",
+    content: `PowerShell is the command-line engine driving modern Windows enterprise management. This guide covers advanced administration techniques from basic piping to production script hardening.\n\n### 1. Advanced Pipeline & Scripting Paradigms\nPowerShell pipelines pass strongly-typed .NET objects rather than raw text strings.\n\n\`\`\`powershell\n# Advanced Object Filtering & Export\nGet-Service | Where-Status -eq 'Running' |\n    Select-Object Name, DisplayName, StartType |\n    Export-Csv -Path "C:\\Logs\\RunningServices.csv" -NoTypeInformation\n\`\`\`\n\n### 2. Remote Management with PowerShell Remoting (WinRM & SSH)\nPowerShell Remoting allows executing commands across thousands of enterprise domain machines simultaneously:\n\n\`\`\`powershell\n# Execute script block across multiple domain servers\n$Servers = @("Server01", "Server02", "Server03")\nInvoke-Command -ComputerName $Servers -ScriptBlock {\n    Get-ComputerInfo | Select-Object WindowsProductName, OsBuildNumber, CsTotalPhysicalMemory\n}\n\`\`\`\n\n### 3. Security Hardening & Execution Policies\nHardening PowerShell against script misuse requires configuring execution policies and Constrained Language Mode:\n\n\`\`\`powershell\n# Audit Current Script Execution Policy\nGet-ExecutionPolicy -List\n\n# Enforce AllSigned Policy for Production Servers\nSet-ExecutionPolicy -ExecutionPolicy AllSigned -Scope LocalMachine -Force\n\`\`\`\n\n### 4. Automated Event Log Auditing for Failed Logons\n\`\`\`powershell\n# Audit Failed Windows Security Logons (Event ID 4625)\nGet-WinEvent -FilterHashtable @{LogName='Security'; Id=4625; StartTime=(Get-Date).AddDays(-1)} |\n    Select-Object TimeCreated, @{N='User'; E={$_.Properties[5].Value}}, @{N='IPAddress'; E={$_.Properties[19].Value}}\n\`\`\`\n\nAutomating administrative workflows with robust error handling transforms Windows system management.`
+  },
+  {
+    id: "113",
+    title: "Building Autonomous Agentic AI Workflows with Python, LangChain, and Local LLMs",
+    category: "Artificial Intelligence",
+    coverImage: "https://images.unsplash.com/photo-1677442136019-21780efad99a?q=80&w=1200&auto=format&fit=crop",
+    readTime: "16 min read",
+    date: "2026-08-04",
+    tags: ["AI Agents", "Python", "LangChain", "DeepSeek", "Local LLM"],
+    summary: "Learn how to build, orchestrate, and deploy multi-agent AI systems in Python using LangGraph, local DeepSeek/Ollama models, vector memory databases, and autonomous tool-calling execution loops.",
+    content: `Agentic AI represents the next frontier of artificial intelligence. Unlike passive text completion models, AI agents autonomously plan multi-step tasks, execute code tools, and evaluate their own results.\n\n### 1. The Core Architecture of an AI Agent\nAn autonomous agent consists of four core building blocks:\n• **Brain:** The base Large Language Model (e.g., DeepSeek-R1, Llama 3, Claude 3.7).\n• **Planning Engine:** Chain-of-Thought (CoT) and ReAct (Reason + Act) prompting loops.\n• **Memory:** Short-term conversation buffers and long-term vector embeddings (Qdrant, Pinecone).\n• **Tools:** Functions the agent can invoke (web search, shell execution, database querying).\n\n### 2. Implementing a ReAct Agent in Python\n\`\`\`python\nimport os\nfrom langchain.agents import initialize_agent, Tool, AgentType\nfrom langchain_community.llms import Ollama\n\n# Initialize Local Ollama LLM\nllm = Ollama(model="deepseek-r1:8b")\n\n# Define Custom Python Tools\ndef execute_system_check(query):\n    return "CPU Usage: 14%, Memory: 6.2GB / 16GB, Disk: 45% Free"\n\ntools = [\n    Tool(\n        name="SystemCheck",\n        func=execute_system_check,\n        description="Useful for retrieving current server CPU, memory, and disk health metrics."\n    )\n]\n\n# Instantiate Agent\nagent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True)\nresponse = agent.run("Check server memory status and summarize health.")\nprint(response)\n\`\`\`\n\n### 3. Multi-Agent Orchestration & Consensus Loops\nFor complex engineering tasks, multi-agent frameworks (LangGraph, CrewAI) assign specialized roles to separate agents:\n1. **Architect Agent:** Breaks down problem specifications.\n2. **Coder Agent:** Writes Python/TypeScript code.\n3. **Reviewer Agent:** Inspects code for syntax bugs and security flaws.\n\nDeploying localized agentic loops delivers high-speed automated software generation without cloud subscription overhead.`
+  },
+  {
+    id: "114",
+    title: "Production Kubernetes (K8s) Cluster Deployment: Ingress, Helm, Autoscaling, and GitOps",
+    category: "DevOps & Cloud",
+    coverImage: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?q=80&w=1200&auto=format&fit=crop",
+    readTime: "15 min read",
+    date: "2026-08-04",
+    tags: ["Kubernetes", "DevOps", "Helm", "GitOps", "Cloud"],
+    summary: "A production masterclass on Kubernetes cluster deployment. Learn container orchestration, NGINX Ingress controllers, Helm chart management, Horizontal Pod Autoscaling (HPA), and GitOps pipelines with ArgoCD.",
+    content: `Kubernetes is the industry-standard container orchestration platform for scaling cloud-native microservices. This guide outlines the blueprint for deploying production-grade K8s clusters.\n\n### 1. Core Architecture & Resource Declarations\nKubernetes manages containerized applications via declarative YAML manifests.\n\n\`\`\`yaml\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: web-api\n  labels:\n    app: web-api\nspec:\n  replicas: 3\n  selector:\n    matchLabels:\n      app: web-api\n  template:\n    metadata:\n      labels:\n        app: web-api\n    spec:\n      containers:\n      - name: api-container\n        image: myregistry/web-api:v1.2.0\n        resources:\n          requests:\n            memory: "256Mi"\n            cpu: "250m"\n          limits:\n            memory: "512Mi"\n            cpu: "500m"\n        ports:\n        - containerPort: 8080\n\`\`\`\n\n### 2. NGINX Ingress & TLS Termination\nIngress controllers expose cluster HTTP routes to external traffic while managing SSL/TLS certificates via cert-manager:\n\n\`\`\`yaml\napiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: api-ingress\n  annotations:\n    cert-manager.io/cluster-issuer: "letsencrypt-prod"\nspec:\n  tls:\n  - hosts:\n    - api.shavinjoseph.me\n    secretName: api-tls-secret\n  rules:\n  - host: api.shavinjoseph.me\n    http:\n      paths:\n      - path: /\n        pathType: Prefix\n        backend:\n          service:\n            name: web-api\n            port:\n              number: 8080\n\`\`\`\n\n### 3. Horizontal Pod Autoscaling (HPA)\nAutomatically scale pod replicas based on CPU or RAM consumption:\n\`\`\`bash\nkubectl autoscale deployment web-api --cpu-percent=75 --min=3 --max=15\n\`\`\`\n\n### 4. Continuous Deployment with GitOps & ArgoCD\nGitOps uses Git repositories as the single source of truth for infrastructure. ArgoCD monitors cluster manifests in GitHub and synchronizes production state automatically.`
+  },
+  {
+    id: "115",
+    title: "Android Performance Engineering: Jetpack Compose, Memory Leaks, Coroutines, and Native NDK Optimization",
+    category: "Mobile Development",
+    coverImage: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?q=80&w=1200&auto=format&fit=crop",
+    readTime: "14 min read",
+    date: "2026-08-04",
+    tags: ["Android", "Kotlin", "Jetpack Compose", "Coroutines", "Mobile"],
+    summary: "An in-depth mobile engineering guide to building high-frame-rate native Android apps. Master Jetpack Compose recomposition stability, Kotlin Coroutines, LeakCanary profiling, Room database caching, and C++ NDK interop.",
+    content: `Engineering production Android apps requires maintaining smooth 60fps UI frame rates while preventing battery drain and background memory leaks.\n\n### 1. Jetpack Compose Recomposition & Stability\nIn Jetpack Compose, passing unstable objects into Composable functions triggers unnecessary re-renders across the entire UI tree.\n\n\`\`\`kotlin\n// Optimized Stable Data Model in Kotlin\n@Immutable\ndata class UserProfileState(\n    val userId: String,\n    val userName: String,\n    val avatarUrl: String\n)\n\n@Composable\nfun UserProfileCard(state: UserProfileState, onCardClick: () -> Unit) {\n    Card(\n        modifier = Modifier.fillMaxWidth().clickable { onCardClick() },\n        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)\n    ) {\n        Text(text = state.userName, style = MaterialTheme.typography.titleMedium)\n    }\n}\n\`\`\`\n\n### 2. Structured Concurrency with Kotlin Coroutines\nAvoid blocking main UI looper threads by switching execution context to \`Dispatchers.IO\`:\n\n\`\`\`kotlin\nclass Repository(private val apiService: ApiService, private val userDao: UserDao) {\n    suspend fun fetchAndStoreUser(userId: String) = withContext(Dispatchers.IO) {\n        val user = apiService.getUserDetails(userId)\n        userDao.insertUser(user)\n    }\n}\n\`\`\`\n\n### 3. Profiling Memory Leaks with LeakCanary\nCommon causes of Android memory leaks include holding static context references in singletons or failing to cancel unattached RxJava/Coroutine subscriptions. Integrating LeakCanary flags retained Activity references instantly during debug builds.\n\nCombining native Kotlin Jetpack Compose with offline-first Room caching delivers buttery smooth mobile experiences.`
+  },
+  {
+    id: "116",
+    title: "Next.js 15 & React 19 Enterprise Architecture: Server Actions, Partial Prerendering, and Edge Caching",
+    category: "Web Development",
+    coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+    readTime: "13 min read",
+    date: "2026-08-04",
+    tags: ["Next.js 15", "React 19", "Full Stack", "TypeScript", "Performance"],
+    summary: "Master enterprise web app architecture using Next.js 15 App Router and React 19. Learn React Server Components (RSC), Server Actions, Partial Prerendering (PPR), middleware edge security, and granular revalidation.",
+    content: `Next.js 15 and React 19 represent the biggest leap in full-stack web development. This guide explores enterprise patterns for building lightning-fast web applications.\n\n### 1. React Server Components (RSC) vs. Client Components\nServer Components execute exclusively on the server, streaming raw HTML without bundling component JavaScript bytes to the browser.\n\n\`\`\`tsx
+// Server Component (Default in Next.js 15 App Router)
+import { db } from '@/lib/db';
+
+export default async function ProductCatalog() {
+  const products = await db.products.findMany();
+
+  return (
+    <div className="grid grid-cols-3 gap-6">
+      {products.map(p => (
+        <div key={p.id} className="p-4 border rounded-xl">
+          <h3>{p.title}</h3>
+          <p>\${p.price}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+\`\`\`\n\n### 2. Form Handling with Server Actions & Optimistic UI\nServer Actions allow executing asynchronous server functions directly from client forms without writing custom API endpoint routes:\n\n\`\`\`tsx
+// Server Action Mutation
+'use server';
+
+import { revalidatePath } from 'next/cache';
+
+export async function addCommentAction(formData: FormData) {
+  const comment = formData.get('comment') as string;
+  await db.comments.create({ data: { text: comment } });
+  revalidatePath('/blog/post-1');
+}
+\`\`\`\n\n### 3. Partial Prerendering (PPR)\nPartial Prerendering combines static shell rendering with dynamic streaming hole fills inside a single HTTP connection, giving you instant TTFB with real-time server data.`
+  },
+  {
+    id: "117",
+    title: "High-Performance PostgreSQL Database Engineering: Indexing Strategies, Table Partitioning, and Connection Pooling",
+    category: "Database Engineering",
+    coverImage: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=1200&auto=format&fit=crop",
+    readTime: "15 min read",
+    date: "2026-08-04",
+    tags: ["PostgreSQL", "SQL", "Database", "Performance", "Sysadmin"],
+    summary: "An advanced PostgreSQL database engineering masterclass. Learn storage engine internals, Index types (B-Tree, GIN, GiST, BRIN), declarative table partitioning, EXPLAIN ANALYZE execution plans, and PgBouncer connection pooling.",
+    content: `PostgreSQL is the world's most powerful open-source relational database. Optimizing PostgreSQL for high-scale enterprise workloads requires understanding its underlying storage engine.\n\n### 1. Deep Dive into PostgreSQL Index Types\n\n• **B-Tree (Default):** Optimal for equality (\`=\`) and range queries (\`<\`, \`>\`, \`BETWEEN\`).\n• **GIN (Generalized Inverted Index):** Essential for searching inside JSONB columns, array types, and full-text search vectors.\n• **BRIN (Block Range Index):** Extremely lightweight index for giant time-series tables naturally ordered on disk.\n\n\`\`\`sql\n-- Create a GIN Index for fast JSONB querying\nCREATE INDEX idx_user_metadata_gin ON users USING GIN (metadata);\n\n-- Querying JSONB using GIN containment operator (@>)\nSELECT * FROM users WHERE metadata @> '{"role": "admin"}';\n\`\`\`\n\n### 2. Declarative Table Partitioning for Giant Datasets\nPartitioning splits multi-gigabyte tables into smaller physical child tables by range or hash key:\n\n\`\`\`sql\n-- Create Master Partitioned Table\nCREATE TABLE audit_logs (\n    log_id BIGSERIAL,\n    event_date DATE NOT NULL,\n    message TEXT\n) PARTITION BY RANGE (event_date);\n\n-- Create Monthly Child Partitions\nCREATE TABLE audit_logs_2026_08 PARTITION OF audit_logs\n    FOR VALUES FROM ('2026-08-01') TO ('2026-09-01');\n\`\`\`\n\n### 3. Connection Pooling with PgBouncer\nPostgreSQL spawns a separate OS process for every connected client. Deploying **PgBouncer** in transaction pooling mode allows thousands of application workers to share a small pool of active database connections without exhausting server RAM.`
+  },
+  {
+    id: "118",
+    title: "Cybersecurity Masterclass: Zero-Trust Network Architecture, Web Application Firewalls, and Threat Hunting",
+    category: "Cybersecurity & Systems",
+    coverImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
+    readTime: "14 min read",
+    date: "2026-08-04",
+    tags: ["Cybersecurity", "Zero Trust", "WAF", "Network Security", "Sysadmin"],
+    summary: "A comprehensive cybersecurity blueprint for systems administrators and developers. Implement Zero-Trust network perimeters, Web Application Firewall (WAF) rule sets, PKI certificate management, and threat hunting.",
+    content: `Cybersecurity is no longer about perimeter defense—it is about continuous authentication and least-privilege access control across every layer of the technology stack.\n\n### 1. Principles of Zero-Trust Network Architecture\nZero-Trust operates under a single mandate: **"Never Trust, Always Verify."**\n\n1. **Explicit Identity Verification:** Authenticate and authorize every request using multi-factor identity protocols (OAuth 2.0, SAML, OIDC).\n2. **Least Privilege Access:** Grant temporary, just-in-time access privileges strictly necessary for the request.\n3. **Assume Breach:** Micro-segment network subnets to prevent lateral attacker movement.\n\n### 2. Configuring WAF Rules to Prevent OWASP Top 10\nWeb Application Firewalls inspect incoming HTTP traffic to block SQL Injection (SQLi) and Cross-Site Scripting (XSS):\n\n\`\`\`nginx\n# Example Nginx ModSecurity WAF Rule Snippet\nSecRule ARGS "@detectSQLi" \\\n    "id:10001,phase:2,deny,status:403,log,msg:'SQL Injection Attack Detected'"\n\`\`\`\n\n### 3. Threat Hunting & SIEM Event Log Analysis\nSecurity Information and Event Management (SIEM) tools aggregate logs from firewalls, domain controllers, and endpoints to detect anomalous behavior (such as privilege escalation or password spraying).\n\nEnforcing strict encryption in transit (TLS 1.3) and at rest (AES-256) ensures corporate data resilience.`
+  },
+  {
+    id: "119",
+    title: "Designing Ultra-Low-Latency Real-Time Systems: WebSockets, gRPC, WebRTC, and Shared Memory",
+    category: "System Architecture",
+    coverImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
+    readTime: "14 min read",
+    date: "2026-08-04",
+    tags: ["Real-Time", "WebSockets", "gRPC", "WebRTC", "High Performance"],
+    summary: "Architecting sub-millisecond real-time systems. Compare WebSockets, HTTP/2 gRPC binary streaming, WebRTC peer-to-peer data channels, and shared memory IPC for financial and streaming applications.",
+    content: `Building real-time software demands minimizing transport latency, serialization overhead, and network hop delays.\n\n### Protocol Transport Matrix\n\n• **WebSockets (TCP):** Full-duplex persistent bidirectional connection ideal for browser chat and dashboard UI updates.\n• **gRPC (HTTP/2 + Protobuf):** Strongly-typed binary serialization format designed for high-throughput microservice IPC.\n• **WebRTC (UDP DataChannels):** Peer-to-peer transport protocol delivering ultra-low-latency audio/video and gaming data.\n\n### Implementing gRPC Protocol Buffers\n\`\`\`protobuf\n// Protocol Buffer Definition (schema.proto)\nsyntax = "proto3";\n\nservice MarketDataService {\n  rpc StreamTicker (TickerRequest) returns (stream TickerResponse);\n}\n\nmessage TickerRequest {\n  string symbol = 1;\n}\n\nmessage TickerResponse {\n  string symbol = 1;\n  double price = 2;\n  int64 timestamp = 3;\n}\n\`\`\`\n\nBinary protocol buffers compress payloads down to 10% the size of JSON strings while eliminating CPU parsing overhead.`
+  },
+  {
+    id: "120",
+    title: "The Complete Guide to AI Model Fine-Tuning: QLoRA, Dataset Curation, and Quantization for Local Deployment",
+    category: "Artificial Intelligence",
+    coverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
+    readTime: "16 min read",
+    date: "2026-08-04",
+    tags: ["LLM", "Fine Tuning", "QLoRA", "PyTorch", "AI"],
+    summary: "A step-by-step masterclass on fine-tuning open-source LLMs (Llama 3, DeepSeek) using QLoRA. Prepare instruction datasets, train adapter weights in PyTorch, and quantize models into GGUF formats for local GPU execution.",
+    content: `Fine-tuning adapts open-source foundation LLMs to excel at domain-specific tasks, such as generating custom SQL syntax or internal API code.\n\n### 1. What is QLoRA (Quantized Low-Rank Adaptation)?\nStandard full-parameter fine-tuning requires hundreds of gigabytes of VRAM. **QLoRA** quantizes base model weights to 4-bit precision while attaching small trainable Low-Rank Adapter matrices (LoRA), allowing fine-tuning on a single consumer GPU.\n\n### 2. Fine-Tuning Pipeline in Python with HuggingFace TRL\n\`\`\`python\nimport torch\nfrom transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig\nfrom peft import LoraConfig, get_peft_model\nfrom trl import SFTTrainer\n\n# 1. Configure 4-bit Quantization\nbnb_config = BitsAndBytesConfig(\n    load_in_4bit=True,\n    bnb_4bit_quant_type="nf4",\n    bnb_4bit_compute_dtype=torch.float16\n)\n\n# 2. Load Base Model\nmodel_id = "meta-llama/Meta-Llama-3-8B"\nmodel = AutoModelForCausalLM.from_pretrained(model_id, quantization_config=bnb_config)\n\n# 3. Configure LoRA Parameters\npeft_config = LoraConfig(\n    r=16,\n    lora_alpha=32,\n    target_modules=["q_proj", "v_proj"],\n    lora_dropout=0.05,\n    bias="none",\n    task_type="CAUSAL_LM"\n)\n\nmodel = get_peft_model(model, peft_config)\nprint("LoRA Fine-Tuning Setup Complete!")\n\`\`\`\n\n### 3. Quantization to GGUF for Local Inference\nOnce training finishes, merge the LoRA weights into the base model and convert to GGUF format using \`llama.cpp\` to execute your custom fine-tuned AI model locally via Ollama or LM Studio.`
+  },
+  {
+    id: "91",
+    title: "Building Real-Time Data Dashboards with React, WebSockets, and Redis",
+    category: "Web Development",
+    coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-04",
+    tags: ["WebSockets", "React", "Redis", "Real-Time", "Full Stack"],
+    summary: "How to architect low-latency real-time analytics dashboards using WebSockets, React state hooks, and Redis Pub/Sub channels.",
+    content: `Real-time analytics dashboards require pushing updates from the server to the browser instantly without polling HTTP endpoints.\n\n### The WebSocket + Redis Architecture\n1. **Redis Pub/Sub:** Ingests live metric streams from microservices and broadcasts payload events.\n2. **WebSocket Server:** Bridges Redis channels to connected client sockets using \`ws\` or Socket.io.\n3. **React State Engine:** Updates chart components dynamically with zero layout shifts.\n\nThis architecture handles thousands of concurrent data updates with sub-10ms delivery time.`
+  },
+  {
+    id: "92",
+    title: "How to Mitigate DDoS Attacks at the DNS and Application Layer",
+    category: "Cybersecurity & Systems",
+    coverImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
+    readTime: "7 min read",
+    date: "2026-08-04",
+    tags: ["Cybersecurity", "DDoS", "Cloudflare", "DNS", "Web Security"],
+    summary: "A practical breakdown of volumetric vs. layer-7 application DDoS attacks, rate limiting, and Cloudflare WAF configuration.",
+    content: `Distributed Denial of Service (DDoS) attacks attempt to exhaust web server memory and bandwidth.\n\n### Multi-Layer DDoS Defense\n• **Layer 3/4 (Network Volumetric):** Scrubbed via Cloudflare or AWS Shield DNS proxying.\n• **Layer 7 (Application HTTP Flood):** Filtered via Nginx rate limiting (\`limit_req_zone\`) and challenge JS CAPTCHA rules.\n\nProactive rate limiting keeps APIs responsive during traffic surges.`
+  },
+  {
+    id: "93",
+    title: "Optimizing Android App Startup Time with Baseline Profiles & App Bundles",
+    category: "Mobile Development",
+    coverImage: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1200&auto=format&fit=crop",
+    readTime: "5 min read",
+    date: "2026-08-04",
+    tags: ["Android", "Kotlin", "Performance", "App Store", "Mobile"],
+    summary: "Reduce Android app cold start latency by up to 40% using Macrobenchmark Baseline Profiles and Android App Bundles.",
+    content: `App startup speed directly impacts user retention on Google Play. Android Baseline Profiles provide pre-compiled Ahead-of-Time (AOT) bytecode for critical user journeys, reducing cold startup delay significantly.`
+  },
+  {
+    id: "94",
+    title: "Python 3.13 Free-Threading: The End of the Global Interpreter Lock (GIL)",
+    category: "Backend Engineering",
+    coverImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-04",
+    tags: ["Python", "Concurrency", "Multithreading", "Performance", "Backend"],
+    summary: "Exploring Python 3.13 free-threaded mode (PEP 703) and true multi-core CPU execution without the Global Interpreter Lock.",
+    content: `Python 3.13 enables optional free-threaded build binaries that remove the Global Interpreter Lock (GIL). CPU-bound Python algorithms can now run across multi-core CPUs in parallel.`
+  },
+  {
+    id: "95",
+    title: "Zero-Trust Security Architecture: Implementing Identity-Aware Proxies",
+    category: "Cybersecurity & Systems",
+    coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-04",
+    tags: ["Zero Trust", "Security", "OAuth", "IAM", "Sysadmin"],
+    summary: "Why traditional corporate VPNs are being replaced by Zero-Trust Identity-Aware Proxies (IAP) and context-based access control.",
+    content: `Zero-Trust assumes all networks are untrusted. Identity-Aware Proxies authenticate every request based on user identity, device posture, and IP location before granting internal service access.`
+  },
+  {
+    id: "96",
+    title: "Understanding Modern Linux Kernel Memory Management & Swap Tuning",
+    category: "Windows & System Admin",
+    coverImage: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-04",
+    tags: ["Linux", "Kernel", "Sysadmin", "Performance", "Memory"],
+    summary: "Master Linux \`vm.swappiness\`, Out-Of-Memory (OOM) killer configurations, and RAM caching metrics for server optimization.",
+    content: `Tuning Linux memory parameters like \`vm.swappiness\` and \`vm.vfs_cache_pressure\` prevents OOM killer terminations during high database RAM usage.`
+  },
+  {
+    id: "97",
+    title: "How to Build a Custom Chrome Extension with Manifest V3 & React",
+    category: "Frontend Architecture",
+    coverImage: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop",
+    readTime: "5 min read",
+    date: "2026-08-04",
+    tags: ["Chrome Extension", "React", "JavaScript", "Manifest V3", "Web Dev"],
+    summary: "Step-by-step tutorial on building Manifest V3 browser extensions using React, background service workers, and storage APIs.",
+    content: `Manifest V3 requires replacing persistent background pages with event-driven Service Workers. Learn how to bundle React popups and content scripts efficiently.`
+  },
+  {
+    id: "98",
+    title: "TypeScript 5.5 Type Checking Tricks Every Senior Developer Uses",
+    category: "Frontend Architecture",
+    coverImage: "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=1200&auto=format&fit=crop",
+    readTime: "5 min read",
+    date: "2026-08-04",
+    tags: ["TypeScript", "JavaScript", "Frontend", "Type System", "Web Dev"],
+    summary: "Master inferred type predicates, template literal types, and satisfaction constraints in TypeScript 5.5.",
+    content: `TypeScript 5.5 introduces automatic type predicate inference for array filtering, eliminating manual type narrowing guards in production code.`
+  },
+  {
+    id: "99",
+    title: "Designing Fault-Tolerant Microservices with Circuit Breaker Patterns",
+    category: "System Architecture",
+    coverImage: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-04",
+    tags: ["Microservices", "System Architecture", "Resilience", "Backend", "DevOps"],
+    summary: "Prevent cascading backend failures across distributed services using Circuit Breaker state machines and fallback responses.",
+    content: `When a downstream microservice fails, Circuit Breakers trip into an Open state, returning immediate fallback responses without overwhelming failing upstream databases.`
+  },
+  {
+    id: "100",
+    title: "Automating Infrastructure as Code (IaC) with Terraform & GitHub Actions",
+    category: "DevOps & Cloud",
+    coverImage: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?q=80&w=1200&auto=format&fit=crop",
+    readTime: "7 min read",
+    date: "2026-08-04",
+    tags: ["Terraform", "DevOps", "AWS", "GitHub Actions", "Cloud"],
+    summary: "Provision scalable cloud infrastructure on AWS/GCP with Terraform plan automation and pull request review pipelines.",
+    content: `Infrastructure as Code (IaC) ensures repeatable cloud environment provisioning. Learn how to automate \`terraform plan\` and \`terraform apply\` in GitHub Actions.`
+  },
+  {
+    id: "101",
+    title: "Building Custom AI Vector Search Engines with Qdrant and Python",
+    category: "Artificial Intelligence",
+    coverImage: "https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-04",
+    tags: ["Vector Search", "Qdrant", "Python", "AI", "Machine Learning"],
+    summary: "Build high-speed semantic search engines for image and text similarity using vector embeddings and Qdrant database.",
+    content: `Vector search engines perform HNSW graph traversal over high-dimensional vector embeddings to deliver sub-millisecond semantic search.`
+  },
+  {
+    id: "102",
+    title: "How to Hardening Windows Server 2025: Active Directory & GPO Checklist",
+    category: "Windows & System Admin",
+    coverImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop",
+    readTime: "7 min read",
+    date: "2026-08-04",
+    tags: ["Windows Server", "Active Directory", "GPO", "Sysadmin", "Security"],
+    summary: "Essential Group Policy Objects (GPO) and Active Directory security hardening rules for corporate Windows environments.",
+    content: `Hardening Windows Server 2025 involves disabling legacy NTLM authentication, enforcing LSA protection, and configuring AppLocker script block policies.`
+  },
+  {
+    id: "103",
+    title: "GraphQL Subscriptions & Server-Sent Events (SSE) for Live Feeds",
+    category: "Web Development",
+    coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+    readTime: "5 min read",
+    date: "2026-08-04",
+    tags: ["GraphQL", "SSE", "WebSockets", "Node.js", "Backend"],
+    summary: "Comparing GraphQL Subscriptions against Server-Sent Events (SSE) for streaming live data feeds to web applications.",
+    content: `Server-Sent Events (SSE) offer lightweight unidirectional HTTP streaming over standard HTTP/2 connections without the complexity of WebSocket state maintenance.`
+  },
+  {
+    id: "104",
+    title: "Android Jetpack Compose State Recomposition Optimization Masterclass",
+    category: "Mobile Development",
+    coverImage: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-04",
+    tags: ["Android", "Jetpack Compose", "Kotlin", "UI", "Mobile"],
+    summary: "Eliminate unneeded Composable recompositions using @Stable annotations, DerivedStateOf, and immutable data classes.",
+    content: `In Jetpack Compose, unstable parameters cause entire Composable trees to recompose unnecessarily. Wrapping lists in \`ImmutableList\` maintains 60fps scrolling.`
+  },
+  {
+    id: "105",
+    title: "Fine-Tuning Llama 3 with LoRA and QLoRA on Consumer Hardware",
+    category: "Artificial Intelligence",
+    coverImage: "https://images.unsplash.com/photo-1677442136019-21780efad99a?q=80&w=1200&auto=format&fit=crop",
+    readTime: "7 min read",
+    date: "2026-08-04",
+    tags: ["Llama 3", "Fine Tuning", "PyTorch", "AI", "Machine Learning"],
+    summary: "Learn Quantized Low-Rank Adaptation (QLoRA) to fine-tune open-source Llama 3 models on a single 16GB GPU.",
+    content: `QLoRA quantizes LLM base weights to 4-bit precision while training lightweight adapter layers, enabling custom LLM fine-tuning on consumer hardware.`
+  },
+  {
+    id: "106",
+    title: "Monorepo Management at Scale: Nx vs Turborepo Performance Benchmark",
+    category: "DevOps & Workflows",
+    coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-04",
+    tags: ["Monorepo", "Turborepo", "Nx", "TypeScript", "DevOps"],
+    summary: "A developer benchmark of Turborepo vs. Nx for large multi-package TypeScript and React monorepos.",
+    content: `Monorepo build tools rely on remote computational caching. Comparing Turborepo's Rust pipeline execution against Nx's task dependency graph.`
+  },
+  {
+    id: "107",
+    title: "Building Highly Available Redis Clusters with Sentinel and Replication",
+    category: "Database Engineering",
+    coverImage: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-04",
+    tags: ["Redis", "Database", "Caching", "Backend", "DevOps"],
+    summary: "Configure Redis Sentinel automatic failover and master-replica replication for zero-downtime caching layers.",
+    content: `Redis Sentinel monitors master nodes and automatically promotes replicas to primary master state during node hardware failures.`
+  },
+  {
+    id: "108",
+    title: "Automating Security Vulnerability Scans in CI/CD Pipelines with Trivy & Snyk",
+    category: "Cybersecurity & Systems",
+    coverImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
+    readTime: "5 min read",
+    date: "2026-08-04",
+    tags: ["DevSecOps", "Security", "CI/CD", "Docker", "DevOps"],
+    summary: "Scan container images and npm/pip package dependencies for CVE security vulnerabilities before production deployment.",
+    content: `Integrating Trivy and Snyk CLI scans directly into GitHub Actions blocks vulnerable Docker layers from reaching production environments.`
+  },
+  {
+    id: "109",
+    title: "Designing Event-Driven Architectures with Apache Kafka and RabbitMQ",
+    category: "System Architecture",
+    coverImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
+    readTime: "7 min read",
+    date: "2026-08-04",
+    tags: ["Kafka", "RabbitMQ", "Event Driven", "System Architecture", "Backend"],
+    summary: "Understanding the difference between message queues (RabbitMQ) and distributed append-only event logs (Apache Kafka).",
+    content: `RabbitMQ delivers point-to-point task queues, whereas Apache Kafka stores immutable event streams that multiple consumer groups read independently.`
+  },
+  {
+    id: "110",
+    title: "Building Offline PWA Web Applications with Service Workers & IndexedDB",
+    category: "Frontend Architecture",
+    coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-04",
+    tags: ["PWA", "Service Workers", "IndexedDB", "JavaScript", "Frontend"],
+    summary: "Turn web apps into installable Progressive Web Apps (PWAs) with background caching strategies and IndexedDB local storage.",
+    content: `Progressive Web Apps utilize Service Worker \`fetch\` event handlers to intercept network calls and serve cached static assets instantly offline.`
+  },
+  {
+    id: "71",
+    title: "How to Repair Corrupted Windows 11 System Files Using SFC and DISM in PowerShell",
+    category: "Windows & System Admin",
+    coverImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-04",
+    tags: ["Windows 11", "SFC", "DISM", "PowerShell", "Troubleshooting"],
+    summary: "A step-by-step diagnostic guide on repairing corrupted Windows system files, restoring component store health, and fixing boot errors using native CLI utilities.",
+    content: `When Windows 11 experiences random crashes, slow performance, or missing DLL errors, system file corruption is frequently the root cause. Fortunately, Microsoft provides native CLI diagnostic tools to inspect and repair system integrity.\n\n### Step-by-Step System File Repair in PowerShell\n\n#### 1. Launch Elevated PowerShell\nPress \`Win + X\` and select **Terminal (Admin)** or **PowerShell (Admin)**.\n\n#### 2. Run Deployment Image Servicing and Management (DISM)\nBefore running SFC, repair the underlying Windows component store image:\n\`\`\`powershell\n# Scan Windows Component Store for corruption\nDISM.exe /Online /Cleanup-Image /ScanHealth\n\n# Repair corrupted component store files from Windows Update\nDISM.exe /Online /Cleanup-Image /RestoreHealth\n\`\`\`\n\n#### 3. Run System File Checker (SFC)\nOnce DISM completes successfully, verify and replace modified system files:\n\`\`\`powershell\nsfc /scannow\n\`\`\`\n\n### Interpreting SFC Output Results\n• **"Windows Resource Protection did not find any integrity violations":** Your system files are clean.\n• **"Windows Resource Protection found corrupt files and successfully repaired them":** Corruption was resolved.\n• **Log Inspection:** Detailed repair logs are saved to \`C:\\Windows\\Logs\\CBS\\CBS.log\`.\n\nRunning DISM and SFC sequentially resolves over 90% of non-hardware Windows OS instabilities.`
+  },
+  {
+    id: "72",
+    title: "Deploying Local AI Models with Ollama & DeepSeek-R1: Privacy-First AI Setup",
+    category: "Artificial Intelligence",
+    coverImage: "https://images.unsplash.com/photo-1677442136019-21780efad99a?q=80&w=1200&auto=format&fit=crop",
+    readTime: "7 min read",
+    date: "2026-08-04",
+    tags: ["DeepSeek", "Ollama", "AI Models", "Local LLM", "Python"],
+    summary: "Learn how to run open-source AI models locally on your GPU using Ollama and DeepSeek-R1 for zero-cost, privacy-first offline code generation.",
+    content: `Cloud-based AI APIs are powerful, but transmitting sensitive corporate code to external servers isn't always viable. Running local Large Language Models (LLMs) gives developers 100% privacy, zero latency costs, and offline capability.\n\n### Setting Up Ollama and DeepSeek\n\n#### 1. Install Ollama CLI\nDownload and install Ollama for Windows, Linux, or macOS:\n\`\`\`bash\n# Download and run Ollama\nollama --version\n\`\`\`\n\n#### 2. Pull and Run DeepSeek-R1\nLaunch DeepSeek directly inside your terminal session:\n\`\`\`bash\n# Run DeepSeek-R1 model locally\nollama run deepseek-r1:8b\n\`\`\`\n\n#### 3. Integrate with VS Code & Python\nYou can connect local Ollama models directly to VS Code extensions or query them via Python:\n\`\`\`python\nimport requests\n\nresponse = requests.post('http://localhost:11434/api/generate', json={\n    'model': 'deepseek-r1:8b',\n    'prompt': 'Write a Python function to parse JSON logs efficiently.'\n})\nprint(response.json()['response'])\n\`\`\`\n\nLocal AI execution is revolutionizing software engineering workflows while preserving data sovereignty.`
+  },
+  {
+    id: "73",
+    title: "WSL2 Performance Optimization Guide for Full-Stack Developers in 2026",
+    category: "DevOps & System Admin",
+    coverImage: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=1200&auto=format&fit=crop",
+    readTime: "5 min read",
+    date: "2026-08-03",
+    tags: ["WSL2", "Linux", "Windows 11", "Docker", "Performance"],
+    summary: "Unlock maximum RAM, CPU, and disk I/O performance in Windows Subsystem for Linux (WSL2) with custom .wslconfig and file system mounting tweaks.",
+    content: `Windows Subsystem for Linux (WSL2) allows developers to run native Linux distributions directly alongside Windows 11. However, default memory and disk I/O settings can lead to high RAM usage and slow build times.\n\n### Optimizing \`.wslconfig\` Settings\n\nCreate a file at \`C:\\Users\\<YourUsername>\\.wslconfig\`:\n\`\`\`ini\n[wsl2]\nmemory=12GB # Limit RAM allocation\nprocessors=4 # Assign CPU core limit\nswap=4GB # Limit swap file size\nlocalhostForwarding=true\n\`\`\`\n\n### Crucial Disk Performance Rule\nAlways store project files inside the Linux filesystem (\`/home/username/projects/\`) rather than accessing Windows mounts (\`/mnt/c/\`). File operations inside native ext4 virtual disks are up to 10x faster for Node.js \`npm install\` and Python virtual environments!`
+  },
+  {
+    id: "74",
+    title: "React 19 Compiler Deep-Dive: Say Goodbye to useMemo and useCallback",
+    category: "Frontend Architecture",
+    coverImage: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-03",
+    tags: ["React 19", "React Compiler", "JavaScript", "Frontend", "Performance"],
+    summary: "Exploring the new React 19 auto-memoization compiler. Learn how automatic memoization eliminates manual hooks while maintaining high-frame-rate UIs.",
+    content: `React 19 introduces the revolutionary React Compiler (formerly React Forget), an optimizing build tool that automatically memoizes component rendering.\n\n### The End of Manual Memoization Hooks\nIn previous React versions, developers spent endless effort wrapping values and handlers in \`useMemo\` and \`useCallback\` to prevent unnecessary component re-renders:\n\`\`\`javascript\n// Legacy React Pattern\nconst cachedValue = useMemo(() => computeHeavyData(items), [items]);\n\`\`\`\n\nWith React 19 Compiler enabled, the compiler analyzes JavaScript semantics at build time and automatically caches values without developer intervention. This leads to cleaner codebases and consistently fast UI rendering.`
+  },
+  {
+    id: "75",
+    title: "Tailwind CSS v4 Migration Guide: CSS-First Configuration & Performance Engine",
+    category: "Web Development",
+    coverImage: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop",
+    readTime: "5 min read",
+    date: "2026-08-03",
+    tags: ["TailwindCSS", "CSS", "Frontend", "UI Design", "Performance"],
+    summary: "A practical guide to upgrading to Tailwind CSS v4 featuring CSS-first @theme rules, lightning-fast compilation, and container queries.",
+    content: `Tailwind CSS v4 introduces a complete ground-up rewrite powered by a high-performance Rust engine. The biggest paradigm shift is moving configuration from \`tailwind.config.js\` directly into native CSS via \`@theme\` directives.\n\n### Native CSS Configuration\n\`\`\`css\n@import "tailwindcss";\n\n@theme {\n  --color-primary: #10b981;\n  --font-display: "Inter", sans-serif;\n}\n\`\`\`\n\nTailwind v4 builds up to 10x faster and requires zero JavaScript configuration files for modern Vite and React projects.`
+  },
+  {
+    id: "76",
+    title: "Next.js 15 Server Components & Dynamic Caching: Production Performance Guide",
+    category: "Web Development",
+    coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-02",
+    tags: ["Next.js", "React", "Server Components", "Full Stack", "Performance"],
+    summary: "How to build ultra-fast web applications with Next.js 15 App Router, granular revalidation, and uncached server action boundaries.",
+    content: `Next.js 15 refines the App Router architecture with updated caching semantics. Unlike Next.js 14, \`fetch\` requests and \`GET\` route handlers are now uncached by default, giving developers explicit control over static vs. dynamic rendering.\n\n### Explicit Caching Strategies\n\`\`\`typescript\n// Explicit static caching in Next.js 15\nconst data = await fetch('https://api.example.com/data', {\n  cache: 'force-cache',\n  next: { revalidate: 3600 }\n});\n\`\`\`\n\nCombining Server Components with explicit revalidation models delivers fast initial page loads and reduced database load.`
+  },
+  {
+    id: "77",
+    title: "Building Autonomous Coding Agents: Orchestrating LLMs with Tool Execution Protocols",
+    category: "Artificial Intelligence",
+    coverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
+    readTime: "8 min read",
+    date: "2026-08-02",
+    tags: ["AI Agents", "Python", "Tool Calling", "LLM", "Automation"],
+    summary: "An architectural walkthrough of how agentic AI coding assistants interpret user intent, spawn background tasks, and modify codebases autonomously.",
+    content: `Agentic AI goes beyond text completion. Modern AI coding assistants act as autonomous agents capable of inspecting local files, executing build commands, analyzing error tracebacks, and iterating on solutions.\n\n### The Agentic Loop\n1. **Intent Parsing:** Deconstructing user prompts into technical execution steps.\n2. **Tool Execution:** Invoking tools (\`view_file\`, \`replace_file_content\`, \`run_command\`) to gather empirical logs.\n3. **Self-Correction:** Reading compiler errors directly and mutating source code until tests pass.\n\nAutonomous subagent orchestration is transforming developer tooling into active collaborative pair-programmers.`
+  },
+  {
+    id: "78",
+    title: "Retrieval-Augmented Generation (RAG) Architecture with Vector Databases",
+    category: "Artificial Intelligence",
+    coverImage: "https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=1200&auto=format&fit=crop",
+    readTime: "7 min read",
+    date: "2026-08-02",
+    tags: ["RAG", "Vector Database", "Pinecone", "Python", "AI"],
+    summary: "How to build a production RAG system that connects enterprise documents to Large Language Models using vector embeddings and semantic search.",
+    content: `Retrieval-Augmented Generation (RAG) bridges the gap between static LLM training data and real-time private documentation.\n\n### How RAG Works\n1. **Embedding Generation:** Document chunks are converted into dense vector embeddings using models like OpenAI \`text-embedding-3-small\`.\n2. **Vector Indexing:** Embeddings are stored in high-speed vector databases like Pinecone, Qdrant, or PGVector.\n3. **Semantic Querying:** User prompts retrieve the top $K$ relevant context chunks, which are fed into the LLM context window.\n\nRAG enables enterprise AI chatbots to answer queries accurately with zero hallucination.`
+  },
+  {
+    id: "79",
+    title: "Docker Container Optimization: Reducing Image Size from 1GB to 20MB",
+    category: "DevOps & Cloud",
+    coverImage: "https://images.unsplash.com/photo-1605745341112-85968b19335b?q=80&w=1200&auto=format&fit=crop",
+    readTime: "5 min read",
+    date: "2026-08-01",
+    tags: ["Docker", "Containers", "DevOps", "Linux", "CI/CD"],
+    summary: "Learn multi-stage builds, Alpine base images, and distroless containers to shrink production Docker images by up to 95%.",
+    content: `Large Docker images slow down CI/CD deployment pipelines and consume excessive Cloud registry storage. Optimizing Dockerfiles is essential for cloud infrastructure.\n\n### Multi-Stage Dockerfile Strategy\n\`\`\`dockerfile\n# Stage 1: Build\nFROM node:20-alpine AS builder\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci\nCOPY . .\nRUN npm run build\n\n# Stage 2: Production Execution\nFROM nginx:alpine\nCOPY --from=builder /app/dist /usr/share/nginx/html\nEXPOSE 80\n\`\`\`\n\nBy separating build-time dependencies from runtime assets, final container images shrink from 1GB+ down to under 25MB.`
+  },
+  {
+    id: "80",
+    title: "Native Android (Kotlin) vs Flutter in 2026: Architectural Tradeoffs for Mobile Developers",
+    category: "Mobile Development",
+    coverImage: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-01",
+    tags: ["Android Studio", "Kotlin", "Flutter", "Mobile Apps", "Architecture"],
+    summary: "Comparing native Android development against Flutter for modern mobile applications. Analyzing performance, background execution, and UI rendering.",
+    content: `Choosing between Native Android (Jetpack Compose + Kotlin) and Flutter depends on your application requirements.\n\n### Architectural Comparison\n• **Native Kotlin:** Direct access to Android hardware APIs, seamless background location workers, zero bridge overhead, and immediate adoption of new OS features.\n• **Flutter:** Single Dart codebase for iOS and Android, pixel-identical custom rendering, and rapid MVP prototyping.\n\nFor enterprise hardware apps (like FrostLink Sales), native Kotlin remains superior for battery and background execution stability.`
+  },
+  {
+    id: "81",
+    title: "PostgreSQL Query Optimization: Indexes, EXPLAIN ANALYZE, and Connection Pooling",
+    category: "Database Engineering",
+    coverImage: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=1200&auto=format&fit=crop",
+    readTime: "7 min read",
+    date: "2026-08-01",
+    tags: ["PostgreSQL", "SQL", "Database", "Performance", "Backend"],
+    summary: "Diagnose slow SQL queries, leverage B-Tree and GIN indexes, and configure PgBouncer for high-concurrency database backends.",
+    content: `Slow database queries are the primary bottleneck in backend applications. Tuning PostgreSQL requires understanding query execution plans.\n\n### Using EXPLAIN ANALYZE\n\`\`\`sql\nEXPLAIN ANALYZE\nSELECT * FROM orders \nWHERE status = 'completed' AND created_at > NOW() - INTERVAL '7 days';\n\`\`\`\n\nLook for \`Seq Scan\` (sequential table scans) on large tables. Adding a compound B-Tree index on \`(status, created_at)\` converts slow disk scans into sub-millisecond \`Index Scan\` lookups.`
+  },
+  {
+    id: "82",
+    title: "Securing Modern Web Apps: CSP Headers, CORS, and XSS Prevention Strategies",
+    category: "Cybersecurity & Systems",
+    coverImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-07-31",
+    tags: ["Web Security", "Cybersecurity", "XSS", "CORS", "Headers"],
+    summary: "Essential web application security checklist covering Content Security Policy (CSP), HTTP-only cookies, and XSS vulnerability prevention.",
+    content: `Web security is non-negotiable. Modern web applications must enforce strict HTTP headers to block Cross-Site Scripting (XSS) and data injection.\n\n### Key Security Headers Checklist\n1. **Content-Security-Policy (CSP):** Restricts script execution to whitelisted domains.\n2. **Strict-Transport-Security (HSTS):** Enforces HTTPS encryption for all browser connections.\n3. **SameSite & HttpOnly Cookies:** Prevents client-side JavaScript access to authentication session tokens.\n\nEnforcing strict security headers protects user authentication tokens from client-side script tampering.`
+  },
+  {
+    id: "83",
+    title: "10 Essential PowerShell Automation Scripts Every Sysadmin Needs",
+    category: "Windows & System Admin",
+    coverImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-07-31",
+    tags: ["PowerShell", "Sysadmin", "Automation", "Windows 11", "Scripts"],
+    summary: "Automate user auditing, disk cleanup, service monitoring, and event log exports with battle-tested PowerShell scripts.",
+    content: `PowerShell is the cornerstone of Windows system administration. Here are key automation snippets every admin should keep in their toolkit:\n\n\`\`\`powershell\n# 1. Clean Temp Files & Release Disk Space\nGet-ChildItem -Path "C:\\Windows\\Temp\\*" -Recurse -Force | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue\n\n# 2. Export Failed Logon Attempts from Event Log\nGet-EventLog -LogName Security -InstanceId 4625 | Select-TimeGenerated, Message | Export-Csv -Path "C:\\SecurityAudit.csv"\n\`\`\`\n\nAutomating routine administrative maintenance frees up time for infrastructure engineering.`
+  },
+  {
+    id: "84",
+    title: "Diagnosing Network Bottlenecks: Netstat, Ping, and Wireshark Guide for Developers",
+    category: "Hardware & Networking",
+    coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop",
+    readTime: "5 min read",
+    date: "2026-07-30",
+    tags: ["Networking", "Wireshark", "Cisco", "Sysadmin", "Diagnostics"],
+    summary: "How to analyze network latency, inspect TCP handshake packet dumps, and troubleshoot DNS resolution issues like a network engineer.",
+    content: `When API requests hang, the issue often resides in the underlying network transport layer rather than application code.\n\n### Essential CLI Diagnostic Tools\n• **\`netstat -ano\` / \`Get-NetTCPConnection\`:** Inspect active listening ports and socket connection states.\n• **\`nslookup\` / \`Resolve-DnsName\`:** Verify DNS host record resolution.\n• **Wireshark:** Capture raw PCAP packets to identify TCP retransmissions, latency spikes, and handshake timeouts.`
+  },
+  {
+    id: "85",
+    title: "Building Resilient Mobile Apps: Offline-First Architecture & Background Sync",
+    category: "Mobile Development",
+    coverImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-07-30",
+    tags: ["Android", "Kotlin", "Room Database", "Offline First", "Mobile"],
+    summary: "How to design mobile applications that work seamlessly offline and automatically sync queued data when internet connectivity restores.",
+    content: `Mobile devices operate in unpredictable network conditions. Offline-first architecture ensures users can record data without active internet connectivity.\n\n### The Room + WorkManager Pattern\n1. **Local Writes:** User actions save immediately to a local SQLite database via Android Room ORM.\n2. **Background Dispatch:** Android \`WorkManager\` queues network requests and executes sync jobs when network connectivity becomes available.\n\nOffline-first design delivers instant UI feedback regardless of cellular signal strength.`
+  },
+  {
+    id: "86",
+    title: "Edge Computing in 2026: Running Serverless Functions at 0ms Cold Start Latency",
+    category: "DevOps & Cloud",
+    coverImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
+    readTime: "5 min read",
+    date: "2026-07-29",
+    tags: ["Edge Computing", "Serverless", "Cloudflare Workers", "JavaScript", "Backend"],
+    summary: "Why global edge networks are replacing traditional cloud servers for low-latency API routing and dynamic SSR rendering.",
+    content: `Edge computing runs serverless functions on CDN nodes nearest to the user, eliminating round-trip latency to central cloud data centers.\n\n### Edge Workers vs. Central Servers\nUnlike traditional AWS Lambda functions that incur cold starts, V8 isolate-based edge runtimes (like Cloudflare Workers) initialize in under 1ms, delivering global API responses instantly.`
+  },
+  {
+    id: "87",
+    title: "REST vs GraphQL vs gRPC: Selecting the Right API Protocol for High-Scale Apps",
+    category: "System Architecture",
+    coverImage: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-07-29",
+    tags: ["API", "GraphQL", "gRPC", "REST", "System Architecture"],
+    summary: "A comprehensive comparison of REST, GraphQL, and Protocol Buffers (gRPC) for enterprise microservices and client-server communication.",
+    content: `Selecting the correct API protocol depends on data flow requirements:\n\n• **REST:** Best for public APIs and standard HTTP web services.\n• **GraphQL:** Ideal for complex web frontends requiring flexible client query selection.\n• **gRPC (HTTP/2 + Protobuf):** Superior for internal microservice-to-microservice communication where ultra-low latency and binary payload compression are mandatory.`
+  },
+  {
+    id: "88",
+    title: "Implementing Hardware Security & Biometric Auth in Modern Android Applications",
+    category: "Mobile Development",
+    coverImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
+    readTime: "5 min read",
+    date: "2026-07-28",
+    tags: ["Android Security", "Biometrics", "Kotlin", "Mobile Apps", "Security"],
+    summary: "How to integrate Android BiometricPrompt and KeyStore APIs to securely store user tokens and encrypt sensitive device data.",
+    content: `Securing mobile app data requires leveraging hardware-backed encryption keys.\n\n### Android KeyStore Integration\nUsing Android \`KeyStore\` with \`BiometricPrompt\` ensures that decryption keys never leave the device's Secure Execution Environment (TEE). Users authenticate via fingerprint or facial recognition to decrypt sensitive session tokens.`
+  },
+  {
+    id: "89",
+    title: "Claude 3.7 vs Gemini 2.5 vs GPT-4.5: Which AI Coding Model Wins in 2026?",
+    category: "Artificial Intelligence",
+    coverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
+    readTime: "7 min read",
+    date: "2026-07-28",
+    tags: ["AI", "LLM", "Coding Assistants", "Machine Learning", "Benchmark"],
+    summary: "A comprehensive developer benchmark comparing top AI LLM models on complex refactoring, reasoning, and multi-file code generation.",
+    content: `Evaluating AI models for real-world software engineering requires testing beyond simple LeetCode problems.\n\n### Developer Benchmark Breakdown\n• **Claude 3.7 Sonnet:** Leading in complex multi-file refactoring and architectural reasoning.\n• **Gemini 2.5 Pro:** Unmatched 2M token context window capability for analyzing massive code repositories in a single prompt.\n• **GPT-4.5:** Excellent general-purpose code generation and documentation synthesis.`
+  },
+  {
+    id: "90",
+    title: "Microservices Deployment Pipeline: CI/CD with GitHub Actions & Kubernetes",
+    category: "DevOps & Cloud",
+    coverImage: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?q=80&w=1200&auto=format&fit=crop",
+    readTime: "7 min read",
+    date: "2026-07-27",
+    tags: ["DevOps", "GitHub Actions", "Kubernetes", "CI/CD", "Docker"],
+    summary: "Step-by-step tutorial on setting up automated CI/CD pipelines with GitHub Actions, building Docker images, and rolling out updates to Kubernetes.",
+    content: `Automating software deployment ensures rapid, bug-free release cycles.\n\n### GitHub Actions Workflow Overview\n1. **Lint & Test:** Run automated unit tests on every pull request.\n2. **Container Build:** Build and tag multi-arch Docker images, pushing them to GitHub Container Registry (GHCR).\n3. **K8s Rollout:** Update Kubernetes deployment manifests using \`kubectl set image\` with zero downtime.`
+  },
+  {
+    id: "68",
+    title: "Windows Package Manager (Winget) vs Chocolatey: The Ultimate 2026 CLI Software Guide",
+    category: "Windows & System Admin",
+    coverImage: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=1200&auto=format&fit=crop",
+    readTime: "7 min read",
+    date: "2026-08-04",
+    tags: ["Winget", "Chocolatey", "PowerShell", "Windows 11", "Sysadmin"],
+    summary: "A complete guide comparing Winget and Chocolatey for Windows package management. Learn how to automate software deployment, perform silent unattended installs, and streamline Windows workstation setups via PowerShell.",
+    content: `Managing software installations on Windows used to mean downloading dozen of separate .exe and .msi installers from browser popups. Today, package managers like **Winget (Windows Package Manager)** and **Chocolatey** have transformed Windows system administration into a seamless CLI experience.\n\n### Winget vs. Chocolatey: Key Differences\n\n• **Winget (Native Microsoft Solution):** Integrated directly into Windows 11 and modern Windows 10 builds. It pulls packages from official Microsoft community repositories and vendor sources. Zero installation required.\n• **Chocolatey (Community Enterprise Standard):** The long-standing third-party package manager for Windows with thousands of community-maintained packages and advanced corporate deployment features.\n\n### How to Install & Use Chocolatey and Winget in PowerShell\n\n#### 1. Installing Software with Winget\nWinget comes pre-installed on Windows 11. To search for and silently install software:\n\`\`\`powershell\n# Search for a package\nwinget search vscode\n\n# Install VS Code silently\nwinget install --id Microsoft.VisualStudioCode -e --accept-source-agreements --accept-package-agreements\n\n# Upgrade all installed applications on your PC\nwinget upgrade --all\n\`\`\`\n\n#### 2. Installing Software with Chocolatey\nTo set up Chocolatey in an elevated PowerShell session:\n\`\`\`powershell\n# Install Chocolatey via PowerShell\nSet-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -or 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))\n\n# Install tools using choco\nchoco install git.install nodejs-lts python3 -y\n\`\`\`\n\n### Which Package Manager Should You Use?\nFor personal workstations and modern Windows 11 setups, **Winget** is the fastest, cleanest choice. For enterprise environments requiring complex dependency management and private repository hosting, **Chocolatey** remains an industry favorite.\n\nBy leveraging automated package installation scripts, developers and sysadmins can provision complete workstation environments in under 5 minutes.`
+  },
+  {
+    id: "69",
+    title: "Demystifying PowerShell One-Liners: How 'irm | iex' Works & Best Practices for Script Safety",
+    category: "Cybersecurity & Systems",
+    coverImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop",
+    readTime: "6 min read",
+    date: "2026-08-03",
+    tags: ["PowerShell", "Windows Security", "Scripting", "CLI", "Sysadmin"],
+    summary: "Understanding 'Invoke-RestMethod' (irm) and 'Invoke-Expression' (iex) in PowerShell. Learn how remote execution one-liners operate, how to audit remote scripts before running them, and best practices for system safety.",
+    content: `If you have ever installed software or run system administration commands in Windows PowerShell, you have likely encountered commands structured like:\n\`\`\`powershell\nirm https://example.com/script.ps1 | iex\n\`\`\`\n\nWhile these one-liners are incredibly convenient for fast environment setups, understanding **how they work under the hood** is essential for any power user or developer.\n\n### Decoding the One-Liner\n\n• **\`irm\` (Invoke-RestMethod):** Sends an HTTP GET request to a specified URL and fetches the contents of the file or web API response as raw text.\n• **\`|\` (Pipeline Operator):** Takes the output returned by the left-hand command and passes it directly as input to the right-hand command.\n• **\`iex\` (Invoke-Expression):** Executes any string or script block passed into it directly inside the active PowerShell session with your current security permissions.\n\n### Best Practices for Running Remote Scripts\n\nBefore piping any remote URL into \`iex\`, follow these auditing steps:\n\n1. **Inspect the Script First:** Always open the URL directly in your browser or run \`irm <URL>\` without piping to \`iex\` to inspect the code line-by-line.\n2. **Check Session Privileges:** Determine whether the script requires Administrator privileges before executing.\n3. **Verify Execution Policies:** Understand your system's \`Get-ExecutionPolicy\` to ensure non-malicious script handling.\n\nAutomated remote execution pipelines make Windows system administration faster than ever when used with proper auditing and trusted sources.`
+  },
+  {
+    id: "70",
+    title: "Automating Windows 11 Developer Setup with a Single PowerShell Script",
+    category: "DevOps & Workflows",
+    coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+    readTime: "5 min read",
+    date: "2026-08-02",
+    tags: ["PowerShell", "Winget", "Automation", "Developer Tools", "Windows 11"],
+    summary: "How to write a custom PowerShell deployment script using Winget to automatically install VS Code, Node.js, Git, Python, and Docker Desktop on a new Windows installation in under 5 minutes.",
+    content: `Setting up a fresh Windows development workstation manually can take hours of clicking through websites and installation wizards. With PowerShell and Winget, you can automate the entire setup with a single script.\n\n### The Automated Developer Provisioning Script\n\nSave the following code as \`setup-dev.ps1\` and execute it in PowerShell:\n\n\`\`\`powershell
+# Windows 11 Automated Developer Provisioning Script
+Write-Host "Starting Developer Machine Setup..." -ForegroundColor Green
+
+$packages = @(
+    "Microsoft.VisualStudioCode",
+    "Git.Git",
+    "OpenJS.NodeJS.LTS",
+    "Python.Python.3.11",
+    "Docker.DockerDesktop",
+    "Postman.Postman"
+)
+
+foreach ($package in $packages) {
+    Write-Host "Installing $package..." -ForegroundColor Cyan
+    winget install --id $package -e --accept-source-agreements --accept-package-agreements
+}
+
+Write-Host "Developer Environment Provisioning Complete!" -ForegroundColor Green
+\`\`\`\n\n### Benefits of Automated Workstation Scripts\n\n• **Zero Manual Clicking:** Installs all core tools silently in the background.\n• **Consistent Environments:** Ensures every team member has identical tool versions.\n• **Easy Upgrades:** Running \`winget upgrade --all\` keeps your entire stack up to date automatically.`
+  },
+  {
     id: "1",
     title: "Why Traditional Full-Stack Development is Dead (And What I'm Building Instead)",
     category: "System Architecture",
