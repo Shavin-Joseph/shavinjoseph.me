@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import Tools from './pages/Tools';
 
 // --- IMPORT THE FOOTER HERE ---
 import Footer from './components/Footer';
@@ -153,6 +154,7 @@ const NavBar = ({ setTheme, isDarkMode, toggleDarkMode }) => {
     { name: 'Work', path: '/work' },
     { name: 'Downloads', path: '/downloads' },
     { name: 'Blog', path: '/blog' },
+    { name: 'Tools', path: '/tools' },
   ];
 
   return (
@@ -344,6 +346,7 @@ const App = () => {
             <Route path="/downloads" element={<Downloads />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog/*" element={<Blog />} />
+            <Route path="/tools" element={<Tools />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
           </Routes>
