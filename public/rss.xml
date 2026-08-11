@@ -8,51 +8,886 @@
   <atom:link href="https://shavinjoseph.me/rss.xml" rel="self" type="application/rss+xml" />
   
   <item>
-    <title>iPhone 17 Pro Max &amp; iOS 19 Definitive Master Guide</title>
+    <title>iPhone 17 Pro Max &amp; iOS 19 Definitive Master Guide: Hardware Specs, Camera System, Battery Life &amp; Secret Features (5,000-Word Complete Manual)</title>
     <link>https://shavinjoseph.me/blog/122</link>
     <guid>https://shavinjoseph.me/blog/122</guid>
     <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Comprehensive teardown of Apple A19 Pro 3nm node, 48MP triple-lens periscope camera, vapor chamber cooling, and 20 hidden iOS 19 power-user features.</description>
+    <description>The definitive 5,000-word technical manual for iPhone 17 Pro Max and iOS 19. Comprehensive teardown of Apple A19 Pro 3nm silicon, 48MP triple-periscope camera system, 120Hz ProMotion Tandem OLED, thermal vapor chamber design, and hidden iOS 19 power-user features.</description>
   </item>
-
   <item>
-    <title>The Ultimate iPhone Battery Drain &amp; Battery Health Masterclass</title>
+    <title>The Ultimate iPhone Battery Drain &amp; Battery Health Masterclass: How to Double iPhone Battery Life in 2026 (5,000-Word Diagnostic Guide)</title>
     <link>https://shavinjoseph.me/blog/123</link>
     <guid>https://shavinjoseph.me/blog/123</guid>
     <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Diagnostic guide to double iPhone battery life in 2026. Covers lithium-ion chemical aging, background app refresh audit, and 80% charging limit thermodynamics.</description>
+    <description>The definitive 5,000-word diagnostic guide to solving iPhone battery drain and maximizing battery health on iOS 19. Learn lithium-ion battery chemistry, background process audits, display calibration, charging thermodynamics, and essential system toggles to double daily screen-on time.</description>
   </item>
-
   <item>
-    <title>iPhone Security, Privacy &amp; Anti-Hacking Playbook</title>
+    <title>iPhone Security, Privacy &amp; Anti-Hacking Playbook: Complete iOS Security Hardening Manual (5,000-Word Enterprise Guide)</title>
     <link>https://shavinjoseph.me/blog/124</link>
     <guid>https://shavinjoseph.me/blog/124</guid>
-    <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Cybersecurity manual for hardening iOS against spyware, physical theft, zero-click exploits, Lockdown Mode 2.0, and Advanced Data Protection.</description>
+    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+    <description>An exhaustive 5,000-word cybersecurity playbook for securing iPhones against spyware, phishing, physical theft, and remote exploits. Master Secure Enclave architecture, Lockdown Mode 2.0, Advanced Data Protection, Stolen Device Protection, FIDO2 Passkeys, and network privacy.</description>
   </item>
-
   <item>
-    <title>iPhone vs Flagship Android 2026 In-Depth Comparison</title>
+    <title>iPhone vs Flagship Android 2026 In-Depth Comparison: A19 Pro vs Snapdragon 8 Gen 5, Camera Shootout, Ecosystem &amp; Longevity (5,000-Word Buyer&apos;s Guide)</title>
     <link>https://shavinjoseph.me/blog/125</link>
     <guid>https://shavinjoseph.me/blog/125</guid>
-    <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Technical buyer's guide comparing iPhone 17 Pro Max against Galaxy S26 Ultra and Pixel 10 Pro. Benchmarks, camera shootout, ProRes vs 8K, and 5-year resale value.</description>
+    <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+    <description>The definitive 5,000-word technical buyer&apos;s guide comparing flagship iPhones (iPhone 17 Pro Max) against top 2026 Android devices (Galaxy S26 Ultra, Pixel 10 Pro). Deep-dive microarchitecture benchmarks, camera shootout, ProRes vs 8K Log video, operating system longevity, and resale value metrics.</description>
   </item>
-
   <item>
-    <title>Mastering iOS App Development in 2026: Swift 6 &amp; SwiftUI 6 Blueprint</title>
+    <title>Mastering iOS App Development in 2026: Swift 6, SwiftUI 6, Async/Await, and On-Device Apple Intelligence ML (5,000-Word Developer Blueprint)</title>
     <link>https://shavinjoseph.me/blog/126</link>
     <guid>https://shavinjoseph.me/blog/126</guid>
-    <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Software engineering handbook for Swift 6 strict concurrency checking, SwiftUI 6 Observable macro, SwiftData persistence, and CoreML local inference.</description>
+    <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    <description>The definitive 5,000-word software engineering blueprint for iOS app development in 2026. Master Swift 6 strict data isolation, SwiftUI 6 navigation state, SwiftData persistence, CoreML local inference, and App Store submission workflows.</description>
   </item>
-
   <item>
-    <title>The Ultimate 2026 Production Systems Playbook</title>
+    <title>The Ultimate 2026 Production Systems Playbook: DevOps, AI Engineering, Windows Admin &amp; High-Performance Web Architecture (5,000-Word Reference Guide)</title>
     <link>https://shavinjoseph.me/blog/121</link>
     <guid>https://shavinjoseph.me/blog/121</guid>
     <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
-    <description>DevOps, AI Engineering, Windows Admin, Docker multi-stage builds, Kubernetes, PostgreSQL indexing, and Next.js 15 reference guide.</description>
+    <description>The ultimate, highly bookmarkable 5,000-word production engineering playbook for 2026. A comprehensive reference guide covering PowerShell automation, Winget/Chocolatey package management, local AI deployment with Ollama &amp; DeepSeek-R1, Docker optimization, K8s cluster scaling, PostgreSQL index tuning, React 19 architecture, and Zero-Trust cybersecurity.</description>
+  </item>
+  <item>
+    <title>The 2026 Full-Stack Systems Architect Handbook: Building Resilient Microservices, Event Loops, and Real-Time Infrastructure</title>
+    <link>https://shavinjoseph.me/blog/111</link>
+    <guid>https://shavinjoseph.me/blog/111</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A comprehensive enterprise handbook for full-stack architects. Deep dive into microservices decomposition, event-driven streaming with Apache Kafka, database sharding, high-availability caching, and telemetry.</description>
+  </item>
+  <item>
+    <title>Mastering Windows PowerShell Automation &amp; Security Hardening: The Complete Enterprise Administrator&apos;s Guide</title>
+    <link>https://shavinjoseph.me/blog/112</link>
+    <guid>https://shavinjoseph.me/blog/112</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>An extensive enterprise guide to Windows PowerShell 7.4+. Master advanced pipeline scripting, WinRM remoting, Active Directory management, security auditing, and automated workstation provisioning.</description>
+  </item>
+  <item>
+    <title>Building Autonomous Agentic AI Workflows with Python, LangChain, and Local LLMs</title>
+    <link>https://shavinjoseph.me/blog/113</link>
+    <guid>https://shavinjoseph.me/blog/113</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Learn how to build, orchestrate, and deploy multi-agent AI systems in Python using LangGraph, local DeepSeek/Ollama models, vector memory databases, and autonomous tool-calling execution loops.</description>
+  </item>
+  <item>
+    <title>Production Kubernetes (K8s) Cluster Deployment: Ingress, Helm, Autoscaling, and GitOps</title>
+    <link>https://shavinjoseph.me/blog/114</link>
+    <guid>https://shavinjoseph.me/blog/114</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A production masterclass on Kubernetes cluster deployment. Learn container orchestration, NGINX Ingress controllers, Helm chart management, Horizontal Pod Autoscaling (HPA), and GitOps pipelines with ArgoCD.</description>
+  </item>
+  <item>
+    <title>Android Performance Engineering: Jetpack Compose, Memory Leaks, Coroutines, and Native NDK Optimization</title>
+    <link>https://shavinjoseph.me/blog/115</link>
+    <guid>https://shavinjoseph.me/blog/115</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>An in-depth mobile engineering guide to building high-frame-rate native Android apps. Master Jetpack Compose recomposition stability, Kotlin Coroutines, LeakCanary profiling, Room database caching, and C++ NDK interop.</description>
+  </item>
+  <item>
+    <title>Next.js 15 &amp; React 19 Enterprise Architecture: Server Actions, Partial Prerendering, and Edge Caching</title>
+    <link>https://shavinjoseph.me/blog/116</link>
+    <guid>https://shavinjoseph.me/blog/116</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Master enterprise web app architecture using Next.js 15 App Router and React 19. Learn React Server Components (RSC), Server Actions, Partial Prerendering (PPR), middleware edge security, and granular revalidation.</description>
+  </item>
+  <item>
+    <title>High-Performance PostgreSQL Database Engineering: Indexing Strategies, Table Partitioning, and Connection Pooling</title>
+    <link>https://shavinjoseph.me/blog/117</link>
+    <guid>https://shavinjoseph.me/blog/117</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>An advanced PostgreSQL database engineering masterclass. Learn storage engine internals, Index types (B-Tree, GIN, GiST, BRIN), declarative table partitioning, EXPLAIN ANALYZE execution plans, and PgBouncer connection pooling.</description>
+  </item>
+  <item>
+    <title>Cybersecurity Masterclass: Zero-Trust Network Architecture, Web Application Firewalls, and Threat Hunting</title>
+    <link>https://shavinjoseph.me/blog/118</link>
+    <guid>https://shavinjoseph.me/blog/118</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A comprehensive cybersecurity blueprint for systems administrators and developers. Implement Zero-Trust network perimeters, Web Application Firewall (WAF) rule sets, PKI certificate management, and threat hunting.</description>
+  </item>
+  <item>
+    <title>Designing Ultra-Low-Latency Real-Time Systems: WebSockets, gRPC, WebRTC, and Shared Memory</title>
+    <link>https://shavinjoseph.me/blog/119</link>
+    <guid>https://shavinjoseph.me/blog/119</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Architecting sub-millisecond real-time systems. Compare WebSockets, HTTP/2 gRPC binary streaming, WebRTC peer-to-peer data channels, and shared memory IPC for financial and streaming applications.</description>
+  </item>
+  <item>
+    <title>The Complete Guide to AI Model Fine-Tuning: QLoRA, Dataset Curation, and Quantization for Local Deployment</title>
+    <link>https://shavinjoseph.me/blog/120</link>
+    <guid>https://shavinjoseph.me/blog/120</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A step-by-step masterclass on fine-tuning open-source LLMs (Llama 3, DeepSeek) using QLoRA. Prepare instruction datasets, train adapter weights in PyTorch, and quantize models into GGUF formats for local GPU execution.</description>
+  </item>
+  <item>
+    <title>Building Real-Time Data Dashboards with React, WebSockets, and Redis</title>
+    <link>https://shavinjoseph.me/blog/91</link>
+    <guid>https://shavinjoseph.me/blog/91</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>How to architect low-latency real-time analytics dashboards using WebSockets, React state hooks, and Redis Pub/Sub channels.</description>
+  </item>
+  <item>
+    <title>How to Mitigate DDoS Attacks at the DNS and Application Layer</title>
+    <link>https://shavinjoseph.me/blog/92</link>
+    <guid>https://shavinjoseph.me/blog/92</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A practical breakdown of volumetric vs. layer-7 application DDoS attacks, rate limiting, and Cloudflare WAF configuration.</description>
+  </item>
+  <item>
+    <title>Optimizing Android App Startup Time with Baseline Profiles &amp; App Bundles</title>
+    <link>https://shavinjoseph.me/blog/93</link>
+    <guid>https://shavinjoseph.me/blog/93</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Reduce Android app cold start latency by up to 40% using Macrobenchmark Baseline Profiles and Android App Bundles.</description>
+  </item>
+  <item>
+    <title>Python 3.13 Free-Threading: The End of the Global Interpreter Lock (GIL)</title>
+    <link>https://shavinjoseph.me/blog/94</link>
+    <guid>https://shavinjoseph.me/blog/94</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Exploring Python 3.13 free-threaded mode (PEP 703) and true multi-core CPU execution without the Global Interpreter Lock.</description>
+  </item>
+  <item>
+    <title>Zero-Trust Security Architecture: Implementing Identity-Aware Proxies</title>
+    <link>https://shavinjoseph.me/blog/95</link>
+    <guid>https://shavinjoseph.me/blog/95</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Why traditional corporate VPNs are being replaced by Zero-Trust Identity-Aware Proxies (IAP) and context-based access control.</description>
+  </item>
+  <item>
+    <title>Understanding Modern Linux Kernel Memory Management &amp; Swap Tuning</title>
+    <link>https://shavinjoseph.me/blog/96</link>
+    <guid>https://shavinjoseph.me/blog/96</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Master Linux \`vm.swappiness\`, Out-Of-Memory (OOM) killer configurations, and RAM caching metrics for server optimization.</description>
+  </item>
+  <item>
+    <title>How to Build a Custom Chrome Extension with Manifest V3 &amp; React</title>
+    <link>https://shavinjoseph.me/blog/97</link>
+    <guid>https://shavinjoseph.me/blog/97</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Step-by-step tutorial on building Manifest V3 browser extensions using React, background service workers, and storage APIs.</description>
+  </item>
+  <item>
+    <title>TypeScript 5.5 Type Checking Tricks Every Senior Developer Uses</title>
+    <link>https://shavinjoseph.me/blog/98</link>
+    <guid>https://shavinjoseph.me/blog/98</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Master inferred type predicates, template literal types, and satisfaction constraints in TypeScript 5.5.</description>
+  </item>
+  <item>
+    <title>Designing Fault-Tolerant Microservices with Circuit Breaker Patterns</title>
+    <link>https://shavinjoseph.me/blog/99</link>
+    <guid>https://shavinjoseph.me/blog/99</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Prevent cascading backend failures across distributed services using Circuit Breaker state machines and fallback responses.</description>
+  </item>
+  <item>
+    <title>Automating Infrastructure as Code (IaC) with Terraform &amp; GitHub Actions</title>
+    <link>https://shavinjoseph.me/blog/100</link>
+    <guid>https://shavinjoseph.me/blog/100</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Provision scalable cloud infrastructure on AWS/GCP with Terraform plan automation and pull request review pipelines.</description>
+  </item>
+  <item>
+    <title>Building Custom AI Vector Search Engines with Qdrant and Python</title>
+    <link>https://shavinjoseph.me/blog/101</link>
+    <guid>https://shavinjoseph.me/blog/101</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Build high-speed semantic search engines for image and text similarity using vector embeddings and Qdrant database.</description>
+  </item>
+  <item>
+    <title>How to Hardening Windows Server 2025: Active Directory &amp; GPO Checklist</title>
+    <link>https://shavinjoseph.me/blog/102</link>
+    <guid>https://shavinjoseph.me/blog/102</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Essential Group Policy Objects (GPO) and Active Directory security hardening rules for corporate Windows environments.</description>
+  </item>
+  <item>
+    <title>GraphQL Subscriptions &amp; Server-Sent Events (SSE) for Live Feeds</title>
+    <link>https://shavinjoseph.me/blog/103</link>
+    <guid>https://shavinjoseph.me/blog/103</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Comparing GraphQL Subscriptions against Server-Sent Events (SSE) for streaming live data feeds to web applications.</description>
+  </item>
+  <item>
+    <title>Android Jetpack Compose State Recomposition Optimization Masterclass</title>
+    <link>https://shavinjoseph.me/blog/104</link>
+    <guid>https://shavinjoseph.me/blog/104</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Eliminate unneeded Composable recompositions using @Stable annotations, DerivedStateOf, and immutable data classes.</description>
+  </item>
+  <item>
+    <title>Fine-Tuning Llama 3 with LoRA and QLoRA on Consumer Hardware</title>
+    <link>https://shavinjoseph.me/blog/105</link>
+    <guid>https://shavinjoseph.me/blog/105</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Learn Quantized Low-Rank Adaptation (QLoRA) to fine-tune open-source Llama 3 models on a single 16GB GPU.</description>
+  </item>
+  <item>
+    <title>Monorepo Management at Scale: Nx vs Turborepo Performance Benchmark</title>
+    <link>https://shavinjoseph.me/blog/106</link>
+    <guid>https://shavinjoseph.me/blog/106</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A developer benchmark of Turborepo vs. Nx for large multi-package TypeScript and React monorepos.</description>
+  </item>
+  <item>
+    <title>Building Highly Available Redis Clusters with Sentinel and Replication</title>
+    <link>https://shavinjoseph.me/blog/107</link>
+    <guid>https://shavinjoseph.me/blog/107</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Configure Redis Sentinel automatic failover and master-replica replication for zero-downtime caching layers.</description>
+  </item>
+  <item>
+    <title>Automating Security Vulnerability Scans in CI/CD Pipelines with Trivy &amp; Snyk</title>
+    <link>https://shavinjoseph.me/blog/108</link>
+    <guid>https://shavinjoseph.me/blog/108</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Scan container images and npm/pip package dependencies for CVE security vulnerabilities before production deployment.</description>
+  </item>
+  <item>
+    <title>Designing Event-Driven Architectures with Apache Kafka and RabbitMQ</title>
+    <link>https://shavinjoseph.me/blog/109</link>
+    <guid>https://shavinjoseph.me/blog/109</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Understanding the difference between message queues (RabbitMQ) and distributed append-only event logs (Apache Kafka).</description>
+  </item>
+  <item>
+    <title>Building Offline PWA Web Applications with Service Workers &amp; IndexedDB</title>
+    <link>https://shavinjoseph.me/blog/110</link>
+    <guid>https://shavinjoseph.me/blog/110</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Turn web apps into installable Progressive Web Apps (PWAs) with background caching strategies and IndexedDB local storage.</description>
+  </item>
+  <item>
+    <title>How to Repair Corrupted Windows 11 System Files Using SFC and DISM in PowerShell</title>
+    <link>https://shavinjoseph.me/blog/71</link>
+    <guid>https://shavinjoseph.me/blog/71</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A step-by-step diagnostic guide on repairing corrupted Windows system files, restoring component store health, and fixing boot errors using native CLI utilities.</description>
+  </item>
+  <item>
+    <title>Deploying Local AI Models with Ollama &amp; DeepSeek-R1: Privacy-First AI Setup</title>
+    <link>https://shavinjoseph.me/blog/72</link>
+    <guid>https://shavinjoseph.me/blog/72</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Learn how to run open-source AI models locally on your GPU using Ollama and DeepSeek-R1 for zero-cost, privacy-first offline code generation.</description>
+  </item>
+  <item>
+    <title>WSL2 Performance Optimization Guide for Full-Stack Developers in 2026</title>
+    <link>https://shavinjoseph.me/blog/73</link>
+    <guid>https://shavinjoseph.me/blog/73</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Unlock maximum RAM, CPU, and disk I/O performance in Windows Subsystem for Linux (WSL2) with custom .wslconfig and file system mounting tweaks.</description>
+  </item>
+  <item>
+    <title>React 19 Compiler Deep-Dive: Say Goodbye to useMemo and useCallback</title>
+    <link>https://shavinjoseph.me/blog/74</link>
+    <guid>https://shavinjoseph.me/blog/74</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Exploring the new React 19 auto-memoization compiler. Learn how automatic memoization eliminates manual hooks while maintaining high-frame-rate UIs.</description>
+  </item>
+  <item>
+    <title>Tailwind CSS v4 Migration Guide: CSS-First Configuration &amp; Performance Engine</title>
+    <link>https://shavinjoseph.me/blog/75</link>
+    <guid>https://shavinjoseph.me/blog/75</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A practical guide to upgrading to Tailwind CSS v4 featuring CSS-first @theme rules, lightning-fast compilation, and container queries.</description>
+  </item>
+  <item>
+    <title>Next.js 15 Server Components &amp; Dynamic Caching: Production Performance Guide</title>
+    <link>https://shavinjoseph.me/blog/76</link>
+    <guid>https://shavinjoseph.me/blog/76</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>How to build ultra-fast web applications with Next.js 15 App Router, granular revalidation, and uncached server action boundaries.</description>
+  </item>
+  <item>
+    <title>Building Autonomous Coding Agents: Orchestrating LLMs with Tool Execution Protocols</title>
+    <link>https://shavinjoseph.me/blog/77</link>
+    <guid>https://shavinjoseph.me/blog/77</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>An architectural walkthrough of how agentic AI coding assistants interpret user intent, spawn background tasks, and modify codebases autonomously.</description>
+  </item>
+  <item>
+    <title>Retrieval-Augmented Generation (RAG) Architecture with Vector Databases</title>
+    <link>https://shavinjoseph.me/blog/78</link>
+    <guid>https://shavinjoseph.me/blog/78</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>How to build a production RAG system that connects enterprise documents to Large Language Models using vector embeddings and semantic search.</description>
+  </item>
+  <item>
+    <title>Docker Container Optimization: Reducing Image Size from 1GB to 20MB</title>
+    <link>https://shavinjoseph.me/blog/79</link>
+    <guid>https://shavinjoseph.me/blog/79</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Learn multi-stage builds, Alpine base images, and distroless containers to shrink production Docker images by up to 95%.</description>
+  </item>
+  <item>
+    <title>Native Android (Kotlin) vs Flutter in 2026: Architectural Tradeoffs for Mobile Developers</title>
+    <link>https://shavinjoseph.me/blog/80</link>
+    <guid>https://shavinjoseph.me/blog/80</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Comparing native Android development against Flutter for modern mobile applications. Analyzing performance, background execution, and UI rendering.</description>
+  </item>
+  <item>
+    <title>PostgreSQL Query Optimization: Indexes, EXPLAIN ANALYZE, and Connection Pooling</title>
+    <link>https://shavinjoseph.me/blog/81</link>
+    <guid>https://shavinjoseph.me/blog/81</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Diagnose slow SQL queries, leverage B-Tree and GIN indexes, and configure PgBouncer for high-concurrency database backends.</description>
+  </item>
+  <item>
+    <title>Securing Modern Web Apps: CSP Headers, CORS, and XSS Prevention Strategies</title>
+    <link>https://shavinjoseph.me/blog/82</link>
+    <guid>https://shavinjoseph.me/blog/82</guid>
+    <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Essential web application security checklist covering Content Security Policy (CSP), HTTP-only cookies, and XSS vulnerability prevention.</description>
+  </item>
+  <item>
+    <title>10 Essential PowerShell Automation Scripts Every Sysadmin Needs</title>
+    <link>https://shavinjoseph.me/blog/83</link>
+    <guid>https://shavinjoseph.me/blog/83</guid>
+    <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Automate user auditing, disk cleanup, service monitoring, and event log exports with battle-tested PowerShell scripts.</description>
+  </item>
+  <item>
+    <title>Diagnosing Network Bottlenecks: Netstat, Ping, and Wireshark Guide for Developers</title>
+    <link>https://shavinjoseph.me/blog/84</link>
+    <guid>https://shavinjoseph.me/blog/84</guid>
+    <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
+    <description>How to analyze network latency, inspect TCP handshake packet dumps, and troubleshoot DNS resolution issues like a network engineer.</description>
+  </item>
+  <item>
+    <title>Building Resilient Mobile Apps: Offline-First Architecture &amp; Background Sync</title>
+    <link>https://shavinjoseph.me/blog/85</link>
+    <guid>https://shavinjoseph.me/blog/85</guid>
+    <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
+    <description>How to design mobile applications that work seamlessly offline and automatically sync queued data when internet connectivity restores.</description>
+  </item>
+  <item>
+    <title>Edge Computing in 2026: Running Serverless Functions at 0ms Cold Start Latency</title>
+    <link>https://shavinjoseph.me/blog/86</link>
+    <guid>https://shavinjoseph.me/blog/86</guid>
+    <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Why global edge networks are replacing traditional cloud servers for low-latency API routing and dynamic SSR rendering.</description>
+  </item>
+  <item>
+    <title>REST vs GraphQL vs gRPC: Selecting the Right API Protocol for High-Scale Apps</title>
+    <link>https://shavinjoseph.me/blog/87</link>
+    <guid>https://shavinjoseph.me/blog/87</guid>
+    <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+    <description>A comprehensive comparison of REST, GraphQL, and Protocol Buffers (gRPC) for enterprise microservices and client-server communication.</description>
+  </item>
+  <item>
+    <title>Implementing Hardware Security &amp; Biometric Auth in Modern Android Applications</title>
+    <link>https://shavinjoseph.me/blog/88</link>
+    <guid>https://shavinjoseph.me/blog/88</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+    <description>How to integrate Android BiometricPrompt and KeyStore APIs to securely store user tokens and encrypt sensitive device data.</description>
+  </item>
+  <item>
+    <title>Claude 3.7 vs Gemini 2.5 vs GPT-4.5: Which AI Coding Model Wins in 2026?</title>
+    <link>https://shavinjoseph.me/blog/89</link>
+    <guid>https://shavinjoseph.me/blog/89</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+    <description>A comprehensive developer benchmark comparing top AI LLM models on complex refactoring, reasoning, and multi-file code generation.</description>
+  </item>
+  <item>
+    <title>Microservices Deployment Pipeline: CI/CD with GitHub Actions &amp; Kubernetes</title>
+    <link>https://shavinjoseph.me/blog/90</link>
+    <guid>https://shavinjoseph.me/blog/90</guid>
+    <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Step-by-step tutorial on setting up automated CI/CD pipelines with GitHub Actions, building Docker images, and rolling out updates to Kubernetes.</description>
+  </item>
+  <item>
+    <title>Windows Package Manager (Winget) vs Chocolatey: The Ultimate 2026 CLI Software Guide</title>
+    <link>https://shavinjoseph.me/blog/68</link>
+    <guid>https://shavinjoseph.me/blog/68</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A complete guide comparing Winget and Chocolatey for Windows package management. Learn how to automate software deployment, perform silent unattended installs, and streamline Windows workstation setups via PowerShell.</description>
+  </item>
+  <item>
+    <title>Demystifying PowerShell One-Liners: How &apos;irm | iex&apos; Works &amp; Best Practices for Script Safety</title>
+    <link>https://shavinjoseph.me/blog/69</link>
+    <guid>https://shavinjoseph.me/blog/69</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Understanding &apos;Invoke-RestMethod&apos; (irm) and &apos;Invoke-Expression&apos; (iex) in PowerShell. Learn how remote execution one-liners operate, how to audit remote scripts before running them, and best practices for system safety.</description>
+  </item>
+  <item>
+    <title>Automating Windows 11 Developer Setup with a Single PowerShell Script</title>
+    <link>https://shavinjoseph.me/blog/70</link>
+    <guid>https://shavinjoseph.me/blog/70</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>How to write a custom PowerShell deployment script using Winget to automatically install VS Code, Node.js, Git, Python, and Docker Desktop on a new Windows installation in under 5 minutes.</description>
+  </item>
+  <item>
+    <title>Why Traditional Full-Stack Development is Dead (And What I&apos;m Building Instead)</title>
+    <link>https://shavinjoseph.me/blog/1</link>
+    <guid>https://shavinjoseph.me/blog/1</guid>
+    <pubDate>Wed, 22 Jul 2026 00:00:00 GMT</pubDate>
+    <description>The era of simple CRUD applications is over. Modern platforms require predictive intelligence, real-time tracking, and automated workflows. Here is how I am rewiring my approach to full-stack architecture.</description>
+  </item>
+  <item>
+    <title>Bridging the Gap: Hardware Diagnostics Meets Web Infrastructure</title>
+    <link>https://shavinjoseph.me/blog/2</link>
+    <guid>https://shavinjoseph.me/blog/2</guid>
+    <pubDate>Wed, 15 Jul 2026 00:00:00 GMT</pubDate>
+    <description>A deep dive into why full-stack developers need to understand the physical network layer. Exploring Cisco configurations, hardware troubleshooting, and how physical latency impacts digital code.</description>
+  </item>
+  <item>
+    <title>Injecting AI into Legacy Industries: How Flux Service Predicts Hardware Failures</title>
+    <link>https://shavinjoseph.me/blog/3</link>
+    <guid>https://shavinjoseph.me/blog/3</guid>
+    <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
+    <description>Air conditioning maintenance hasn&apos;t changed in decades. By integrating Python-based AI models into the Flux Service platform, we turned a reactive industry into a proactive one.</description>
+  </item>
+  <item>
+    <title>Beyond the Screen: Programming ESP32 for 23-Foot Structural Lighting</title>
+    <link>https://shavinjoseph.me/blog/4</link>
+    <guid>https://shavinjoseph.me/blog/4</guid>
+    <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+    <description>Software doesn&apos;t just live in browsers. Here is how I architected the network and code for a massive 23-foot smart lighting installation using ESP32 controllers.</description>
+  </item>
+  <item>
+    <title>Real-Time Location Tracking in Android: The FrostLink Architecture</title>
+    <link>https://shavinjoseph.me/blog/5</link>
+    <guid>https://shavinjoseph.me/blog/5</guid>
+    <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Building native Android apps that handle real-time location data without draining batteries or dropping connections is a delicate balancing act.</description>
+  </item>
+  <item>
+    <title>The Anatomy of a High-Converting E-Commerce Store (Spicera.store)</title>
+    <link>https://shavinjoseph.me/blog/6</link>
+    <guid>https://shavinjoseph.me/blog/6</guid>
+    <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+    <description>Creating an e-commerce platform goes far beyond rendering a shopping cart. It requires psychological design, zero-friction payment gateways, and flawless mobile responsiveness.</description>
+  </item>
+  <item>
+    <title>Why I Built KWAS: The Future of Independent Software Ecosystems</title>
+    <link>https://shavinjoseph.me/blog/7</link>
+    <guid>https://shavinjoseph.me/blog/7</guid>
+    <pubDate>Sun, 15 Feb 2026 00:00:00 GMT</pubDate>
+    <description>The story behind Key Web App Solutions (KWAS) and why the future of software belongs to independent, highly specialized ecosystem builders.</description>
+  </item>
+  <item>
+    <title>Mastering Framer Motion &amp; Tailwind: Building Kinetic UIs</title>
+    <link>https://shavinjoseph.me/blog/8</link>
+    <guid>https://shavinjoseph.me/blog/8</guid>
+    <pubDate>Fri, 30 Jan 2026 00:00:00 GMT</pubDate>
+    <description>Static websites are obsolete. Learn how to combine Framer Motion and Tailwind CSS to create fluid, physics-based interfaces that respond to user touch.</description>
+  </item>
+  <item>
+    <title>Scaling Software While Studying: Life as a UoC Undergraduate</title>
+    <link>https://shavinjoseph.me/blog/9</link>
+    <guid>https://shavinjoseph.me/blog/9</guid>
+    <pubDate>Sat, 10 Jan 2026 00:00:00 GMT</pubDate>
+    <description>Balancing a Bachelor of Information and Communication Technology degree with running a software startup and building enterprise apps requires ruthless efficiency.</description>
+  </item>
+  <item>
+    <title>Building the Ultimate Language Learning Lab in Notion</title>
+    <link>https://shavinjoseph.me/blog/10</link>
+    <guid>https://shavinjoseph.me/blog/10</guid>
+    <pubDate>Sun, 28 Dec 2025 00:00:00 GMT</pubDate>
+    <description>How I engineered complex database logic inside Notion to create a commercially viable Language Learning Lab template for Gumroad.</description>
+  </item>
+  <item>
+    <title>Cisco Packet Tracer in 2026: Why Virtual Networks Build Better Coders</title>
+    <link>https://shavinjoseph.me/blog/11</link>
+    <guid>https://shavinjoseph.me/blog/11</guid>
+    <pubDate>Wed, 10 Dec 2025 00:00:00 GMT</pubDate>
+    <description>Before you deploy your code to the cloud, you need to understand how the cloud actually routes your data. A look at virtual network simulation.</description>
+  </item>
+  <item>
+    <title>Diversifying Digital Income: From Client Sites to Adobe Assets</title>
+    <link>https://shavinjoseph.me/blog/12</link>
+    <guid>https://shavinjoseph.me/blog/12</guid>
+    <pubDate>Thu, 20 Nov 2025 00:00:00 GMT</pubDate>
+    <description>A blueprint for developers and creators to step out of the time-for-money trap by leveraging AI, Adobe Stock, and the gig economy.</description>
+  </item>
+  <item>
+    <title>State Management in 2026: Why We Stopped Overcomplicating Redux</title>
+    <link>https://shavinjoseph.me/blog/13</link>
+    <guid>https://shavinjoseph.me/blog/13</guid>
+    <pubDate>Wed, 05 Nov 2025 00:00:00 GMT</pubDate>
+    <description>For years, developers spent more time writing boilerplate for state containers than building features. Here is why lightweight state engines and React server state have won.</description>
+  </item>
+  <item>
+    <title>How AI Agents Are Replacing Standard Web APIs in Enterprise Systems</title>
+    <link>https://shavinjoseph.me/blog/14</link>
+    <guid>https://shavinjoseph.me/blog/14</guid>
+    <pubDate>Tue, 28 Oct 2025 00:00:00 GMT</pubDate>
+    <description>Static REST endpoints are no longer the peak of backend integration. Autonomous AI agents are now dynamic middleware that interpret user intent in real time.</description>
+  </item>
+  <item>
+    <title>Building Offline-First Mobile Apps: Native Kotlin vs. Hybrid PWAs</title>
+    <link>https://shavinjoseph.me/blog/15</link>
+    <guid>https://shavinjoseph.me/blog/15</guid>
+    <pubDate>Tue, 14 Oct 2025 00:00:00 GMT</pubDate>
+    <description>When connectivity drops in the field, your software cannot fail. A technical comparison between native Android storage engines and browser service workers.</description>
+  </item>
+  <item>
+    <title>Zero-Trust Web Security: Lessons Learned from Cisco Network Architectures</title>
+    <link>https://shavinjoseph.me/blog/16</link>
+    <guid>https://shavinjoseph.me/blog/16</guid>
+    <pubDate>Tue, 30 Sep 2025 00:00:00 GMT</pubDate>
+    <description>Never trust, always verify. Applying network-level access control lists and perimeter isolation to modern full-stack web applications.</description>
+  </item>
+  <item>
+    <title>Optimizing Flask Backends for High-Frequency Automated Quotations</title>
+    <link>https://shavinjoseph.me/blog/17</link>
+    <guid>https://shavinjoseph.me/blog/17</guid>
+    <pubDate>Fri, 12 Sep 2025 00:00:00 GMT</pubDate>
+    <description>Generating PDF documents and complex pricing matrices dynamically can quickly lock up server threads. Here is how to keep Flask backends asynchronous and blazing fast.</description>
+  </item>
+  <item>
+    <title>The Psychology of Micro-Interactions: Why Small Animations Drive Conversions</title>
+    <link>https://shavinjoseph.me/blog/18</link>
+    <guid>https://shavinjoseph.me/blog/18</guid>
+    <pubDate>Mon, 25 Aug 2025 00:00:00 GMT</pubDate>
+    <description>Subtle feedback loops—like text scrambling, border glows, and tactile button presses—reassure users and dramatically lower bounce rates.</description>
+  </item>
+  <item>
+    <title>Building Real-Time Multi-Tenant E-Commerce Engines in React</title>
+    <link>https://shavinjoseph.me/blog/19</link>
+    <guid>https://shavinjoseph.me/blog/19</guid>
+    <pubDate>Sun, 10 Aug 2025 00:00:00 GMT</pubDate>
+    <description>How to structure scalable product databases, client-side cart states, and seamless checkout integrations for growing retail merchants.</description>
+  </item>
+  <item>
+    <title>Dark Mode Engineering: Managing CSS Variables and Theme Flickers</title>
+    <link>https://shavinjoseph.me/blog/20</link>
+    <guid>https://shavinjoseph.me/blog/20</guid>
+    <pubDate>Tue, 29 Jul 2025 00:00:00 GMT</pubDate>
+    <description>Eliminating the dreaded &apos;white flash&apos; on page reload and architecting dynamic CSS color tokens for seamless theme customization.</description>
+  </item>
+  <item>
+    <title>The Developer&apos;s Guide to Automation: Turning Workflows into Products</title>
+    <link>https://shavinjoseph.me/blog/21</link>
+    <guid>https://shavinjoseph.me/blog/21</guid>
+    <pubDate>Mon, 14 Jul 2025 00:00:00 GMT</pubDate>
+    <description>Every internal tool or automation script you write to solve your own problem is a potential commercial digital asset waiting to be packaged.</description>
+  </item>
+  <item>
+    <title>From Code to Leadership: Lessons Learned Heading a Youth Organization</title>
+    <link>https://shavinjoseph.me/blog/22</link>
+    <guid>https://shavinjoseph.me/blog/22</guid>
+    <pubDate>Tue, 01 Jul 2025 00:00:00 GMT</pubDate>
+    <description>How serving as President of a youth association taught me communication, delegation, and project management skills that made me a better Systems Architect.</description>
+  </item>
+  <item>
+    <title>The Serverless Illusion: Why I Moved Back to Long-Lived Containers</title>
+    <link>https://shavinjoseph.me/blog/23</link>
+    <guid>https://shavinjoseph.me/blog/23</guid>
+    <pubDate>Wed, 18 Jun 2025 00:00:00 GMT</pubDate>
+    <description>Serverless functions are marketed as the holy grail of infinite scaling. But for complex, data-heavy enterprise applications, they introduce devastating latency, database connection exhaustion, and architectural nightmares.</description>
+  </item>
+  <item>
+    <title>Engineering Data Consistency Across Distributed E-Commerce Systems</title>
+    <link>https://shavinjoseph.me/blog/24</link>
+    <guid>https://shavinjoseph.me/blog/24</guid>
+    <pubDate>Thu, 22 May 2025 00:00:00 GMT</pubDate>
+    <description>When thousands of users attempt to purchase the same inventory simultaneously, simple database queries result in overselling and catastrophic data failure. Here is how to architect true distributed consistency.</description>
+  </item>
+  <item>
+    <title>Advanced Component Architecture: Inversion of Control in React Applications</title>
+    <link>https://shavinjoseph.me/blog/25</link>
+    <guid>https://shavinjoseph.me/blog/25</guid>
+    <pubDate>Thu, 10 Apr 2025 00:00:00 GMT</pubDate>
+    <description>As React applications scale, standard prop-drilling and context APIs become unmaintainable. Discover how to apply enterprise-grade design patterns like Dependency Injection to modern frontend development.</description>
+  </item>
+  <item>
+    <title>Next.js vs. Vite + React in 2026: When to Drop SSR for SPA</title>
+    <link>https://shavinjoseph.me/blog/26</link>
+    <guid>https://shavinjoseph.me/blog/26</guid>
+    <pubDate>Sat, 15 Mar 2025 00:00:00 GMT</pubDate>
+    <description>Server-Side Rendering (SSR) has dominated the React ecosystem for years. But for highly interactive enterprise dashboards and internal tools, returning to a blazing-fast Vite Single Page Application (SPA) is often the superior architectural choice.</description>
+  </item>
+  <item>
+    <title>Case Study: How Stripe Architected a $1.9 Trillion Payment Engine</title>
+    <link>https://shavinjoseph.me/blog/27</link>
+    <guid>https://shavinjoseph.me/blog/27</guid>
+    <pubDate>Fri, 28 Feb 2025 00:00:00 GMT</pubDate>
+    <description>An architectural breakdown of how Stripe&apos;s API maintains 99.9999% uptime and processes hundreds of millions of requests a day without dropping a single financial transaction.</description>
+  </item>
+  <item>
+    <title>Case Study: Cloudflare vs. The 31.4 Tbps DDoS Attack</title>
+    <link>https://shavinjoseph.me/blog/28</link>
+    <guid>https://shavinjoseph.me/blog/28</guid>
+    <pubDate>Tue, 14 Jan 2025 00:00:00 GMT</pubDate>
+    <description>How do you keep a server online when millions of infected IoT devices fire 30+ Terabits of junk data at it every second? Exploring Anycast routing and edge-level packet dropping.</description>
+  </item>
+  <item>
+    <title>PostgreSQL vs. MongoDB: The Polyglot Persistence Myth</title>
+    <link>https://shavinjoseph.me/blog/29</link>
+    <guid>https://shavinjoseph.me/blog/29</guid>
+    <pubDate>Thu, 05 Dec 2024 00:00:00 GMT</pubDate>
+    <description>For years, NoSQL databases were touted as the ultimate solution for schema flexibility. But modern PostgreSQL has effectively destroyed the primary arguments for choosing MongoDB in standard web applications.</description>
+  </item>
+  <item>
+    <title>Case Study: Netflix&apos;s Open Connect and Global Edge Caching</title>
+    <link>https://shavinjoseph.me/blog/30</link>
+    <guid>https://shavinjoseph.me/blog/30</guid>
+    <pubDate>Tue, 12 Nov 2024 00:00:00 GMT</pubDate>
+    <description>How Netflix avoids clogging the global internet by installing custom-built FreeBSD hardware directly inside your local Internet Service Provider&apos;s facilities.</description>
+  </item>
+  <item>
+    <title>Tailwind CSS vs. Styled Components: The Performance Breakdown</title>
+    <link>https://shavinjoseph.me/blog/31</link>
+    <guid>https://shavinjoseph.me/blog/31</guid>
+    <pubDate>Sat, 05 Oct 2024 00:00:00 GMT</pubDate>
+    <description>A deep dive into why enterprise React teams are abandoning runtime CSS-in-JS solutions like Styled Components in favor of utility-first CSS frameworks like Tailwind.</description>
+  </item>
+  <item>
+    <title>Case Study: Uber&apos;s Shift from Microservices to Macroservices (DOMA)</title>
+    <link>https://shavinjoseph.me/blog/32</link>
+    <guid>https://shavinjoseph.me/blog/32</guid>
+    <pubDate>Wed, 18 Sep 2024 00:00:00 GMT</pubDate>
+    <description>Uber famously broke their monolithic backend into over 4,000 microservices. It resulted in a debugging nightmare. Here is how they fixed it by inventing the Domain-Oriented Microservice Architecture (DOMA).</description>
+  </item>
+  <item>
+    <title>REST vs. GraphQL vs. gRPC: Selecting the Right API Protocol</title>
+    <link>https://shavinjoseph.me/blog/33</link>
+    <guid>https://shavinjoseph.me/blog/33</guid>
+    <pubDate>Thu, 22 Aug 2024 00:00:00 GMT</pubDate>
+    <description>Modern web architecture requires picking the perfect communication protocol for the job. Understanding when to use REST for caching, GraphQL for mobile data, and gRPC for microservice speed.</description>
+  </item>
+  <item>
+    <title>Case Study: Figma&apos;s C++ and WebAssembly Browser Engine</title>
+    <link>https://shavinjoseph.me/blog/34</link>
+    <guid>https://shavinjoseph.me/blog/34</guid>
+    <pubDate>Wed, 10 Jul 2024 00:00:00 GMT</pubDate>
+    <description>How Figma achieved 60fps vector graphics rendering in the browser by completely abandoning the HTML DOM and writing their rendering engine in C++.</description>
+  </item>
+  <item>
+    <title>System Design: Redis vs. RabbitMQ for Async Event-Driven Architecture</title>
+    <link>https://shavinjoseph.me/blog/35</link>
+    <guid>https://shavinjoseph.me/blog/35</guid>
+    <pubDate>Tue, 25 Jun 2024 00:00:00 GMT</pubDate>
+    <description>Message brokers are the backbone of distributed systems. Understanding the architectural differences between Redis Pub/Sub and RabbitMQ&apos;s persistent queues is critical for preventing data loss.</description>
+  </item>
+  <item>
+    <title>Microservices vs. Monolith: Choosing the Right Architecture in 2025</title>
+    <link>https://shavinjoseph.me/blog/36</link>
+    <guid>https://shavinjoseph.me/blog/36</guid>
+    <pubDate>Tue, 02 Jul 2024 00:00:00 GMT</pubDate>
+    <description>Every growing engineering team eventually debates splitting the monolith. Here&apos;s an honest, practical breakdown of when microservices actually solve problems — and when they just create new ones.</description>
+  </item>
+  <item>
+    <title>Database Indexing Explained: How to Make SQL Queries 100x Faster</title>
+    <link>https://shavinjoseph.me/blog/37</link>
+    <guid>https://shavinjoseph.me/blog/37</guid>
+    <pubDate>Tue, 09 Jul 2024 00:00:00 GMT</pubDate>
+    <description>A slow query is rarely the database&apos;s fault — it&apos;s usually a missing index. Here&apos;s how indexes actually work under the hood, and how to use them without silently wrecking your write performance.</description>
+  </item>
+  <item>
+    <title>REST API vs. GraphQL: A Practical Comparison for Modern Backends</title>
+    <link>https://shavinjoseph.me/blog/38</link>
+    <guid>https://shavinjoseph.me/blog/38</guid>
+    <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>
+    <description>REST and GraphQL solve the same problem in fundamentally different ways. Understanding over-fetching, under-fetching, and the N+1 problem will tell you exactly which one your API needs.</description>
+  </item>
+  <item>
+    <title>Docker vs. Kubernetes: Understanding Containers vs. Orchestration</title>
+    <link>https://shavinjoseph.me/blog/39</link>
+    <guid>https://shavinjoseph.me/blog/39</guid>
+    <pubDate>Tue, 23 Jul 2024 00:00:00 GMT</pubDate>
+    <description>Docker and Kubernetes get lumped together constantly, but they solve completely different problems. One packages your app. The other keeps hundreds of copies of it alive across a fleet of machines.</description>
+  </item>
+  <item>
+    <title>Caching Strategies Explained: Cache-Aside, Write-Through, and Write-Behind</title>
+    <link>https://shavinjoseph.me/blog/40</link>
+    <guid>https://shavinjoseph.me/blog/40</guid>
+    <pubDate>Tue, 30 Jul 2024 00:00:00 GMT</pubDate>
+    <description>There are only three real ways to keep a cache in sync with your database — cache-aside, write-through, and write-behind — and each one makes a different trade-off between speed, complexity, and staleness.</description>
+  </item>
+  <item>
+    <title>SQL vs. NoSQL: How to Choose the Right Database for Your Application</title>
+    <link>https://shavinjoseph.me/blog/41</link>
+    <guid>https://shavinjoseph.me/blog/41</guid>
+    <pubDate>Tue, 06 Aug 2024 00:00:00 GMT</pubDate>
+    <description>The SQL vs. NoSQL debate isn&apos;t about which database is &apos;modern&apos; — it&apos;s about whether your data needs strict relationships and transactions, or flexible schemas and massive horizontal scale.</description>
+  </item>
+  <item>
+    <title>What Is Load Balancing? A Complete Guide to Scaling Web Applications</title>
+    <link>https://shavinjoseph.me/blog/42</link>
+    <guid>https://shavinjoseph.me/blog/42</guid>
+    <pubDate>Tue, 13 Aug 2024 00:00:00 GMT</pubDate>
+    <description>A load balancer is the piece of infrastructure standing between your users and your servers, deciding which server handles which request. Here&apos;s how it actually works, and why the wrong algorithm can silently overload one server while others sit idle.</description>
+  </item>
+  <item>
+    <title>JWT Authentication Explained: How Token-Based Auth Actually Works</title>
+    <link>https://shavinjoseph.me/blog/43</link>
+    <guid>https://shavinjoseph.me/blog/43</guid>
+    <pubDate>Tue, 20 Aug 2024 00:00:00 GMT</pubDate>
+    <description>JWTs replaced server-side sessions for a good reason — but they come with a sharp trade-off almost nobody explains clearly: once issued, a token can&apos;t truly be revoked until it expires.</description>
+  </item>
+  <item>
+    <title>CAP Theorem Explained: Why You Can&apos;t Have It All in Distributed Systems</title>
+    <link>https://shavinjoseph.me/blog/44</link>
+    <guid>https://shavinjoseph.me/blog/44</guid>
+    <pubDate>Tue, 27 Aug 2024 00:00:00 GMT</pubDate>
+    <description>Every distributed database interview question eventually comes back to CAP theorem. Here&apos;s what Consistency, Availability, and Partition Tolerance actually mean — and why the real-world choice is almost always between the first two.</description>
+  </item>
+  <item>
+    <title>Horizontal vs. Vertical Scaling: Choosing the Right Strategy for Growth</title>
+    <link>https://shavinjoseph.me/blog/45</link>
+    <guid>https://shavinjoseph.me/blog/45</guid>
+    <pubDate>Tue, 03 Sep 2024 00:00:00 GMT</pubDate>
+    <description>When your application slows down under load, you have exactly two options: make one machine bigger, or add more machines. Each comes with a very different set of engineering trade-offs.</description>
+  </item>
+  <item>
+    <title>AI Agents Are Changing Software Development: How Autonomous AI Will Transform Programming</title>
+    <link>https://shavinjoseph.me/blog/46</link>
+    <guid>https://shavinjoseph.me/blog/46</guid>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AI agents are transforming software development by helping developers analyze requirements, generate code, automate testing, and build intelligent applications. Learn how autonomous AI systems are shaping the future of programming.</description>
+  </item>
+  <item>
+    <title>Why Every Software Developer Must Learn Cybersecurity: Secure Coding in the Modern Web</title>
+    <link>https://shavinjoseph.me/blog/47</link>
+    <guid>https://shavinjoseph.me/blog/47</guid>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Cybersecurity is no longer only the responsibility of security teams. Modern software developers must understand secure coding practices, authentication, API security, and data protection to build trustworthy applications.</description>
+  </item>
+  <item>
+    <title>Windows 11 Activation and License Management via Command Line (SLMGR Guide)</title>
+    <link>https://shavinjoseph.me/blog/48</link>
+    <guid>https://shavinjoseph.me/blog/48</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Learn how Windows activation and product key management works using the built-in Software Licensing Management Tool (SLMGR) in Windows 11.</description>
+  </item>
+  <item>
+    <title>Top 15 Hidden Windows 11 Hacks and Secret Shortcuts Every Power User Should Know</title>
+    <link>https://shavinjoseph.me/blog/49</link>
+    <guid>https://shavinjoseph.me/blog/49</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Discover secret Windows 11 keyboard shortcuts, snap layout tricks, hidden menus, and workflow boosters for maximum daily productivity.</description>
+  </item>
+  <item>
+    <title>PowerShell vs Command Prompt (CMD) in Windows 11: Key Differences &amp; When to Use Which</title>
+    <link>https://shavinjoseph.me/blog/50</link>
+    <guid>https://shavinjoseph.me/blog/50</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+    <description>A comprehensive comparison between Windows PowerShell and legacy Command Prompt (CMD), object pipelines vs text streams, and modern terminal usage.</description>
+  </item>
+  <item>
+    <title>How to Speed Up Windows 11: Essential System Cleanup &amp; Performance Tweaks</title>
+    <link>https://shavinjoseph.me/blog/51</link>
+    <guid>https://shavinjoseph.me/blog/51</guid>
+    <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Optimize Windows 11 for maximum speed and responsiveness by disabling visual bloat, managing startup apps, and running CLI cleanup tasks.</description>
+  </item>
+  <item>
+    <title>Mastering Windows Subsystem for Linux (WSL2) on Windows 11: Ultimate Developer Setup</title>
+    <link>https://shavinjoseph.me/blog/52</link>
+    <guid>https://shavinjoseph.me/blog/52</guid>
+    <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Run native Linux distributions directly on Windows 11 with WSL2. Setup Docker, zsh, and VS Code integration seamlessly.</description>
+  </item>
+  <item>
+    <title>How to Fix High CPU &amp; RAM Usage in Windows 11: Diagnostics &amp; Task Manager Secrets</title>
+    <link>https://shavinjoseph.me/blog/53</link>
+    <guid>https://shavinjoseph.me/blog/53</guid>
+    <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Identify memory leaks, background process spikes, and unneeded telemetry services slowing down your system.</description>
+  </item>
+  <item>
+    <title>Essential Network Troubleshooting Commands in Windows 11 (Ping, Tracert, Netstat &amp; Nslookup)</title>
+    <link>https://shavinjoseph.me/blog/54</link>
+    <guid>https://shavinjoseph.me/blog/54</guid>
+    <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Diagnose internet outages, open ports, DNS resolution issues, and network latency using native Windows command prompt tools.</description>
+  </item>
+  <item>
+    <title>Package Management in Windows 11: How to Use Winget and Chocolatey</title>
+    <link>https://shavinjoseph.me/blog/55</link>
+    <guid>https://shavinjoseph.me/blog/55</guid>
+    <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Install, update, and manage all your Windows software from the terminal just like apt or brew.</description>
+  </item>
+  <item>
+    <title>Windows 11 Registry Editing 101: Safe Tweaks to Customize Your Operating System</title>
+    <link>https://shavinjoseph.me/blog/56</link>
+    <guid>https://shavinjoseph.me/blog/56</guid>
+    <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Learn how the Windows Registry works, how to back it up safely, and how to apply custom system tweaks.</description>
+  </item>
+  <item>
+    <title>Automating Daily Tasks with PowerShell Scripts and Task Scheduler</title>
+    <link>https://shavinjoseph.me/blog/57</link>
+    <guid>https://shavinjoseph.me/blog/57</guid>
+    <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Automate file management, backup routines, and maintenance scripts on Windows 11 using PowerShell and Task Scheduler.</description>
+  </item>
+  <item>
+    <title>How to Repair Corrupted Windows 11 System Files Using SFC and DISM Commands</title>
+    <link>https://shavinjoseph.me/blog/58</link>
+    <guid>https://shavinjoseph.me/blog/58</guid>
+    <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Step-by-step guide on running System File Checker (SFC) and DISM to repair damaged system files and resolve Windows crashes.</description>
+  </item>
+  <item>
+    <title>Mastering Windows Terminal: Tabs, Profiles, Themes, and Shortcuts</title>
+    <link>https://shavinjoseph.me/blog/59</link>
+    <guid>https://shavinjoseph.me/blog/59</guid>
+    <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Transform your Windows terminal environment with custom themes, split panes, GPU acceleration, and shell profiles.</description>
+  </item>
+  <item>
+    <title>Building Modern Web Applications with Next.js 15: App Router &amp; React Server Components</title>
+    <link>https://shavinjoseph.me/blog/60</link>
+    <guid>https://shavinjoseph.me/blog/60</guid>
+    <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Explore Next.js 15 features including Server Components, Server Actions, TurboPack, and advanced SEO optimization.</description>
+  </item>
+  <item>
+    <title>Python Scripting for System Administrators: Automating File &amp; Network Operations</title>
+    <link>https://shavinjoseph.me/blog/61</link>
+    <guid>https://shavinjoseph.me/blog/61</guid>
+    <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Use Python to write cross-platform scripts for monitoring server health, parsing log files, and sending automated alerts.</description>
+  </item>
+  <item>
+    <title>Cisco Router &amp; Switch Initial Configuration: Essential CLI Commands Guide</title>
+    <link>https://shavinjoseph.me/blog/62</link>
+    <guid>https://shavinjoseph.me/blog/62</guid>
+    <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Learn essential Cisco IOS commands to configure hostnames, IP addresses, SSH access, and VLANs on enterprise hardware.</description>
+  </item>
+  <item>
+    <title>How to Secure Your Web Application Against OWASP Top 10 Vulnerabilities</title>
+    <link>https://shavinjoseph.me/blog/63</link>
+    <guid>https://shavinjoseph.me/blog/63</guid>
+    <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Protect your web apps against SQL injection, XSS, CSRF, broken authentication, and security misconfigurations.</description>
+  </item>
+  <item>
+    <title>Running Local AI Models (Ollama &amp; Llama 3) on Windows 11: Step-by-Step Setup</title>
+    <link>https://shavinjoseph.me/blog/64</link>
+    <guid>https://shavinjoseph.me/blog/64</guid>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Run powerful open-source Large Language Models offline on your Windows 11 PC using Ollama and GPU acceleration.</description>
+  </item>
+  <item>
+    <title>Docker Desktop on Windows 11: Setup, Containerization, and WSL2 Integration</title>
+    <link>https://shavinjoseph.me/blog/65</link>
+    <guid>https://shavinjoseph.me/blog/65</guid>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Containerize applications using Docker Desktop for Windows 11 with Hyper-V and WSL2 backend integration.</description>
+  </item>
+  <item>
+    <title>How to Backup and Restore Environment Variables in Windows 11 via CMD &amp; PowerShell</title>
+    <link>https://shavinjoseph.me/blog/66</link>
+    <guid>https://shavinjoseph.me/blog/66</guid>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Manage System and User PATH variables from the command line, export configurations, and restore lost variables.</description>
+  </item>
+  <item>
+    <title>Mastering Git Terminal Commands: From Undo Operations to Advanced Rebase</title>
+    <link>https://shavinjoseph.me/blog/67</link>
+    <guid>https://shavinjoseph.me/blog/67</guid>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Essential Git terminal workflows: cherry-picking, interactive rebasing, stash management, and reflog recovery.</description>
   </item>
 </channel>
 </rss>
