@@ -99,12 +99,12 @@ const GlobalLogo = ({ isDarkMode }) => {
       initial={{ opacity: 0, x: -30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-5 left-5 lg:left-8 z-50 hidden xl:block"
+      className="fixed top-6 left-6 lg:left-8 z-50 hidden 2xl:block"
     >
       <Magnetic>
         <Link 
           to="/" 
-          className={`flex items-center gap-1 group hover-trigger px-3.5 py-1.5 rounded-2xl backdrop-blur-[14px] border shadow-lg relative overflow-hidden transition-all duration-500 hover:border-[color:var(--theme-main)]/40 ${
+          className={`flex items-center gap-1 group hover-trigger px-4 py-2 rounded-2xl backdrop-blur-[14px] border shadow-lg relative overflow-hidden transition-all duration-500 hover:border-[color:var(--theme-main)]/40 ${
             isDarkMode 
               ? "bg-[#0a0c10]/80 border-white/10 text-white" 
               : "bg-white/90 border-slate-200 text-slate-900 shadow-slate-200/50"
@@ -118,16 +118,16 @@ const GlobalLogo = ({ isDarkMode }) => {
           <motion.div 
             animate={{ opacity: [1, 0.3, 1], scale: [1, 1.2, 1] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 rounded-full bg-[var(--theme-main)] mr-1.5 relative z-10 shadow-[0_0_8px_var(--theme-main)]"
+            className="w-1.5 h-1.5 rounded-full bg-[var(--theme-main)] mr-2 relative z-10 shadow-[0_0_8px_var(--theme-main)]"
           />
           <div className="relative z-10 flex items-baseline">
-            <span className={`font-sans font-black text-lg tracking-tighter ${isDarkMode ? "text-white" : "text-slate-900"}`}>
+            <span className={`font-sans font-black text-xl tracking-tighter ${isDarkMode ? "text-white" : "text-slate-900"}`}>
               SJ
             </span>
             <motion.span 
               animate={{ opacity: [1, 0.5, 1] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="font-mono font-bold text-base tracking-tight text-[color:var(--theme-main)]"
+              className="font-mono font-bold text-lg tracking-tight text-[color:var(--theme-main)]"
             >
               .me
             </motion.span>
@@ -163,41 +163,41 @@ const NavBar = ({ setTheme, isDarkMode, toggleDarkMode }) => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-3 sm:top-4 lg:top-5 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-1.5 lg:gap-2.5 p-1 sm:p-1.5 backdrop-blur-[16px] border rounded-full shadow-xl w-max max-w-[calc(100vw-1.5rem)] transition-all duration-300 ${
+        className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-2 md:gap-3 p-1.5 md:p-2 backdrop-blur-[16px] border rounded-full shadow-xl w-max max-w-[calc(100vw-2rem)] transition-colors duration-300 ${
           isDarkMode
             ? "bg-[#0a0c10]/85 border-white/10 text-white shadow-[0_30px_60px_-20px_rgba(0,0,0,0.8)]"
             : "bg-white/90 border-slate-300/80 text-slate-800 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.15)]"
         }`}
       >
         {/* Color Theme Dots + Dark/Light Mode Toggle */}
-        <div className="flex items-center gap-1 sm:gap-1.5 pl-1.5 sm:pl-2.5 flex-shrink-0">
-          <button onClick={() => setTheme('red')} className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ff5f56] hover:scale-125 transition-transform hover-trigger border border-black/20 shadow-inner" aria-label="Red Theme" />
-          <button onClick={() => setTheme('yellow')} className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ffbd2e] hover:scale-125 transition-transform hover-trigger border border-black/20 shadow-inner" aria-label="Yellow Theme" />
-          <button onClick={() => setTheme('green')} className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#10b981] hover:scale-125 transition-transform hover-trigger border border-black/20 shadow-inner" aria-label="Green Theme" />
+        <div className="flex items-center gap-1.5 pl-2 md:pl-3 flex-shrink-0">
+          <button onClick={() => setTheme('red')} className="w-3 h-3 md:w-3.5 md:h-3.5 rounded-full bg-[#ff5f56] hover:scale-125 transition-transform hover-trigger border border-black/20 shadow-inner" aria-label="Red Theme" />
+          <button onClick={() => setTheme('yellow')} className="w-3 h-3 md:w-3.5 md:h-3.5 rounded-full bg-[#ffbd2e] hover:scale-125 transition-transform hover-trigger border border-black/20 shadow-inner" aria-label="Yellow Theme" />
+          <button onClick={() => setTheme('green')} className="w-3 h-3 md:w-3.5 md:h-3.5 rounded-full bg-[#10b981] hover:scale-125 transition-transform hover-trigger border border-black/20 shadow-inner" aria-label="Green Theme" />
           
           {/* TOP NAVBAR DARK / LIGHT THEME TOGGLE BUTTON */}
           <button
             onClick={toggleDarkMode}
-            className={`ml-1 p-1 sm:p-1.5 rounded-full transition-all duration-300 flex items-center justify-center ${
+            className={`ml-1.5 p-1.5 rounded-full transition-all duration-300 flex items-center justify-center ${
               isDarkMode 
                 ? "bg-white/10 text-amber-400 hover:bg-white/20" 
                 : "bg-slate-100 text-amber-600 hover:bg-slate-200 border border-slate-200"
             }`}
             title={isDarkMode ? "Switch to Light Theme (Default)" : "Switch to Dark Theme"}
           >
-            {isDarkMode ? <FiSun size={12} className="text-amber-400" /> : <FiMoon size={12} className="text-amber-600" />}
+            {isDarkMode ? <FiSun size={13} className="text-amber-400" /> : <FiMoon size={13} className="text-amber-600" />}
           </button>
 
-          <div className={`w-[1px] h-4 ml-0.5 hidden lg:block ${isDarkMode ? "bg-white/10" : "bg-slate-300"}`} />
+          <div className={`w-[1px] h-5 ml-1 hidden xl:block ${isDarkMode ? "bg-white/10" : "bg-slate-300"}`} />
         </div>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex items-center gap-0.5 xl:gap-1 mr-0.5">
+        <div className="hidden xl:flex items-center gap-1 md:gap-1.5 mr-1">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.path}
-              className={`whitespace-nowrap px-2.5 xl:px-3.5 py-1.5 rounded-full font-mono text-[10px] xl:text-[11px] tracking-[0.08em] uppercase transition-all duration-300 hover-trigger ${
+              className={`whitespace-nowrap px-3 md:px-4 py-2 rounded-full font-mono text-[10px] md:text-[11px] tracking-[0.1em] uppercase transition-all duration-300 hover-trigger ${
                 path === link.path 
                   ? isDarkMode
                     ? 'bg-white/[0.08] text-[color:var(--theme-main)] font-bold'
@@ -213,11 +213,11 @@ const NavBar = ({ setTheme, isDarkMode, toggleDarkMode }) => {
         </div>
 
         {/* Action Button */}
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <Magnetic>
             <Link 
               to="/contact"
-              className="block whitespace-nowrap px-4 xl:px-5 py-1.5 bg-[var(--theme-main)] text-white font-mono text-[10px] xl:text-[11px] tracking-[0.08em] uppercase font-bold rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex-shrink-0"
+              className="block whitespace-nowrap px-5 md:px-6 py-2 md:py-2.5 bg-[var(--theme-main)] text-white font-mono text-[10px] md:text-[11px] tracking-[0.1em] uppercase font-bold rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex-shrink-0"
             >
               Let's Talk
             </Link>
@@ -227,15 +227,15 @@ const NavBar = ({ setTheme, isDarkMode, toggleDarkMode }) => {
         {/* Mobile / Tablet Hamburger */}
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`flex lg:hidden items-center justify-center w-8 h-8 sm:w-9 sm:h-9 mr-0.5 rounded-full cursor-pointer transition-colors ${
+          className={`flex xl:hidden items-center justify-center w-10 h-10 mr-1 rounded-full cursor-pointer transition-colors ${
             isDarkMode ? "bg-white/[0.05] border border-white/10 text-white" : "bg-slate-100 border border-slate-300 text-slate-900"
           }`}
           aria-label="Toggle Menu"
         >
-          <div className="relative w-3.5 h-2.5 flex flex-col justify-between items-center pointer-events-none">
-            <motion.span animate={isMobileMenuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }} className={`w-full h-[1.5px] rounded-full origin-center transition-transform ${isDarkMode ? "bg-white" : "bg-slate-900"}`} />
+          <div className="relative w-4 h-3 flex flex-col justify-between items-center pointer-events-none">
+            <motion.span animate={isMobileMenuOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }} className={`w-full h-[1.5px] rounded-full origin-center transition-transform ${isDarkMode ? "bg-white" : "bg-slate-900"}`} />
             <motion.span animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }} className={`w-full h-[1.5px] rounded-full transition-opacity ${isDarkMode ? "bg-white" : "bg-slate-900"}`} />
-            <motion.span animate={isMobileMenuOpen ? { rotate: -45, y: -4.5 } : { rotate: 0, y: 0 }} className={`w-full h-[1.5px] rounded-full origin-center transition-transform ${isDarkMode ? "bg-white" : "bg-slate-900"}`} />
+            <motion.span animate={isMobileMenuOpen ? { rotate: -45, y: -5.5 } : { rotate: 0, y: 0 }} className={`w-full h-[1.5px] rounded-full origin-center transition-transform ${isDarkMode ? "bg-white" : "bg-slate-900"}`} />
           </div>
         </button>
       </motion.nav>
@@ -247,7 +247,7 @@ const NavBar = ({ setTheme, isDarkMode, toggleDarkMode }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20, transition: { duration: 0.2 } }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className={`fixed inset-0 z-[90] lg:hidden flex flex-col items-center justify-center px-6 backdrop-blur-2xl ${
+            className={`fixed inset-0 z-[90] xl:hidden flex flex-col items-center justify-center px-6 backdrop-blur-2xl ${
               isDarkMode ? "bg-[#0a0c10]/95 text-white" : "bg-white/95 text-slate-900"
             }`}
           >
