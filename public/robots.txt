@@ -8,3 +8,4 @@ User-agent: Googlebot
 Allow: /
 
 Sitemap: https://shavinjoseph.me/sitemap.xml
+Sitemap: https://www.shavinjoseph.me/sitemap.xml
