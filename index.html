@@ -25,7 +25,7 @@
 
     <meta
       name="keywords"
-      content="Shavin Joseph, Shavin Heshan Joseph, Software Developer, Application Developer, Full Stack Developer, Web Developer, Android Developer, React Developer, Java Developer, Firebase Developer, AI Developer, Portfolio, Sri Lanka"
+      content="iPhone 17 Pro Max, iOS 19, iPhone Battery Drain Fix, iPhone Security Playbook, iPhone vs Android 2026, Swift 6 SwiftUI, Apple A19 Pro, Software Developer, Full Stack Developer, React Developer, AI Developer, Tech Guides"
     />
 
     <meta name="author" content="Shavin Heshan Joseph" />
@@ -35,6 +35,23 @@
     <!-- Google AdSense Verification & Auto Ads -->
     <meta name="google-adsense-account" content="ca-pub-8249181691893109" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8249181691893109" crossorigin="anonymous"></script>
+
+    <!-- PWA Manifest & RSS Feed Aggregator Links -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="alternate" type="application/rss+xml" title="Shavin.me Technology RSS Feed" href="/rss.xml" />
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(function(reg) {
+            console.log('PWA ServiceWorker registration successful with scope: ', reg.scope);
+          }).catch(function(err) {
+            console.log('PWA ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
 
     <!-- Theme -->
     <meta name="theme-color" content="#090b0f" />

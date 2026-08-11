@@ -1,0 +1,21 @@
+{
+  "short_name": "Shavin.me",
+  "name": "Shavin Joseph - Software & Systems Engineering Hub",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#090b0f",
+  "theme_color": "#10b981",
+  "display": "standalone",
+  "orientation": "portrait"
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Shavin Joseph - Technology, Mobile & Engineering Masterclasses</title>
+  <link>https://shavinjoseph.me</link>
+  <description>Deep-dive 5,000-word engineering manuals, iPhone hardware teardowns, iOS security playbooks, and developer utilities.</description>
+  <language>en-us</language>
+  <atom:link href="https://shavinjoseph.me/rss.xml" rel="self" type="application/rss+xml" />
+  
+  <item>
+    <title>iPhone 17 Pro Max &amp; iOS 19 Definitive Master Guide</title>
+    <link>https://shavinjoseph.me/blog/122</link>
+    <guid>https://shavinjoseph.me/blog/122</guid>
+    <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Comprehensive teardown of Apple A19 Pro 3nm node, 48MP triple-lens periscope camera, vapor chamber cooling, and 20 hidden iOS 19 power-user features.</description>
+  </item>
+
+  <item>
+    <title>The Ultimate iPhone Battery Drain &amp; Battery Health Masterclass</title>
+    <link>https://shavinjoseph.me/blog/123</link>
+    <guid>https://shavinjoseph.me/blog/123</guid>
+    <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Diagnostic guide to double iPhone battery life in 2026. Covers lithium-ion chemical aging, background app refresh audit, and 80% charging limit thermodynamics.</description>
+  </item>
+
+  <item>
+    <title>iPhone Security, Privacy &amp; Anti-Hacking Playbook</title>
+    <link>https://shavinjoseph.me/blog/124</link>
+    <guid>https://shavinjoseph.me/blog/124</guid>
+    <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Cybersecurity manual for hardening iOS against spyware, physical theft, zero-click exploits, Lockdown Mode 2.0, and Advanced Data Protection.</description>
+  </item>
+
+  <item>
+    <title>iPhone vs Flagship Android 2026 In-Depth Comparison</title>
+    <link>https://shavinjoseph.me/blog/125</link>
+    <guid>https://shavinjoseph.me/blog/125</guid>
+    <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Technical buyer's guide comparing iPhone 17 Pro Max against Galaxy S26 Ultra and Pixel 10 Pro. Benchmarks, camera shootout, ProRes vs 8K, and 5-year resale value.</description>
+  </item>
+
+  <item>
+    <title>Mastering iOS App Development in 2026: Swift 6 &amp; SwiftUI 6 Blueprint</title>
+    <link>https://shavinjoseph.me/blog/126</link>
+    <guid>https://shavinjoseph.me/blog/126</guid>
+    <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Software engineering handbook for Swift 6 strict concurrency checking, SwiftUI 6 Observable macro, SwiftData persistence, and CoreML local inference.</description>
+  </item>
+
+  <item>
+    <title>The Ultimate 2026 Production Systems Playbook</title>
+    <link>https://shavinjoseph.me/blog/121</link>
+    <guid>https://shavinjoseph.me/blog/121</guid>
+    <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
+    <description>DevOps, AI Engineering, Windows Admin, Docker multi-stage builds, Kubernetes, PostgreSQL indexing, and Next.js 15 reference guide.</description>
+  </item>
+</channel>
+</rss>
