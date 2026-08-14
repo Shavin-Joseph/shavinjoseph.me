@@ -52,9 +52,15 @@
   </url>
   <url>
     <loc>https://shavinjoseph.me/terms-of-service</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shavinjoseph.me/refund-policy</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Individual Engineering Logs (Articles 1 - 120) -->

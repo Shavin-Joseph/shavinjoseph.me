@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import RefundPolicy from './pages/RefundPolicy';
 import Tools from './pages/Tools';
 
 // --- IMPORT THE FOOTER HERE ---
@@ -350,6 +351,7 @@ const App = () => {
             <Route path="/tools" element={<Tools />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/refund-policy" element={<RefundPolicy />} />
           </Routes>
         </AnimatePresence>
       </div>

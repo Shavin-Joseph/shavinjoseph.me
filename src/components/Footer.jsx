@@ -107,7 +107,8 @@ const Footer = ({ isDarkMode }) => {
             <Link to="/blog" className={`text-[11px] md:text-sm hover:text-[color:var(--theme-main)] transition-colors w-max ${isDarkMode ? "text-[#8a93a6]" : "text-slate-600"}`}>Logs</Link>
             <Link to="/downloads" className={`text-[11px] md:text-sm hover:text-[color:var(--theme-main)] transition-colors w-max ${isDarkMode ? "text-[#8a93a6]" : "text-slate-600"}`}>KWAS Repo</Link>
             <Link to="/privacy-policy" className={`text-[11px] md:text-sm hover:text-[color:var(--theme-main)] transition-colors w-max ${isDarkMode ? "text-[#8a93a6]" : "text-slate-600"}`}>Privacy Policy</Link>
-            <Link to="/terms-of-service" className={`text-[11px] md:text-sm hover:text-[color:var(--theme-main)] transition-colors w-max ${isDarkMode ? "text-[#8a93a6]" : "text-slate-600"}`}>Terms of Service</Link>
+            <Link to="/terms-of-service" className={`text-[11px] md:text-sm hover:text-[color:var(--theme-main)] transition-colors w-max ${isDarkMode ? "text-[#8a93a6]" : "text-slate-600"}`}>Terms &amp; Conditions</Link>
+            <Link to="/refund-policy" className={`text-[11px] md:text-sm hover:text-[color:var(--theme-main)] transition-colors w-max ${isDarkMode ? "text-[#8a93a6]" : "text-slate-600"}`}>Refund Policy</Link>
           </nav>
 
           <div className="flex flex-col gap-2.5 md:gap-3">
@@ -138,13 +139,17 @@ const Footer = ({ isDarkMode }) => {
             &copy; 2026 Shavin Heshan Joseph. All Rights Reserved.
           </p>
 
-          <div className="flex items-center gap-4 font-mono text-[8px] md:text-[10px] uppercase tracking-wider">
+          <div className="flex items-center gap-3 md:gap-4 font-mono text-[8px] md:text-[10px] uppercase tracking-wider">
             <Link to="/privacy-policy" className={`hover:text-[color:var(--theme-main)] transition-colors ${isDarkMode ? "text-[#8a93a6]" : "text-slate-600"}`}>
               Privacy Policy
             </Link>
             <span className={isDarkMode ? "text-white/20" : "text-slate-300"}>•</span>
             <Link to="/terms-of-service" className={`hover:text-[color:var(--theme-main)] transition-colors ${isDarkMode ? "text-[#8a93a6]" : "text-slate-600"}`}>
-              Terms of Service
+              Terms &amp; Conditions
+            </Link>
+            <span className={isDarkMode ? "text-white/20" : "text-slate-300"}>•</span>
+            <Link to="/refund-policy" className={`hover:text-[color:var(--theme-main)] transition-colors ${isDarkMode ? "text-[#8a93a6]" : "text-slate-600"}`}>
+              Refund Policy
             </Link>
           </div>
         </div>
